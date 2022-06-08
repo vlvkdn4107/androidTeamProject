@@ -8,7 +8,8 @@
     android:background="@color/black">
 
     <ImageView
-        android:layout_marginBottom="15dp"
+        android:src="@drawable/melontube"
+
         app:layout_constraintVertical_chainStyle="packed"
         android:id="@+id/splashImage"
         app:layout_constraintBottom_toTopOf="@id/splashTitle"
@@ -21,7 +22,7 @@
         android:fontFamily="@font/font"
         android:textStyle="bold"
         android:textColor="@color/white"
-        android:layout_marginTop="20dp"
+
         android:layout_marginBottom="75dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
