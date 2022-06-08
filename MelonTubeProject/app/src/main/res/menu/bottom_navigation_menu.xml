@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/chartIcon"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_music_note_24"
+        android:title="chart" />
+
+    <item
+        android:id="@+id/searchIcon"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="search" />
+
+    <item
+        android:id="@+id/myListIcon"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_favorite_border_24"
+        android:title="my list" />
+
+</menu>
