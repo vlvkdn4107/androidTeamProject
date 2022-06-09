@@ -17,7 +17,7 @@ public class Music {
 	private String singer;
 	private String title;
 	private String imageUrl;
-	private String lyris;
+	private String lyrics;
 	
 	public static List<Music> sampledata(){
 		ArrayList<Music> list = new ArrayList<>();
