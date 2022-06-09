@@ -1,6 +1,8 @@
 package com.example.spring_server.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,6 +18,16 @@ public class ApiController {
 		Data data = new Data();
 		data.setMusicList(Music.sampledata());
 		return data;
+	}
+	
+	@PostMapping("/addmylist")
+	public Music addMyList(@RequestBody Music myMusic) {
+		Music music = new Music();
+		music.setTitle(myMusic.getTitle());
+		music.setSinger(myMusic.getSinger());
+		music.setImageUrl(myMusic.getImageUrl());
+		music.setLyrics(myMusic.getLyrics());
+		return music;
 	}
 
 }
