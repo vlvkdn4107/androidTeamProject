@@ -98,7 +98,7 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
 
         RecyclerView recyclerView = binding.recyclerView;
-        ;
+
         recyclerView.setAdapter(musicAdapter);
         recyclerView.setLayoutManager(manager);
         recyclerView.setHasFixedSize(true);

@@ -43,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addBottomNavigationListener() {
-        binding.bottomNavigation.setOnClickListener(item -> {
-            switch (item.getId()) {
+        binding.bottomNavigation.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()) {
                 case R.id.chartIcon:
                     replaceFragment(FragmentType.CHART);
                     break;
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("TAG", "bottomNavigation : 마이리스트 프래그먼트 전환");
                     break;
             }
-            return;
+            return true;
         });
     }
 }
