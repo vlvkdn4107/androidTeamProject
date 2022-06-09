@@ -1,5 +1,6 @@
 package com.example.melontubeproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,6 +15,8 @@ import android.widget.Toast;
 
 import com.example.melontubeproject.adapter.MusicAdapter;
 import com.example.melontubeproject.databinding.FragmentChartBinding;
+import com.example.melontubeproject.interfaces.OnAddListClicked;
+import com.example.melontubeproject.interfaces.OnPlayBtnClicked;
 import com.example.melontubeproject.models.Data;
 import com.example.melontubeproject.models.Music;
 import com.example.melontubeproject.repository.MusicService;
@@ -25,12 +28,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ChartFragment extends Fragment {
+public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayBtnClicked {
 
     private static ChartFragment chartFragment;
     private MusicService musicService;
     private FragmentChartBinding binding;
     private MusicAdapter musicAdapter;
+
+    private boolean isDuplicateData = true;
 
     private List<Music> list = new ArrayList<>();
 
@@ -40,7 +45,7 @@ public class ChartFragment extends Fragment {
     }
 
     public static ChartFragment getInstance() {
-        if(chartFragment == null) {
+        if (chartFragment == null) {
             chartFragment = new ChartFragment();
         }
         return chartFragment;
@@ -76,6 +81,7 @@ public class ChartFragment extends Fragment {
                         List<Music> list = response.body().getMusicList();
 
                         musicAdapter.addItem(list);
+                        isDuplicateData = true;
                     }
 
                     @Override
@@ -87,11 +93,14 @@ public class ChartFragment extends Fragment {
 
     private void setRecycleView(List<Music> musicList) {
         musicAdapter = new MusicAdapter();
+        musicAdapter.setOnAddListClicked(this);
+        musicAdapter.setOnPlayBtnClicked(this);
         musicAdapter.initItemList(musicList);
 
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
 
-        RecyclerView recyclerView = binding.recyclerView;;
+        RecyclerView recyclerView = binding.recyclerView;
+        ;
         recyclerView.setAdapter(musicAdapter);
         recyclerView.setLayoutManager(manager);
         recyclerView.setHasFixedSize(true);
@@ -106,10 +115,54 @@ public class ChartFragment extends Fragment {
 
                 int itemTotalCount = binding.recyclerView.getAdapter().getItemCount() - 1;
 
-                if(lastVisibleItemPositon == itemTotalCount) {
+                if (lastVisibleItemPositon == itemTotalCount) {
+                    isDuplicateData = false;
                     requestMusicData();
                 }
+
+                // TODO 50개 데이터 다 내리면 스크롤바 안되도록
             }
         });
+    }
+
+    @Override
+    public void addMyList(Music music) {
+        // 내 재생목록에 노래 추가
+        musicService.addMyList(music)
+                .enqueue(new Callback<Music>() {
+                    @Override
+                    public void onResponse(Call<Music> call, Response<Music> response) {
+
+                        // 내 재생목록 객체에 담기
+
+//                        Music music = new Music();
+//                        music.setTitle(call);
+//                        List<Music> list = response.body().getMusicList();
+//
+//                        for (int i = 0; i < list.size(); i++) {
+//                            music.setTitle(list.get(i).getTitle());
+//                            music.setSinger(list.get(i).getSinger());
+//                            music.setImageUrl(list.get(i).getImageUrl());
+//                            Log.d(TAG, list.get(i).getTitle());
+//                            list.add(music);
+//                        }
+
+                        Toast.makeText(getContext(), "내 재생목록에 추가되었습니다.", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Music> call, Throwable t) {
+                        Toast.makeText(getContext(), "네트워크 연결이 불안정합니다.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    @Override
+    public void playMusic(Music music) {
+        // 노래 재생화면
+        Intent intent = new Intent(getContext(), MusicPlayActivity.class);
+        intent.putExtra("music", music);
+        startActivity(intent);
     }
 }

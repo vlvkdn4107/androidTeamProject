@@ -6,4 +6,98 @@
     android:layout_height="match_parent"
     tools:context=".MusicPlayActivity">
 
+    <ImageView
+        android:id="@+id/elbumPlayImage"
+        android:layout_width="330dp"
+        android:layout_height="330dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ImageView>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="330dp"
+        android:layout_height="330dp"
+        android:layout_marginTop="20dp"
+        android:background="#80000000"
+        android:scrollbars="none"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/lyricsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/white" />
+
+    </ScrollView>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/linearProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintTop_toBottomOf="@id/elbumPlayImage" />
+
+    <TextView
+        android:id="@+id/titlePlayText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="@id/elbumPlayImage"
+        app:layout_constraintStart_toStartOf="@id/elbumPlayImage"
+        app:layout_constraintTop_toBottomOf="@id/linearProgressBar"
+        tools:text="Title" />
+
+    <TextView
+        android:id="@+id/singerPlayText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@id/titlePlayText"
+        app:layout_constraintStart_toStartOf="@id/titlePlayText"
+        app:layout_constraintTop_toBottomOf="@id/titlePlayText"
+        tools:text="singer" />
+
+    <ImageView
+        android:id="@+id/playMusicBtn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_baseline_play_arrow_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/singerPlayText" />
+
+    <ImageView
+        android:id="@+id/skipNextBtn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_baseline_skip_next_24"
+        app:layout_constraintBottom_toBottomOf="@id/playMusicBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/playMusicBtn"
+        app:layout_constraintTop_toTopOf="@id/playMusicBtn" />
+
+    <ImageView
+        android:id="@+id/skipPreviousBtn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_baseline_skip_previous_24"
+        app:layout_constraintBottom_toBottomOf="@id/playMusicBtn"
+        app:layout_constraintEnd_toStartOf="@id/playMusicBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/playMusicBtn" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

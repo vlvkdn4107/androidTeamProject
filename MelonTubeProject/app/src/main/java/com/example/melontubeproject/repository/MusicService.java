@@ -9,7 +9,10 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface MusicService {
 
@@ -20,6 +23,11 @@ public interface MusicService {
 
     @GET("musiclist")
     Call<Data> getMusicList();
+
+    @POST("addmylist")
+    Call<Music> addMyList(
+            @Body Music music
+    );
 
     // 검색 기능
     // 가수 검색

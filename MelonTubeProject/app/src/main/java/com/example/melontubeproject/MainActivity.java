@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         } else if (type == FragmentType.SEARCH) {
             fragment = ChartFragment.getInstance();
         } else {
-            fragment = ChartFragment.getInstance();
+            fragment = MyMusicListFragment.getInstance();
         }
         transaction.replace(binding.mainContainer.getId(), fragment, type.toString());
         transaction.commit();
