@@ -37,6 +37,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
 
     public void initItemList(List<Music> musicList) {
         this.musicList = musicList;
+        notifyDataSetChanged();
     }
 
     public void addItem(List<Music> addList) {

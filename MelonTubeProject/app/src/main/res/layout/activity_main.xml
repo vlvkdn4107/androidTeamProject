@@ -18,9 +18,8 @@
 
         <ImageView
             android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:backgroundTint="@color/white"
+            android:layout_height="60dp"
+            android:layout_gravity="start"
             android:src="@drawable/melontube" />
 
     </com.google.android.material.appbar.MaterialToolbar>
@@ -43,12 +42,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+
         app:layout_constraintTop_toBottomOf="@id/mainContainer">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/upline_layout"
             app:menu="@menu/bottom_navigation_menu" />
 
     </LinearLayout>

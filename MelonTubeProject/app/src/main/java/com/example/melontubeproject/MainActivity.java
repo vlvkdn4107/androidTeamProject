@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private void addBottomNavigationListener() {
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
-                case R.id.chartIcon:
+                case R.id.homeIcon:
                     replaceFragment(FragmentType.CHART);
                     break;
                 case R.id.searchIcon:

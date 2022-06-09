@@ -131,20 +131,16 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
                     @Override
                     public void onResponse(Call<Music> call, Response<Music> response) {
 
-                        // 내 재생목록 객체에 담기
+                        // 내 재생목록에 Music 객체 담기
+                        // Music이 샘플 데이터 갖고 있는 것처럼 내 재생목록 객체를 만들어서 그 안에 내 재생목록 저장하기
 
-                        Music music = new Music();
+                        // NullPointerException
+                        Music music = response.body();
                         music.setTitle(response.body().getTitle());
                         music.setSinger(response.body().getSinger());
                         music.setImageUrl(response.body().getImageUrl());
 
-                        for (int i = 0; i < list.size(); i++) {
-                            music.setTitle(list.get(i).getTitle());
-                            music.setSinger(list.get(i).getSinger());
-                            music.setImageUrl(list.get(i).getImageUrl());
-                            Log.d(TAG, list.get(i).getTitle());
-                        }
-                        list.add(music);
+                        Log.d(TAG, music.getTitle());
 
                         Toast.makeText(getContext(), "내 재생목록에 추가되었습니다.", Toast.LENGTH_SHORT).show();
 

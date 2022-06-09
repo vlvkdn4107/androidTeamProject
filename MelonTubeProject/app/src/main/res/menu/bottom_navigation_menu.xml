@@ -2,10 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/chartIcon"
+        android:id="@+id/homeIcon"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_music_note_24"
-        android:title="chart" />
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="home" />
 
     <item
         android:id="@+id/searchIcon"
