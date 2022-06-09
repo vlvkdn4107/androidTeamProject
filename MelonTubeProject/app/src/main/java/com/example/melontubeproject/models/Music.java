@@ -5,7 +5,7 @@ public class Music {
     private int rank;
     private String title;
     private String singer;
-    private String elbumImageUrl;
+    private String imageUrl;
     private String lyrics;
 
     public int getRank() {
@@ -33,11 +33,11 @@ public class Music {
     }
 
     public String getElbumImageUrl() {
-        return elbumImageUrl;
+        return imageUrl;
     }
 
     public void setElbumImageUrl(String elbumImageUrl) {
-        this.elbumImageUrl = elbumImageUrl;
+        this.imageUrl = elbumImageUrl;
     }
 
     public String getLyrics() {
