@@ -2,19 +2,10 @@ package com.example.melontubeproject.models;
 
 public class Music {
 
-    private int rank;
     private String title;
     private String singer;
     private String imageUrl;
     private String lyrics;
-
-    public int getRank() {
-        return rank;
-    }
-
-    public void setRank(int rank) {
-        this.rank = rank;
-    }
 
     public String getTitle() {
         return title;
@@ -32,12 +23,12 @@ public class Music {
         this.singer = singer;
     }
 
-    public String getElbumImageUrl() {
+    public String getImageUrl() {
         return imageUrl;
     }
 
-    public void setElbumImageUrl(String elbumImageUrl) {
-        this.imageUrl = elbumImageUrl;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getLyrics() {

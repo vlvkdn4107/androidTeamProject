@@ -18,6 +18,10 @@ public interface MusicService {
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
-    @GET("/musiclist")
+    @GET("musiclist")
     Call<Data> getMusicList();
+
+    // 검색 기능
+    // 가수 검색
+    // 타이틀 검색
 }
