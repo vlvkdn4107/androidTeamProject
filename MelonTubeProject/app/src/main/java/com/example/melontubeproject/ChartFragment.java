@@ -54,8 +54,6 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Log.d("TAG", "차트 프래그먼트 생성 확인");
         musicService = MusicService.retrofit.create(MusicService.class);
     }
 
@@ -135,17 +133,18 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
 
                         // 내 재생목록 객체에 담기
 
-//                        Music music = new Music();
-//                        music.setTitle(call);
-//                        List<Music> list = response.body().getMusicList();
-//
-//                        for (int i = 0; i < list.size(); i++) {
-//                            music.setTitle(list.get(i).getTitle());
-//                            music.setSinger(list.get(i).getSinger());
-//                            music.setImageUrl(list.get(i).getImageUrl());
-//                            Log.d(TAG, list.get(i).getTitle());
-//                            list.add(music);
-//                        }
+                        Music music = new Music();
+                        music.setTitle(response.body().getTitle());
+                        music.setSinger(response.body().getSinger());
+                        music.setImageUrl(response.body().getImageUrl());
+
+                        for (int i = 0; i < list.size(); i++) {
+                            music.setTitle(list.get(i).getTitle());
+                            music.setSinger(list.get(i).getSinger());
+                            music.setImageUrl(list.get(i).getImageUrl());
+                            Log.d(TAG, list.get(i).getTitle());
+                        }
+                        list.add(music);
 
                         Toast.makeText(getContext(), "내 재생목록에 추가되었습니다.", Toast.LENGTH_SHORT).show();
 

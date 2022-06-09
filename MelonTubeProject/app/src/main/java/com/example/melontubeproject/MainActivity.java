@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.melontubeproject.databinding.ActivityMainBinding;
 import com.example.melontubeproject.utils.FragmentType;
@@ -25,15 +26,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void replaceFragment(FragmentType type) {
-        Fragment fragment;
+        Fragment fragment = null;
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
 
         if (type == FragmentType.CHART) {
             fragment = ChartFragment.getInstance();
         } else if (type == FragmentType.SEARCH) {
-            fragment = ChartFragment.getInstance();
-        } else {
+            //fragment = SearchFragment.getInstance();
+        } else if (type == FragmentType.MY_LIST) {
+            Log.d("TAG", "마이리스트 프래그먼트 전환");
             fragment = MyMusicListFragment.getInstance();
         }
         transaction.replace(binding.mainContainer.getId(), fragment, type.toString());
@@ -51,9 +53,10 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.myListIcon:
                     replaceFragment(FragmentType.MY_LIST);
+                    Log.d("TAG", "bottomNavigation : 마이리스트 프래그먼트 전환");
                     break;
             }
+            return;
         });
-
     }
 }
