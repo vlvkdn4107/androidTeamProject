@@ -67,7 +67,7 @@ public class ChartFragment extends Fragment {
 
     private void requestMusicData() {
 
-        Log.d("TAG", "통신 요청 확인");
+        Log.d(TAG, "통신 요청 확인");
 
         musicService.getMusicList()
                 .enqueue(new Callback<Data>() {
@@ -101,7 +101,14 @@ public class ChartFragment extends Fragment {
 
             @Override
             public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                LinearLayoutManager layoutManager = (LinearLayoutManager) binding.recyclerView.getLayoutManager();
+                int lastVisibleItemPositon = layoutManager.findLastVisibleItemPosition();
 
+                int itemTotalCount = binding.recyclerView.getAdapter().getItemCount() - 1;
+
+                if(lastVisibleItemPositon == itemTotalCount) {
+                    requestMusicData();
+                }
             }
         });
     }

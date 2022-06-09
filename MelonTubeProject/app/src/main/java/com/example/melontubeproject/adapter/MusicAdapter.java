@@ -13,18 +13,20 @@ import com.bumptech.glide.Glide;
 import com.example.melontubeproject.R;
 import com.example.melontubeproject.models.Music;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHolder> {
 
-    private List<Music> musicList;
+    private List<Music> musicList = new ArrayList<>();
 
     public void initItemList(List<Music> musicList) {
         this.musicList = musicList;
     }
 
     public void addItem(List<Music> addList) {
-        this.musicList.addAll(addList.size(), addList);
+        this.musicList.addAll(musicList.size(), addList);
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -55,6 +57,8 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
         private TextView titleTextView;
         private TextView singerTextView;
 
+        private int rank;
+
         public MusicViewHolder(@NonNull View itemView) {
             super(itemView);
             this.itemView = itemView;
@@ -65,12 +69,12 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
         }
 
         public void setItem(Music music) {
-            rankTextView.setText(music.getRank());
+            //rankTextView.setText(rank);
             titleTextView.setText(music.getTitle());
             singerTextView.setText(music.getSinger());
 
             Glide.with(elbumImage.getContext())
-                    .load(music.getElbumImageUrl())
+                    .load(music.getImageUrl())
                     .centerCrop()
                     .into(elbumImage);
         }
