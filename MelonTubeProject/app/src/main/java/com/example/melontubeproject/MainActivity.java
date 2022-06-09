@@ -17,10 +17,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
         binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
+        replaceFragment(FragmentType.CHART);
         addBottomNavigationListener();
     }
 
@@ -32,11 +32,12 @@ public class MainActivity extends AppCompatActivity {
         if (type == FragmentType.CHART) {
             fragment = ChartFragment.getInstance();
         } else if (type == FragmentType.SEARCH) {
-
+            fragment = ChartFragment.getInstance();
         } else {
-
+            fragment = ChartFragment.getInstance();
         }
-
+        transaction.replace(binding.mainContainer.getId(), fragment, type.toString());
+        transaction.commit();
     }
 
     private void addBottomNavigationListener() {

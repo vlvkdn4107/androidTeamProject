@@ -19,6 +19,14 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
 
     private List<Music> musicList;
 
+    public void initItemList(List<Music> musicList) {
+        this.musicList = musicList;
+    }
+
+    public void addItem(List<Music> addList) {
+        this.musicList.addAll(addList.size(), addList);
+    }
+
     @NonNull
     @Override
     public MusicViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -29,7 +37,9 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
 
     @Override
     public void onBindViewHolder(@NonNull MusicViewHolder holder, int position) {
+        Music music = musicList.get(position);
 
+        holder.setItem(music);
     }
 
     @Override
