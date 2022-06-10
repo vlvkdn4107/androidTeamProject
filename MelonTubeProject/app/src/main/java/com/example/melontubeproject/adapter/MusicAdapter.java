@@ -3,6 +3,7 @@ package com.example.melontubeproject.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,8 +25,8 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
     private OnAddListClicked onAddListClicked;
     private OnPlayBtnClicked onPlayBtnClicked;
 
-    private ImageView playMusicBtn;
-    private ImageView addListBtn;
+    private ImageButton playMusicBtn;
+    private ImageButton addListBtn;
 
     public void setOnAddListClicked(OnAddListClicked onAddListClicked) {
         this.onAddListClicked = onAddListClicked;

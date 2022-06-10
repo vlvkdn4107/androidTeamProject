@@ -17,6 +17,7 @@ import com.example.melontubeproject.adapter.MusicAdapter;
 import com.example.melontubeproject.databinding.FragmentChartBinding;
 import com.example.melontubeproject.interfaces.OnAddListClicked;
 import com.example.melontubeproject.interfaces.OnPlayBtnClicked;
+import com.example.melontubeproject.interfaces.OnSkipMusic;
 import com.example.melontubeproject.models.Data;
 import com.example.melontubeproject.models.Music;
 import com.example.melontubeproject.repository.MusicService;
@@ -135,7 +136,9 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
                         // Music이 샘플 데이터 갖고 있는 것처럼 내 재생목록 객체를 만들어서 그 안에 내 재생목록 저장하기
 
                         Music myMusic = response.body();
-                        Log.d(TAG, myMusic.getTitle());
+                        MyMusicListFragment.getInstance().myMusicList.add(myMusic);
+                        Log.d(TAG, MyMusicListFragment.getInstance().myMusicList.get(0).getTitle());
+                        //Log.d(TAG, myMusic.getTitle());
 
                         Toast.makeText(getContext(), "내 재생목록에 추가되었습니다.", Toast.LENGTH_SHORT).show();
 
@@ -155,4 +158,5 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
         intent.putExtra("music", music);
         startActivity(intent);
     }
+
 }

@@ -4,10 +4,19 @@ import java.io.Serializable;
 
 public class Music implements Serializable {
 
+    private int id;
     private String title;
     private String singer;
     private String imageUrl;
     private String lyrics;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;

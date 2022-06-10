@@ -10,7 +10,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 
-import com.example.melontubeproject.adapter.SearchingAdapter;
+//import com.example.melontubeproject.adapter.SearchingAdapter;
 import com.example.melontubeproject.models.Music;
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class SearchFragment extends Fragment {
     // recyclerView에 추가할 아이템 리스트
     ArrayList<Music> original_list = new ArrayList<>();
     // 어댑터
-    SearchingAdapter adapter;
+    //SearchingAdapter adapter;
     EditText editText;
 
     @Override
@@ -57,14 +57,14 @@ public class SearchFragment extends Fragment {
                 search_list.clear();
 
                 if (searchText.equals("")) {
-                    adapter.setItems(original_list);
+                    //adapter.setItems(original_list);
                 } else {
                     // 검색 단어를 포함하는지 확인
                     for (int a = 0; a < original_list.size(); a++) {
                         if (original_list.get(a).getTitle().toLowerCase().contains(searchText.toLowerCase())) {
                             search_list.add(original_list.get(a));
                         }
-                        adapter.setItems(search_list);
+                        //adapter.setItems(search_list);
                     }
                 }
             }

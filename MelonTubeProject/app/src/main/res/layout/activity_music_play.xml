@@ -70,30 +70,36 @@
         app:layout_constraintTop_toBottomOf="@id/titlePlayText"
         tools:text="singer" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/playMusicBtn"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
         android:src="@drawable/ic_baseline_play_arrow_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/singerPlayText" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/skipNextBtn"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
         android:src="@drawable/ic_baseline_skip_next_24"
         app:layout_constraintBottom_toBottomOf="@id/playMusicBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/playMusicBtn"
         app:layout_constraintTop_toTopOf="@id/playMusicBtn" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/skipPreviousBtn"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
         android:src="@drawable/ic_baseline_skip_previous_24"
         app:layout_constraintBottom_toBottomOf="@id/playMusicBtn"
         app:layout_constraintEnd_toStartOf="@id/playMusicBtn"

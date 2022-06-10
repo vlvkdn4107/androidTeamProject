@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.spring_server.dto.Data;
@@ -18,6 +19,18 @@ public class ApiController {
 		Data data = new Data();
 		data.setMusicList(Music.sampledata());
 		return data;
+	}
+	
+	@GetMapping("/skipmusic/next")
+	public Music skipNextMusic(@RequestParam int id) {
+		Music music = Music.sampledata().get(id);		
+		return music;
+	}
+	
+	@GetMapping("/skipmusic/previous")
+	public Music skipPreviousMusic(@RequestParam int id) {
+		Music music = Music.sampledata().get(id-1);		
+		return music;
 	}
 	
 	@PostMapping("/addmylist")

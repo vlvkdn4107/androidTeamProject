@@ -24,6 +24,16 @@ public interface MusicService {
     @GET("musiclist")
     Call<Data> getMusicList();
 
+    @GET("skipmusic/next")
+    Call<Music> skipNextMusic(
+            @Query("id") int id
+    );
+
+    @GET("skipmusic/previous")
+    Call<Music> skipPreviousMusic(
+            @Query("id") int id
+    );
+
     @POST("addmylist")
     Call<Music> addMyList(
             @Body Music music
