@@ -382,7 +382,7 @@ public class Music {
 						+ "I N V U\r\n" + "\r\n" + "I N V U"));
 		
 		list.add(new Music(25, "IVE (아이브)", "ELEVEN", "ELEVEN",
-				"https://cdnimg.melon.co.kr/cm2/album/images/107/98/794/10798794_20211201113915_500.jpg/melon/resize/120/quality/80/optimize",
+				"https://cdnimg.melon.co.kr/cm2/album/images/107/98/794/10798794_20211201113915_500.jpg?4b89cd385817f7519af259b2c32170f0/melon/resize/282/quality/80/optimize",
 				"따분한 나의 눈빛이\r\n" + "무표정했던 얼굴이\r\n" + "널 보며 빛나고 있어\r\n" + "널 담은 눈동자는 odd\r\n" + "\r\n"
 						+ "내 안에 빼곡하게 피어나는 blue\r\n" + "내가 지금 느끼는 이 감정들은 true\r\n" + "내 입술을 간지럽힌 낯선 그 이름\r\n"
 						+ "난 몰랐어 내 맘이 이리 다채로운지\r\n" + "\r\n" + "긴 꿈을 꾸게 해 이 방은 작은 heaven\r\n" + "춤을 추곤 해 실컷 어지러울 만큼\r\n"
@@ -411,7 +411,7 @@ public class Music {
 						+ "너에게 전화를 거네요\r\n" + "A bientot\r\n" + "A bientot\r\n" + "인생은 너무 외로워\r\n" + "너에게 전화를 거네요"));
 
 		list.add(new Music(27, "임영웅", "사랑해 진짜", "IM HERO",
-				"https://cdnimg.melon.co.kr/cm2/album/images/109/23/444/10923444_20220502140600_500.jpg/melon/resize/120/quality/80/optimize",
+				"https://cdnimg.melon.co.kr/cm2/album/images/109/23/444/10923444_20220502140600_500.jpg?5bd42dcc031a23cd1cae99ae37a606aa/melon/resize/282/quality/80/optimize",
 				"숱한 날들 모두 내게 남아있는 추억들\r\n" + "빛바랜 기억들 사이\r\n" + "그대 모습만이 아련하게 빛나네\r\n" + "지나간 세월이 야속하진 않아\r\n"
 						+ "그댈 만났으므로\r\n" + "피어날 내일을 기대해 오\r\n" + "그대 내게 와줬으니\r\n" + "나 진짜 진짜 당신만을 사랑하고 사랑해\r\n"
 						+ "내 삶의 반쪽 그대만을\r\n" + "아 나는 그대만 보고 있어\r\n" + "아 나는 그대를 사랑합니다\r\n" + "오색빛의 색이 물든 미완성의 그림 하나\r\n"
