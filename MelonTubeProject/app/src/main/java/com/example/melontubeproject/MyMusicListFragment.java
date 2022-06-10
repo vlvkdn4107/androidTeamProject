@@ -6,33 +6,27 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.melontubeproject.adapter.MusicAdapter;
+import com.example.melontubeproject.adapter.ChartAdapter;
 import com.example.melontubeproject.adapter.MyMusicListAdapter;
 import com.example.melontubeproject.databinding.FragmentMyMusicListBinding;
 import com.example.melontubeproject.interfaces.OnPlayBtnClicked;
 import com.example.melontubeproject.interfaces.OndeleteBtnClicked;
-import com.example.melontubeproject.models.Data;
 import com.example.melontubeproject.models.Music;
 import com.example.melontubeproject.repository.MusicService;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 
 public class MyMusicListFragment extends Fragment implements OnPlayBtnClicked, OndeleteBtnClicked {
     private static MyMusicListFragment myMusicListFragment;
     private FragmentMyMusicListBinding binding;
-    private MusicAdapter musicAdapter;
+    private ChartAdapter chartAdapter;
     private MusicService musicService;
     private MyMusicListAdapter myMusicListAdapter;
 

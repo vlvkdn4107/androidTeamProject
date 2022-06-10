@@ -10,17 +10,24 @@
         android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:background="@color/black"
+        android:background="@drawable/underline_layout"
         app:layout_constraintBottom_toTopOf="@id/mainContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:layout_gravity="start"
             android:src="@drawable/melontube" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MelonTube"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
     </com.google.android.material.appbar.MaterialToolbar>
 

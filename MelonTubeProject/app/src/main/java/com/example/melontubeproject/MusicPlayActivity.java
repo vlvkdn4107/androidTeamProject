@@ -40,6 +40,8 @@ public class MusicPlayActivity extends AppCompatActivity {
     private SimpleExoPlayer simpleExoPlayer;
     private PlayerView playerView;
 
+    private List<Music> musicList = ChartFragment.getInstance().list;
+
     private final String TAG = MusicPlayActivity.class.getName();
 
     public final String OBJ_NAME = "music";
@@ -56,13 +58,12 @@ public class MusicPlayActivity extends AppCompatActivity {
             setNewMusic();
             //playMusic();
         }
-
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        simpleExoPlayer.release();
+        //simpleExoPlayer.release();
     }
 
     private void setNewMusic() {
@@ -119,7 +120,7 @@ public class MusicPlayActivity extends AppCompatActivity {
         simpleExoPlayer.setPlayWhenReady(true);
     }
 
-    private void makePlayList(List<MediaItem> mediaitems){
+    private void makePlayList(List<MediaItem> mediaitems) {
     }
 
     private void skipNextMusic() {
@@ -128,8 +129,9 @@ public class MusicPlayActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Music> call, Response<Music> response) {
                         music = response.body();
-                        Log.d(TAG, "다음 노래 재생 !!!!");
                         setNewMusic();
+
+                        Log.d(TAG, "다음 노래 재생 !!!!");
                     }
 
                     @Override
@@ -146,9 +148,8 @@ public class MusicPlayActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Music> call, Response<Music> response) {
                         music = response.body();
-                        Log.d(TAG, "이전 노래 재생 !!!!");
                         setNewMusic();
-
+                        Log.d(TAG, "이전 노래 재생 !!!!");
                     }
 
                     @Override

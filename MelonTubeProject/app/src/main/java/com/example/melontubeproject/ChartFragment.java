@@ -13,18 +13,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.melontubeproject.adapter.MusicAdapter;
+import com.example.melontubeproject.adapter.ChartAdapter;
 import com.example.melontubeproject.adapter.RecentAlbumAdapter;
 import com.example.melontubeproject.databinding.FragmentChartBinding;
 import com.example.melontubeproject.interfaces.OnAddListClicked;
 import com.example.melontubeproject.interfaces.OnPlayBtnClicked;
-import com.example.melontubeproject.interfaces.OnSkipMusic;
 import com.example.melontubeproject.models.Data;
 import com.example.melontubeproject.models.Music;
 import com.example.melontubeproject.repository.MusicService;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
@@ -36,12 +34,13 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
     private static ChartFragment chartFragment;
     private MusicService musicService;
     private FragmentChartBinding binding;
-    private MusicAdapter musicAdapter;
+    private ChartAdapter chartAdapter;
     private RecentAlbumAdapter recentAlbumAdapter;
 
-    private boolean isDuplicateData = true;
+    // 다른 프래그먼트 갔다 와도 보던 목록 그대로 있게
+   private boolean isFirstUpload = true;
 
-    private List<Music> list = new ArrayList<>();
+    public List<Music> list = new ArrayList<>();
 
     private static final String TAG = ChartFragment.class.getName();
 
@@ -67,7 +66,10 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
 
         binding = FragmentChartBinding.inflate(inflater, container, false);
         setRecycleView(list);
-        requestMusicData();
+
+        if (isFirstUpload) {
+            requestMusicData();
+        }
 
         return binding.getRoot();
     }
@@ -76,14 +78,13 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
 
         Log.d(TAG, "통신 요청 확인");
 
-        musicService.getMusicList()
+        musicService.musicList()
                 .enqueue(new Callback<Data>() {
                     @Override
                     public void onResponse(Call<Data> call, Response<Data> response) {
                         List<Music> list = response.body().getMusicList();
-
-                        musicAdapter.addItem(list);
-                        isDuplicateData = true;
+                        chartAdapter.addItem(list);
+                        isFirstUpload = false;
                     }
 
                     @Override
@@ -94,10 +95,10 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
     }
 
     private void setRecycleView(List<Music> musicList) {
-        musicAdapter = new MusicAdapter();
-        musicAdapter.setOnAddListClicked(this);
-        musicAdapter.setOnPlayBtnClicked(this);
-        musicAdapter.initItemList(musicList);
+        chartAdapter = new ChartAdapter();
+        chartAdapter.setOnAddListClicked(this);
+        chartAdapter.setOnPlayBtnClicked(this);
+        chartAdapter.initItemList(musicList);
 
         recentAlbumAdapter = new RecentAlbumAdapter();
 
@@ -107,7 +108,7 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
         RecyclerView recyclerView = binding.recyclerView;
         RecyclerView horizentalRecyclerView = binding.horizentalRecyclerView;
 
-        recyclerView.setAdapter(musicAdapter);
+        recyclerView.setAdapter(chartAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
 
@@ -116,25 +117,6 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
                 getContext(), LinearLayoutManager.HORIZONTAL, false));
         horizentalRecyclerView.setHasFixedSize(true);
 
-
-        // 스크롤 내릴 때 이벤트 처리
-        binding.recyclerView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-
-            @Override
-            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                LinearLayoutManager layoutManager = (LinearLayoutManager) binding.recyclerView.getLayoutManager();
-                int lastVisibleItemPositon = layoutManager.findLastVisibleItemPosition();
-
-                int itemTotalCount = binding.recyclerView.getAdapter().getItemCount() - 1;
-
-                if (lastVisibleItemPositon == itemTotalCount) {
-                    isDuplicateData = false;
-                    requestMusicData();
-                }
-
-                // TODO 50개 데이터 다 내리면 스크롤바 안되도록
-            }
-        });
     }
 
     @Override
@@ -144,9 +126,6 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
                 .enqueue(new Callback<Music>() {
                     @Override
                     public void onResponse(Call<Music> call, Response<Music> response) {
-
-                        // 내 재생목록에 Music 객체 담기
-
                         Music myMusic = response.body();
                         MyMusicListFragment.getInstance().myMusicList.add(myMusic);
                         Log.d(TAG, MyMusicListFragment.getInstance().myMusicList.get(0).getTitle());

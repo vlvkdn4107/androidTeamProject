@@ -2,7 +2,6 @@ package com.example.melontubeproject;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,12 +14,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.melontubeproject.adapter.MusicAdapter;
 import com.example.melontubeproject.adapter.SearchingAdapter;
-import com.example.melontubeproject.databinding.FragmentChartBinding;
 import com.example.melontubeproject.databinding.FragmentSearchBinding;
 import com.example.melontubeproject.interfaces.OnAddListClicked;
 import com.example.melontubeproject.interfaces.OnPlayBtnClicked;

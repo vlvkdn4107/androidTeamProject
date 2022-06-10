@@ -12,6 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface MusicService {
@@ -22,7 +23,7 @@ public interface MusicService {
             .build();
 
     @GET("musiclist")
-    Call<Data> getMusicList();
+    Call<Data> musicList();
 
     @GET("skipmusic/next")
     Call<Music> skipNextMusic(
@@ -32,6 +33,11 @@ public interface MusicService {
     @GET("skipmusic/previous")
     Call<Music> skipPreviousMusic(
             @Query("id") int id
+    );
+
+    @GET("albumlist/{albumtitle}")
+    Call<List<Music>> albumMusicList(
+            @Path("albumTitle") String albumTitle
     );
 
     @POST("addmylist")

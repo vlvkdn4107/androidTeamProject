@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.melontubeproject.R;
 import com.example.melontubeproject.interfaces.OnAddListClicked;
 import com.example.melontubeproject.interfaces.OnPlayBtnClicked;
@@ -19,7 +21,7 @@ import com.example.melontubeproject.models.Music;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHolder> {
+public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.MusicViewHolder> {
 
     private List<Music> musicList = new ArrayList<>();
     private OnAddListClicked onAddListClicked;
@@ -101,6 +103,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
             Glide.with(elbumImage.getContext())
                     .load(music.getImageUrl())
                     .centerCrop()
+                    .apply(RequestOptions.bitmapTransform(new RoundedCorners(15)))
                     .into(elbumImage);
         }
     }
