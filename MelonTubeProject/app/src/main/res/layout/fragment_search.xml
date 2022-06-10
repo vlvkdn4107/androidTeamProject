@@ -4,30 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
-    tools:context=".SearchFragment">
+    android:background="@color/white"
+    tools:context=".SearchFragment"
+    android:padding="5dp">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/searchTextView"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/searchTextField"
+        app:endIconMode="clear_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:hint="검색 ( 가수, 노래 )"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:textColorHint="#515151"
-        app:boxBackgroundColor="#989898"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:hint="가수, 노래제목"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/searchText"
+            android:fontFamily="@font/font"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/font"/>
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
+    <ImageView
+        android:id="@+id/searchButton"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintBottom_toBottomOf="@id/searchTextField"
+        app:layout_constraintTop_toTopOf="@id/searchTextField"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_baseline_search_24"
+        android:layout_width="35dp"
+        android:layout_height="35dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/searchRecyclerView"
@@ -36,8 +47,8 @@
         android:layout_marginTop="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchTextView"
-        tools:listitem="@layout/chart_list_item2">
+        app:layout_constraintTop_toBottomOf="@id/searchTextField"
+        tools:listitem="@layout/chart_list_item">
 
     </androidx.recyclerview.widget.RecyclerView>
 

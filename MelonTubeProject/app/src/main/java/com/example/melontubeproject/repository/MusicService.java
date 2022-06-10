@@ -39,7 +39,9 @@ public interface MusicService {
             @Body Music music
     );
 
-    // 검색 기능
-    // 가수 검색
-    // 타이틀 검색
+    @GET("searchlist")
+    Call<Data> getSearch(
+            @Query("title") String title,
+            @Query("singer") String singer
+    );
 }

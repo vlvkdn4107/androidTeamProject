@@ -12,7 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.melontubeproject.MyMusicListFragment;
 import com.example.melontubeproject.R;
+import com.example.melontubeproject.interfaces.OnPlayBtnClicked;
+import com.example.melontubeproject.interfaces.OndeleteBtnClicked;
 import com.example.melontubeproject.models.Data;
 import com.example.melontubeproject.models.Music;
 
@@ -23,6 +26,18 @@ public class MyMusicListAdapter extends RecyclerView.Adapter<MyMusicListAdapter.
     public List<Music> myMusicList = new ArrayList<>();
     private ImageView playMusicBtn;
     private ImageView deleteMusicBtn;
+    private OnPlayBtnClicked onPlayBtnClicked;
+    private OndeleteBtnClicked ondeleteBtnClicked;
+
+    public void setOndeleteBtnClicked(OndeleteBtnClicked ondeleteBtnClicked) {
+        this.ondeleteBtnClicked = ondeleteBtnClicked;
+        notifyDataSetChanged();
+    }
+
+    public void setOnPlayBtnClicked(OnPlayBtnClicked onPlayBtnClicked) {
+        this.onPlayBtnClicked = onPlayBtnClicked;
+        notifyDataSetChanged();
+    }
 
     public void initMyMusicList(List<Music> myMusicList) {
         this.myMusicList = myMusicList;
@@ -52,11 +67,12 @@ public class MyMusicListAdapter extends RecyclerView.Adapter<MyMusicListAdapter.
         deleteMusicBtn = holder.itemView.findViewById(R.id.my_music_delete);
 
         playMusicBtn.setOnClickListener(event ->{
-            Log.d("TAG", "마이뮤직리스트 play버튼 클릭!");
+            onPlayBtnClicked.playMusic(music);
         });
 
         deleteMusicBtn.setOnClickListener(event ->{
-            Log.d("TAG","마이뮤직리스트 delete버튼 클릭!");
+            Log.d("TAG","마이뮤직리스트 delete버튼 클릭!"+ music.getId());
+            ondeleteBtnClicked.deleteMusic(music);
         });
     }
 

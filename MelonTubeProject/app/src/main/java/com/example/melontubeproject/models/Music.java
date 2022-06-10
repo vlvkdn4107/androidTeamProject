@@ -7,8 +7,17 @@ public class Music implements Serializable {
     private int id;
     private String title;
     private String singer;
+    private String albumTitle;
     private String imageUrl;
     private String lyrics;
+
+    public String getAlbumTitle() {
+        return albumTitle;
+    }
+
+    public void setAlbumTitle(String albumTitle) {
+        this.albumTitle = albumTitle;
+    }
 
     public int getId() {
         return id;

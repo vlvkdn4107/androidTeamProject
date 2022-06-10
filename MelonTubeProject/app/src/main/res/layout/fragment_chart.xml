@@ -6,218 +6,50 @@
     android:orientation="vertical"
     tools:context=".ChartFragment">
 
-
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:text="최신 앨범"
-        android:textSize="25dp"
-        android:textStyle="bold" />
+        android:fillViewport="true"
+        android:scrollbars="none">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/horizentalRecyclerView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:listitem="@layout/album_item" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <!--            <HorizontalScrollView-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:fillViewport="true"-->
-    <!--                android:scrollbars="none">-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:text="최신 앨범"
+                android:textSize="25dp"
+                android:textStyle="bold" />
 
-    <!--                <LinearLayout-->
-    <!--                    android:layout_width="wrap_content"-->
-    <!--                    android:layout_height="match_parent">-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/horizentalRecyclerView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/album_item" />
 
-    <!--                    <LinearLayout-->
-    <!--                        android:layout_width="wrap_content"-->
-    <!--                        android:layout_height="match_parent"-->
-    <!--                        android:orientation="vertical">-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="TOP 100"
+                android:textSize="25dp"
+                android:textStyle="bold" />
 
-    <!--                        <ImageView-->
-    <!--                            android:id="@+id/albumCoverImage1"-->
-    <!--                            android:layout_width="200dp"-->
-    <!--                            android:layout_height="200dp"-->
-    <!--                            android:layout_marginStart="20dp"-->
-    <!--                            android:layout_marginTop="10dp"-->
-    <!--                            android:layout_marginEnd="20dp"-->
-    <!--                            tools:background="@color/black" />-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:listitem="@layout/chart_list_item" />
+        </LinearLayout>
 
-    <!--                        <TextView-->
-    <!--                            android:id="@+id/albumTitleText1"-->
-    <!--                            android:layout_width="wrap_content"-->
-    <!--                            android:layout_height="wrap_content"-->
-    <!--                            android:layout_gravity="center_horizontal"-->
-    <!--                            android:text="ALBUM NAME"-->
-    <!--                            android:textColor="@color/black"-->
-    <!--                            android:textSize="15dp"-->
-    <!--                            android:textStyle="bold" />-->
-
-    <!--                        <TextView-->
-    <!--                            android:id="@+id/singerText1"-->
-    <!--                            android:layout_width="wrap_content"-->
-    <!--                            android:layout_height="wrap_content"-->
-    <!--                            android:layout_gravity="center_horizontal"-->
-    <!--                            android:text="Singer" />-->
-
-    <!--                    </LinearLayout>-->
-
-    <!--                    <LinearLayout-->
-    <!--                        android:layout_width="wrap_content"-->
-    <!--                        android:layout_height="wrap_content"-->
-    <!--                        android:orientation="vertical">-->
-
-    <!--                        <ImageView-->
-    <!--                            android:id="@+id/albumCoverImage2"-->
-    <!--                            android:layout_width="200dp"-->
-    <!--                            android:layout_height="200dp"-->
-    <!--                            android:layout_marginStart="20dp"-->
-    <!--                            android:layout_marginTop="10dp"-->
-    <!--                            android:layout_marginEnd="20dp"-->
-    <!--                            tools:background="@color/black" />-->
-
-    <!--                        <TextView-->
-    <!--                            android:id="@+id/albumTitleText2"-->
-    <!--                            android:layout_width="wrap_content"-->
-    <!--                            android:layout_height="wrap_content"-->
-    <!--                            android:layout_gravity="center_horizontal"-->
-    <!--                            android:text="ALBUM NAME"-->
-    <!--                            android:textColor="@color/black"-->
-    <!--                            android:textSize="15dp"-->
-    <!--                            android:textStyle="bold" />-->
-
-    <!--                        <TextView-->
-    <!--                            android:id="@+id/singerText2"-->
-    <!--                            android:layout_width="wrap_content"-->
-    <!--                            android:layout_height="wrap_content"-->
-    <!--                            android:layout_gravity="center_horizontal"-->
-    <!--                            android:text="Singer" />-->
-
-    <!--                    </LinearLayout>-->
-
-    <!--                    <LinearLayout-->
-    <!--                        android:layout_width="wrap_content"-->
-    <!--                        android:layout_height="wrap_content"-->
-    <!--                        android:orientation="vertical">-->
-
-    <!--                        <ImageView-->
-    <!--                            android:id="@+id/albumCoverImage3"-->
-    <!--                            android:layout_width="200dp"-->
-    <!--                            android:layout_height="200dp"-->
-    <!--                            android:layout_marginStart="20dp"-->
-    <!--                            android:layout_marginTop="10dp"-->
-    <!--                            android:layout_marginEnd="20dp"-->
-    <!--                            tools:background="@color/black" />-->
-
-    <!--                        <TextView-->
-    <!--                            android:id="@+id/albumTitleText3"-->
-    <!--                            android:layout_width="wrap_content"-->
-    <!--                            android:layout_height="wrap_content"-->
-    <!--                            android:layout_gravity="center_horizontal"-->
-    <!--                            android:text="ALBUM NAME"-->
-    <!--                            android:textColor="@color/black"-->
-    <!--                            android:textSize="15dp"-->
-    <!--                            android:textStyle="bold" />-->
-
-    <!--                        <TextView-->
-    <!--                            android:id="@+id/singerText3"-->
-    <!--                            android:layout_width="wrap_content"-->
-    <!--                            android:layout_height="wrap_content"-->
-    <!--                            android:layout_gravity="center_horizontal"-->
-    <!--                            android:layout_marginBottom="10dp"-->
-    <!--                            android:text="Singer" />-->
-
-    <!--                    </LinearLayout>-->
-
-    <!--                    <LinearLayout-->
-    <!--                        android:layout_width="wrap_content"-->
-    <!--                        android:layout_height="wrap_content"-->
-    <!--                        android:orientation="vertical">-->
-
-    <!--                        <ImageView-->
-    <!--                            android:id="@+id/albumCoverImage4"-->
-    <!--                            android:layout_width="200dp"-->
-    <!--                            android:layout_height="200dp"-->
-    <!--                            android:layout_marginStart="20dp"-->
-    <!--                            android:layout_marginTop="10dp"-->
-    <!--                            android:layout_marginEnd="20dp"-->
-    <!--                            tools:background="@color/black" />-->
-
-    <!--                        <TextView-->
-    <!--                            android:id="@+id/albumTitleText4"-->
-    <!--                            android:layout_width="wrap_content"-->
-    <!--                            android:layout_height="wrap_content"-->
-    <!--                            android:layout_gravity="center_horizontal"-->
-    <!--                            android:text="ALBUM NAME"-->
-    <!--                            android:textColor="@color/black"-->
-    <!--                            android:textSize="15dp"-->
-    <!--                            android:textStyle="bold" />-->
-
-    <!--                        <TextView-->
-    <!--                            android:id="@+id/singerText4"-->
-    <!--                            android:layout_width="wrap_content"-->
-    <!--                            android:layout_height="wrap_content"-->
-    <!--                            android:layout_gravity="center_horizontal"-->
-    <!--                            android:text="Singer" />-->
-
-    <!--                    </LinearLayout>-->
-
-    <!--                    <LinearLayout-->
-    <!--                        android:layout_width="wrap_content"-->
-    <!--                        android:layout_height="wrap_content"-->
-    <!--                        android:orientation="vertical">-->
-
-    <!--                        <ImageView-->
-    <!--                            android:id="@+id/albumCoverImage5"-->
-    <!--                            android:layout_width="200dp"-->
-    <!--                            android:layout_height="200dp"-->
-    <!--                            android:layout_marginStart="20dp"-->
-    <!--                            android:layout_marginTop="10dp"-->
-    <!--                            android:layout_marginEnd="20dp"-->
-    <!--                            tools:background="@color/black" />-->
-
-    <!--                        <TextView-->
-    <!--                            android:id="@+id/albumTitleText5"-->
-    <!--                            android:layout_width="wrap_content"-->
-    <!--                            android:layout_height="wrap_content"-->
-    <!--                            android:layout_gravity="center_horizontal"-->
-    <!--                            android:text="ALBUM NAME"-->
-    <!--                            android:textColor="@color/black"-->
-    <!--                            android:textSize="15dp"-->
-    <!--                            android:textStyle="bold" />-->
-
-    <!--                        <TextView-->
-    <!--                            android:id="@+id/singerText5"-->
-    <!--                            android:layout_width="wrap_content"-->
-    <!--                            android:layout_height="wrap_content"-->
-    <!--                            android:layout_gravity="center_horizontal"-->
-    <!--                            android:text="Singer" />-->
-
-    <!--                    </LinearLayout>-->
-
-    <!--                </LinearLayout>-->
-
-    <!--            </HorizontalScrollView>-->
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:text="TOP 100"
-        android:textSize="25dp"
-        android:textStyle="bold" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:listitem="@layout/chart_list_item" />
-
+    </ScrollView>
 
 </LinearLayout>

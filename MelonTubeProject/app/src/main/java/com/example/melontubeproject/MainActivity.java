@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         if (type == FragmentType.CHART) {
             fragment = ChartFragment.getInstance();
         } else if (type == FragmentType.SEARCH) {
-            //fragment = SearchFragment.getInstance();
+            fragment = SearchFragment.getInstance();
         } else if (type == FragmentType.MY_LIST) {
             Log.d("TAG", "마이리스트 프래그먼트 전환");
             fragment = MyMusicListFragment.getInstance();

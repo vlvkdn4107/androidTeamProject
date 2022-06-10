@@ -2,7 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    >
 
     <ImageView
         android:id="@+id/my_music_imageview"
@@ -14,34 +16,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/my_music_list_LinearLayout"
+
+    <TextView
+        android:id="@+id/my_music_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="10dp"
+        android:gravity="bottom|start"
+        android:text="제목이 들어가는 부분"
+        android:textColor="@color/black"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/my_music_title"
         app:layout_constraintStart_toEndOf="@id/my_music_imageview"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@id/my_music_imageview" />
 
-        <TextView
-            android:id="@+id/my_music_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:gravity="bottom|start"
-            android:text="제목이 들어가는 부분"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/my_music_singer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="가수명 들어가는 부분"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/my_music_singer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="가수명 들어가는 부분"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/my_music_imageview"
+        app:layout_constraintStart_toEndOf="@id/my_music_imageview"
+        app:layout_constraintTop_toBottomOf="@id/my_music_title" />
 
     <ImageView
         android:id="@+id/my_music_play"
@@ -50,7 +51,6 @@
         android:src="@drawable/ic_baseline_play_arrow_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/my_music_delete"
-        app:layout_constraintStart_toEndOf="@id/my_music_list_LinearLayout"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -60,7 +60,7 @@
         android:src="@drawable/ic_baseline_close_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/my_music_play"
+
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

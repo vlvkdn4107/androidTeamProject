@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.melontubeproject.adapter.MusicAdapter;
+import com.example.melontubeproject.adapter.RecentAlbumAdapter;
 import com.example.melontubeproject.databinding.FragmentChartBinding;
 import com.example.melontubeproject.interfaces.OnAddListClicked;
 import com.example.melontubeproject.interfaces.OnPlayBtnClicked;
@@ -23,6 +24,7 @@ import com.example.melontubeproject.models.Music;
 import com.example.melontubeproject.repository.MusicService;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
@@ -35,6 +37,7 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
     private MusicService musicService;
     private FragmentChartBinding binding;
     private MusicAdapter musicAdapter;
+    private RecentAlbumAdapter recentAlbumAdapter;
 
     private boolean isDuplicateData = true;
 
@@ -96,18 +99,21 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
         musicAdapter.setOnPlayBtnClicked(this);
         musicAdapter.initItemList(musicList);
 
-        LinearLayoutManager manager = new LinearLayoutManager(getContext());
+        recentAlbumAdapter = new RecentAlbumAdapter();
+
+        //Collections.sort(musicList, Collections.reverseOrder());
+        recentAlbumAdapter.initItemList(musicList);
 
         RecyclerView recyclerView = binding.recyclerView;
         RecyclerView horizentalRecyclerView = binding.horizentalRecyclerView;
 
         recyclerView.setAdapter(musicAdapter);
-        recyclerView.setLayoutManager(manager);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
 
-        horizentalRecyclerView.setAdapter(musicAdapter);
+        horizentalRecyclerView.setAdapter(recentAlbumAdapter);
         horizentalRecyclerView.setLayoutManager(new LinearLayoutManager(
-                getContext(), LinearLayoutManager.HORIZONTAL, true));
+                getContext(), LinearLayoutManager.HORIZONTAL, false));
         horizentalRecyclerView.setHasFixedSize(true);
 
 
