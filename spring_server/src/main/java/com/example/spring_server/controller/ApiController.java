@@ -29,7 +29,7 @@ public class ApiController {
 	
 	@GetMapping("/skipmusic/previous")
 	public Music skipPreviousMusic(@RequestParam int id) {
-		Music music = Music.sampledata().get(id-1);		
+		Music music = Music.sampledata().get(id-2);		
 		return music;
 	}
 	

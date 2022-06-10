@@ -7,7 +7,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="90dp">
 
         <TextView
             android:id="@+id/rank"
@@ -31,8 +31,8 @@
 
         <ImageView
             android:id="@+id/elbumImage"
-            android:layout_width="83dp"
-            android:layout_height="83dp"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
             android:layout_marginStart="10dp"
             android:layout_marginBottom="5dp"
             android:src="@color/black"

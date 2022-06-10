@@ -84,8 +84,6 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
         private TextView titleTextView;
         private TextView singerTextView;
 
-        private int rank = 1;
-
         public MusicViewHolder(@NonNull View itemView) {
             super(itemView);
             this.itemView = itemView;
@@ -96,7 +94,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MusicViewHol
         }
 
         public void setItem(Music music) {
-            //rankTextView.setText(rank);
+            rankTextView.setText(String.valueOf(music.getId()));
             titleTextView.setText(music.getTitle());
             singerTextView.setText(music.getSinger());
 

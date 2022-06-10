@@ -99,10 +99,17 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
 
         RecyclerView recyclerView = binding.recyclerView;
+        RecyclerView horizentalRecyclerView = binding.horizentalRecyclerView;
 
         recyclerView.setAdapter(musicAdapter);
         recyclerView.setLayoutManager(manager);
         recyclerView.setHasFixedSize(true);
+
+        horizentalRecyclerView.setAdapter(musicAdapter);
+        horizentalRecyclerView.setLayoutManager(new LinearLayoutManager(
+                getContext(), LinearLayoutManager.HORIZONTAL, true));
+        horizentalRecyclerView.setHasFixedSize(true);
+
 
         // 스크롤 내릴 때 이벤트 처리
         binding.recyclerView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
@@ -138,10 +145,8 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
                         Music myMusic = response.body();
                         MyMusicListFragment.getInstance().myMusicList.add(myMusic);
                         Log.d(TAG, MyMusicListFragment.getInstance().myMusicList.get(0).getTitle());
-                        //Log.d(TAG, myMusic.getTitle());
 
                         Toast.makeText(getContext(), "내 재생목록에 추가되었습니다.", Toast.LENGTH_SHORT).show();
-
                     }
 
                     @Override

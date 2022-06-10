@@ -3,6 +3,7 @@ package com.example.melontubeproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +17,15 @@ import com.example.melontubeproject.databinding.ActivityMusicPlayBinding;
 import com.example.melontubeproject.models.Data;
 import com.example.melontubeproject.models.Music;
 import com.example.melontubeproject.repository.MusicService;
+import com.google.android.exoplayer2.MediaItem;
+import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.ui.PlayerControlView;
+import com.google.android.exoplayer2.ui.PlayerView;
+import com.google.android.exoplayer2.upstream.RawResourceDataSource;
+
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,6 +36,9 @@ public class MusicPlayActivity extends AppCompatActivity {
     private Music music;
     private ActivityMusicPlayBinding binding;
     private MusicService musicService;
+
+    private SimpleExoPlayer simpleExoPlayer;
+    private PlayerView playerView;
 
     private final String TAG = MusicPlayActivity.class.getName();
 
@@ -40,17 +53,29 @@ public class MusicPlayActivity extends AppCompatActivity {
 
         if (getIntent() != null) {
             music = (Music) getIntent().getSerializableExtra(OBJ_NAME);
-            initData(music);
-            showLyrics();
-            addEventListener();
+            setNewMusic();
+            //playMusic();
         }
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        simpleExoPlayer.release();
+    }
+
+    private void setNewMusic() {
+        initData(music);
+        showLyrics();
+        addEventListener();
     }
 
     private void initData(Music music) {
         binding.titlePlayText.setText(music.getTitle());
         binding.singerPlayText.setText(music.getSinger());
         binding.lyricsTextView.setText(music.getLyrics());
+        binding.scrollView.setVisibility(View.INVISIBLE);
 
         Glide.with(this)
                 .load(music.getImageUrl())
@@ -83,6 +108,20 @@ public class MusicPlayActivity extends AppCompatActivity {
         });
     }
 
+    private void playMusic() {
+        simpleExoPlayer = new SimpleExoPlayer.Builder(this).build();
+        PlayerControlView playerControlView = binding.playerControlView;
+        playerControlView.setPlayer(simpleExoPlayer);
+
+        List<MediaItem> mediaItems = new ArrayList<>();
+        makePlayList(mediaItems);
+        simpleExoPlayer.prepare();
+        simpleExoPlayer.setPlayWhenReady(true);
+    }
+
+    private void makePlayList(List<MediaItem> mediaitems){
+    }
+
     private void skipNextMusic() {
         musicService.skipNextMusic(music.getId())
                 .enqueue(new Callback<Music>() {
@@ -90,10 +129,7 @@ public class MusicPlayActivity extends AppCompatActivity {
                     public void onResponse(Call<Music> call, Response<Music> response) {
                         music = response.body();
                         Log.d(TAG, "다음 노래 재생 !!!!");
-
-                        Intent intent = new Intent(MusicPlayActivity.this, MusicPlayActivity.class);
-                        intent.putExtra("music", music);
-                        startActivity(intent);
+                        setNewMusic();
                     }
 
                     @Override
@@ -111,6 +147,7 @@ public class MusicPlayActivity extends AppCompatActivity {
                     public void onResponse(Call<Music> call, Response<Music> response) {
                         music = response.body();
                         Log.d(TAG, "이전 노래 재생 !!!!");
+                        setNewMusic();
 
                     }
 

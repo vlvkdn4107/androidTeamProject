@@ -178,6 +178,7 @@ public class Music {
 						+ "가슴팍에 숫자 1 내게 ay\r\n" + "내 밑으로 조아린 세계 ay\r\n"
 						+ "Take the world break it down break you down down\r\n" + "\r\n" + "밟아줘 highway highway\r\n"
 						+ "멋진 결말에 닿게\r\n" + "내 흉짐도 나의 일부라면\r\n" + "겁이 난 없지 없지\r\n" + ""));
+		
 		list.add(new Music(11, "임영웅", "다시 만날 수 있을까",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/23/444/10923444_20220502140600_500.jpg?5bd42dcc031a23cd1cae99ae37a606aa/melon/resize/282/quality/80/optimize",
 				"너를 위해 해 줄 것이 하나 없어서\r\n" + "보낼 수밖에 없었고\r\n" + "네가 없이 사는 법을 알지 못해서\r\n" + "순간순간을 울었다\r\n"
@@ -206,6 +207,7 @@ public class Music {
 						+ "I know, I'm stupid\r\n" + "어쩔 수 없어 널 보고 싶은걸\r\n" + "\r\n" + "Oh please\r\n"
 						+ "Love me love me love me\r\n" + "I know, I'm stupid\r\n" + "어쩔 수 없어 널 보고 싶은걸\r\n"
 						+ "Now I say I love you"));
+	
 		list.add(new Music(13, "Red Velvet (레드벨벳)", "Feel My Rhythm",
 				"https://cdnimg.melon.co.kr/cm2/album/images/108/94/554/10894554_20220321100622_500.jpg?d53e7525c3212538fa0b850bca4e7369/melon/resize/282/quality/80/optimize",
 				"Red Velvet\r\n" + "\r\n" + "무도회를 뒤집어\r\n" + "작은 소란을 또 일으켜\r\n" + "This is gonna be a crazy night\r\n"
@@ -572,7 +574,7 @@ public class Music {
 						+ "그냥 이끌리는 대로 해도 괜찮으니까\r\n" + "훌쩍 떠나보는 drive\r\n" + "뚜벅 걸어도 좋아"));
 
 		list.add(new Music(41, "aespa", "Next Level",
-				"https://cdnimg.melon.co.kr/cm2/album/images/106/09/232/10609232_20210517155130_500.jpg/melon/resize/120/quality/80/optimize",
+				"https://cdnimg.melon.co.kr/cm2/album/images/106/09/232/10609232_20210517155130_500.jpg?eda48bcb5e6a2b2a9f40fc2a0463f47f/melon/resize/282/quality/80/optimize",
 				"I’m on the Next Level Yeah\r\n" + "절대적 룰을 지켜\r\n" + "내 손을 놓지 말아\r\n" + "결속은 나의 무기\r\n" + "광야로 걸어가\r\n"
 						+ "알아 네 Home ground\r\n" + "위협에 맞서서\r\n" + "제껴라 제껴라 제껴라\r\n" + "\r\n" + "상상도 못한 Black out\r\n"
 						+ "유혹은 깊고 진해\r\n" + "(Too hot too hot)\r\n" + "맞잡은 손을 놓쳐\r\n" + "난 절대 포기 못해\r\n" + "\r\n"
