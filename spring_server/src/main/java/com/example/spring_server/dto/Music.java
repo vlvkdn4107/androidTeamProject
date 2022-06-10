@@ -281,7 +281,7 @@ public class Music {
 						+ "Du Du Du Du Du\r\n" + "Du Du Du Du\r\n" + "Du Du Du Du\r\n" + "떠나볼래요\r\n" + "Du Du Du Du\r\n"
 						+ "Du Du Du Du\r\n" + "떠나볼래요\r\n" + "Du Du Du Du\r\n" + "Du Du Du Du\r\n" + "지금 떠나요"));
 	
-		list.add(new Music(18, "세븐틴", "HOT", "SEVENTEEN 4th Album",
+		list.add(new Music(18, "세븐틴", "HOT", "SEVENTEEN 4th Album 'Face the Sun'",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/22/231/10922231_20220527120653_500.jpg?d4668bd274949f814ae2ccadee6f42eb/melon/resize/282/quality/80/optimize",
 				"모두 우릴 쳐다봐 (봐)\r\n" + "태양 위를 달리는 마차 (계속 달려 Uh)\r\n" + "Juicy Juicy Juicy Juicy\r\n" + "\r\n"
 						+ "총성이 울려 퍼진 다음 (Spicy한 Feelin’)\r\n" + "태양을 마음에다 쏴 (I just wanna do this)\r\n"
@@ -453,7 +453,7 @@ public class Music {
 						+ "듣고 나서 잠시 날 생각은 할까\r\n" + "아주 혹시라도 넌 내가 보고 싶을까\r\n" + "난 왜 니 목소리가 듣고 싶을까"));
 	
 		list.add(new Music(31, "임영웅", "연애편지", "IM HERO",
-				"https://cdnimg.melon.co.kr/cm2/album/images/109/23/444/10923444_20220502140600_500.jpg/melon/resize/120/quality/80/optimize",
+				"https://cdnimg.melon.co.kr/cm2/album/images/109/23/444/10923444_20220502140600_500.jpg?5bd42dcc031a23cd1cae99ae37a606aa/melon/resize/282/quality/80/optimize",
 				"노을에 물든 저녁 하늘이\r\n" + "오랜만에 참 좋은 저녁입니다\r\n" + "문득 떠오른 그대 생각에\r\n" + "나지막이 이름을 불러봅니다\r\n"
 						+ "나도 몰래 꺼내 본 낡은 수첩엔\r\n" + "그대가 너무도 많아\r\n" + "차마 그립단 말 대신\r\n" + "꽃잎을 넣어 보내며\r\n"
 						+ "하얀 종이에 하지 못한 말\r\n" + "아직 그댄 내 고운 사랑입니다\r\n" + "외로이 스쳐 창을 흔드는\r\n" + "바람 소리 쓸쓸한 시간입니다\r\n"
@@ -461,7 +461,7 @@ public class Music {
 						+ "차마 그립단 말 대신\r\n" + "바라본 밤하늘에는\r\n" + "아스라이 먼 작은 별 하나\r\n" + "외로이 홀로 남아 깜박입니다"));
 
 		list.add(new Music(32, "주호", "내가 아니라도", "내가 아니라도",
-				"https://cdnimg.melon.co.kr/cm2/album/images/108/97/407/10897407_20220323150744_500.jpg/melon/resize/120/quality/80/optimize",
+				"https://cdnimg.melon.co.kr/cm2/album/images/108/97/407/10897407_20220323150744_500.jpg?389545aadd50ead38a260c8438fc5924/melon/resize/282/quality/80/optimize",
 				"사랑이었다 별거 없던 내 하루에\r\n" + "빛이 돼준 단한 사람\r\n" + "나보다 나를 더 아껴 주던 너를\r\n" + "그땐 왜 몰랐을까\r\n"
 						+ "행복이었다 다시는 없을 것 같던\r\n" + "잠시나마 행복했었다\r\n" + "다른 사람 곁에 있는 널\r\n" + "생각해 본 적 없지만\r\n"
 						+ "이젠 너를 보내줘야 할 것 같아\r\n" + "내가 아니라도\r\n" + "눈부시게 사랑받았을 너라서\r\n" + "그 소중한 시간을 나와 함께해 줘서\r\n"
@@ -470,7 +470,7 @@ public class Music {
 						+ "내가 아니라도\r\n" + "눈부시게 사랑받았을 너라서\r\n" + "그 소중한 시간을 나와 함께해 줘서\r\n" + "고마웠어"));
 
 		list.add(new Music(33, "The Kid LAROI, Justin Bieber", "STAY", "Stay",
-				"https://cdnimg.melon.co.kr/cm2/album/images/106/46/395/10646395_20210707141710_500.jpg/melon/resize/120/quality/80/optimize",
+				"https://cdnimg.melon.co.kr/cm2/album/images/106/46/395/10646395_20210707141710_500.jpg?9e8cfc795c83ac2ab6b4f79f967a2a2e/melon/resize/282/quality/80/optimize",
 				"I do the same thing I told you\r\n" + "that I never would\r\n" + "I told you I'd change\r\n"
 						+ "even when I knew I never could\r\n" + "I know that I can't find\r\n" + "nobody else\r\n"
 						+ "as good as you\r\n" + "I need you to stay\r\n" + "need you to stay hey Oh\r\n"
@@ -487,7 +487,7 @@ public class Music {
 						+ "I know that I can't find\r\n" + "nobody else"));
 
 		list.add(new Music(34, "Charlie Puth", "That's Hilarious", "That's Hilarious",
-				"https://cdnimg.melon.co.kr/cm2/album/images/108/44/485/10844485_20220407163235_500.jpg/melon/resize/120/quality/80/optimize",
+				"https://cdnimg.melon.co.kr/cm2/album/images/108/44/485/10844485_20220407163235_500.jpg?131e70fda7839bcd0030e219775fff3d/melon/resize/282/quality/80/optimize",
 				"Look how all tables,\r\n" + "Look how all the tables have turned,\r\n"
 						+ "Guess you’re finally realizing how bad you messed it up\r\n" + "Girl you’re only making,\r\n"
 						+ "Girl you’re only making it worse,\r\n"
@@ -611,7 +611,7 @@ public class Music {
 						+ "이 노랠 유명해지게 계속 불러서\r\n" + "나는 너에게로 꼭 닿고 말거야\r\n" + "너를 들려주고 싶었어"));
 
 		list.add(new Music(44, "YENA (최예나)", "SMILEY (Feat. BIBI)", "ˣ‿ˣ (SMiLEY)",
-				"https://cdnimg.melon.co.kr/cm2/album/images/108/42/611/10842611_20220117110002_500.jpg/melon/resize/120/quality/80/optimize",
+				"https://cdnimg.melon.co.kr/cm2/album/images/108/42/611/10842611_20220117110002_500.jpg?943fdb8574f4aacd81b42d9668cdf52a/melon/resize/282/quality/80/optimize",
 				"울지 마 울지 마\r\n" + "어린아이같이\r\n" + "웃는 게 웃는 게\r\n" + "이기는 거라고\r\n" + "You are so cute\r\n"
 						+ "You are so dumb\r\n" + "네가 하는 말이\r\n" + "오늘따라 듣기 싫어\r\n" + "하늘을 한 번 쳐다보고\r\n" + "내가 꾹 참고\r\n"
 						+ "맘을 다 잡고\r\n" + "네게 밝게 웃어줄게\r\n" + "And I say Hey\r\n" + "I’m gonna make it\r\n"
@@ -632,7 +632,7 @@ public class Music {
 						+ "먼 훗날 아주 먼 훗날\r\n" + "우리 눈 감는 그날에\r\n" + "나를 사랑해 준 너에게 고맙다고"));
 
 		list.add(new Music(46, "성시경", "너의 모든 순간", "별에서 온 그대 OST Part.7",
-				"https://cdnimg.melon.co.kr/cm/album/images/022/32/505/2232505_500.jpg/melon/resize/120/quality/80/optimize",
+				"https://cdnimg.melon.co.kr/cm/album/images/022/32/505/2232505_500.jpg/melon/resize/282/quality/80/optimize",
 				"이윽고 내가 한눈에\r\n" + "너를 알아봤을 때\r\n" + "모든 건 분명 달라지고 있었어\r\n" + "내 세상은 널 알기 전과 후로 나뉘어\r\n"
 						+ "니가 숨 쉬면 따스한 바람이 불어와\r\n" + "니가 웃으면 눈부신 햇살이 비춰\r\n" + "거기 있어줘서 그게 너라서\r\n"
 						+ "가끔 내 어깨에 가만히 기대주어서\r\n" + "나는 있잖아 정말 빈틈없이 행복해\r\n" + "너를 따라서 시간은 흐르고 멈춰\r\n"
@@ -641,7 +641,7 @@ public class Music {
 						+ "또 지금의 너\r\n" + "거기 있어줘서 그게 너라서"));
 
 		list.add(new Music(47, "주시크 (Joosiq)", "아무래도 난", "아무래도 난",
-				"https://cdnimg.melon.co.kr/cm2/album/images/109/03/658/10903658_20220329185034_500.jpg/melon/resize/120/quality/80/optimize",
+				"https://cdnimg.melon.co.kr/cm2/album/images/109/03/658/10903658_20220329185034_500.jpg?c3378c711c1510089eb2e54aa93c5836/melon/resize/282/quality/80/optimize",
 				"아무렇지 않게 내 하루가 또\r\n" + "지나갈 쯤에 문득\r\n" + "네가 없다는 게 익숙해진 내가\r\n" + "낯설어지곤 해 yeah\r\n"
 						+ "이제와 너 없는 난 의미 없다고\r\n" + "되돌릴 수 없는 우리겠지만\r\n" + "네가 좋아했던 그 노랠 우연히\r\n" + "듣게 됐어 아무래도 난\r\n"
 						+ "Baby I Need You\r\n" + "좀 늦었겠지만\r\n" + "다시 하고 싶어\r\n" + "여전히 I Need you\r\n" + "Need You\r\n"

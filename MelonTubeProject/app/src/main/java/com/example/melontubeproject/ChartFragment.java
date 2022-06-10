@@ -146,7 +146,6 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
                     public void onResponse(Call<Music> call, Response<Music> response) {
 
                         // 내 재생목록에 Music 객체 담기
-                        // Music이 샘플 데이터 갖고 있는 것처럼 내 재생목록 객체를 만들어서 그 안에 내 재생목록 저장하기
 
                         Music myMusic = response.body();
                         MyMusicListFragment.getInstance().myMusicList.add(myMusic);
