@@ -1,14 +1,9 @@
 package com.example.spring_server.controller;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -58,24 +53,6 @@ public class ApiController {
 		}
 		return music;
 	}
-
-//	@GetMapping(path = "/albumlist/{albumTitle}")
-//	public Album albumMusicList(@PathVariable(name = "albumTitle") String albumTitle) {
-//		List<Music> albumList = new ArrayList<Music>();
-//		Album album = new Album();
-//
-//		for (int i = 0; i < sampleMusic.size(); i++) {
-//			if (sampleMusic.get(i).getAlbumTitle().equals(albumTitle)) {
-//				albumList.add(sampleMusic.get(i));
-//				album.setAlbumImageUrl(sampleMusic.get(i).getAlbumTitle());
-//				album.setAlbumTitle(sampleMusic.get(i).getAlbumTitle());
-//				album.setAlbumSinger(sampleMusic.get(i).getSinger());
-//			}
-//		}
-//		album.setTrackList(albumList);
-//		return album;
-//
-//	}
 	
 	// 앨범 상세정보 출력 (수록곡)
 	@GetMapping(path="/albumlist/{albumTitle}")
