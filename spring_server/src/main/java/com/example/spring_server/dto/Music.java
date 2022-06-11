@@ -53,7 +53,7 @@ public class Music {
 						+ "Do what you wanna (Say what?)\r\n" + "That that I like that babe\r\n" + "\r\n"
 						+ "Do what you wanna\r\n" + "Say what you wanna\r\n" + "Do what you wanna (Say what?)\r\n"
 						+ "That that I like that babe\r\n" + "That that I like that"));
-	
+
 		list.add(new Music(2, "(여자)아이들", "TOMBOY", "I NEVER DIE",
 				"https://cdnimg.melon.co.kr/cm2/album/images/108/90/384/10890384_20220314111504_500.jpg?4b9dba7aeba43a4e0042eedb6b9865c1/melon/resize/282/quality/80/optimize",
 				"Look at you 넌 못 감당해 날\r\n" + "Ya took off hook\r\n" + "기분은 Coke like brrr\r\n"
@@ -72,7 +72,7 @@ public class Music {
 						+ "Ye I’m a Tomboy (Umm ah umm)\r\n" + "Ye I’ll be the Tomboy (Umm ah)\r\n"
 						+ "This is my attitude\r\n" + "Ye I’ll be the Tomboy\r\n" + "\r\n" + "Said you get it?\r\n"
 						+ "You get the song right, you’ll get what I mean “Tomboy”"));
-		
+
 		list.add(new Music(3, "IVE (아이브)", "LOVE DIVE", "LOVE DIVE",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/09/179/10909179_20220405103521_500.jpg?f1db0eeac1f61dd8a9c7696bdb50aea8/melon/resize/282/quality/80/optimize",
 				"네가 참 궁금해 그건 너도 마찬가지\r\n" + "이거면 충분해 쫓고 쫓는 이런 놀이\r\n" + "참을 수 없는 이끌림과 호기심\r\n" + "묘한 너와 나 두고 보면 알겠지\r\n"
@@ -86,7 +86,7 @@ public class Music {
 						+ "Narcissistic, my god I love it\r\n" + "서로를 비춘 밤\r\n" + "아름다운 까만 눈빛 더 빠져 깊이\r\n"
 						+ "(넌 내게로 난 네게로)\r\n" + "숨 참고 love dive\r\n" + "\r\n" + "Woo lalalalalalala\r\n"
 						+ "Woo 어서 와서 love dive\r\n" + "Woo oh perfect sacrifice yeah\r\n" + "숨 참고 love dive\r\n" + ""));
-	
+
 		list.add(new Music(4, "멜로망스", "사랑인가 봐", "사랑인가 봐(사내 맞선 OST)",
 				"https://cdnimg.melon.co.kr/cm2/album/images/108/71/162/10871162_20220217162422_500.jpg?d77ecb572464fd179c5e963a6fe0a351/melon/resize/282/quality/80/optimize",
 				"너와 함께 하고 싶은 일들을\r\n" + "상상하는 게\r\n" + "요즘 내 일상이 되고\r\n" + "너의 즐거워하는 모습을 보고 있으면\r\n"
@@ -95,7 +95,7 @@ public class Music {
 						+ "하룰 보낸 날이 많아지는데\r\n" + "이건 누가 봐도 사랑일 텐데\r\n" + "종일 함께면 질릴 텐데\r\n" + "나 돌아서도 온통 너인 건\r\n"
 						+ "아무래도 사랑인가 봐\r\n" + "너의 행복해하는 모습을 보고 있으면\r\n" + "나도 모르게 따라 웃는데\r\n" + "이 정도면 알아줄 만하잖아\r\n"
 						+ "너도 용기 낼만 하잖아\r\n" + "나만 이런 게 아니라면\r\n" + "우리 만나볼 만하잖아\r\n" + "아무래도 사랑인가 봐"));
-	
+
 		list.add(new Music(5, "BIGBANG (빅뱅)", "봄여름가을겨울 (Still Life)", "봄여름가을겨울 (Still Life)",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/08/834/10908834_20220404174407_500.jpg?3b0d20a04b395a89bdade1b70a5dd46d/melon/resize/282/quality/80/optimize",
 				"이듬해 질 녘 꽃 피는 봄 한여름 밤의 꿈\r\n" + "가을 타 겨울 내릴 눈 1년 네 번 또다시 봄\r\n" + "\r\n" + "정들었던 내 젊은 날 이제는 안녕\r\n"
@@ -112,7 +112,7 @@ public class Music {
 						+ "La la la la la la la la la la la\r\n" + "La la la la la la la la la la la\r\n"
 						+ "La la la la la la la la la la la\r\n" + "\r\n" + "이듬해 질 녘 꽃 피는 봄 한여름 밤의 꿈\r\n"
 						+ "가을 타 겨울 내린 눈 봄 여름 가을 겨울"));
-	
+
 		list.add(new Music(6, "임영웅", "사랑은 늘 도망가", "신사와 아가씨 OST Part.2",
 				"https://cdnimg.melon.co.kr/cm2/album/images/107/35/654/10735654_20211008114339_500.jpg?7eeae0e5c1f24c5ae9fa04f626e74c34/melon/resize/282/quality/80/optimize",
 				"눈물이 난다 이 길을 걸으면\r\n" + "그 사람 손길이 자꾸 생각이 난다\r\n" + "붙잡지 못하고 가슴만 떨었지\r\n" + "내 아름답던 사람아\r\n"
@@ -124,7 +124,7 @@ public class Music {
 						+ "무얼 찾아 이 길을 서성일까\r\n" + "무얼 찾아 여기 있나\r\n" + "사랑아 왜 도망가\r\n" + "수줍은 아이처럼\r\n"
 						+ "행여 놓아버릴까 봐\r\n" + "꼭 움켜쥐지만\r\n" + "그리움이 쫓아 사랑은 늘 도망가\r\n" + "잠시 쉬어가면 좋을 텐데\r\n"
 						+ "잠시 쉬어가면 좋을 텐데"));
-	
+
 		list.add(new Music(7, "BIG Naughty (서동현)", "정이라고 하자 (Feat. 10CM)", "정이라고 하자",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/25/762/10925762_20220419152007_500.jpg?e4fe0e576690ff4b3823d6d2baa4c2fe/melon/resize/282/quality/80/optimize",
 				"Back to the day\r\n" + "갓 10대가 됐을 때\r\n" + "그때 내가 널 보지 못했다면\r\n" + "어땠을까 해\r\n"
@@ -146,7 +146,7 @@ public class Music {
 						+ "언젠가 우리 시간 지나면\r\n" + "알게 되겠죠\r\n" + "그땐 웃을 수 있죠 나 약속할게요\r\n" + "폭풍 속에 혼자 남아 헤매도 오\r\n"
 						+ "길이 되어 지킬게요 그대\r\n" + "그댈 위해 노래할게요\r\n" + "잊지 말아요\r\n" + "그댈 위해 약속할게요\r\n"
 						+ "어두운 길을 밝게 비추는\r\n" + "그대의 빛이 될게요"));
-	
+
 		list.add(new Music(9, "경서", "나의 X에게", "나의 X에게",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/29/486/10929486_20220422151852_500.jpg?648f2d70a3d877844192313f323bf7bb/melon/resize/282/quality/80/optimize",
 				"우리 다시 만날래\r\n" + "예쁘게 빛나던\r\n" + "모든 추억들이\r\n" + "너무 그리워\r\n" + "너의 품에 안길래\r\n" + "이 밤이 새도록\r\n"
@@ -160,7 +160,7 @@ public class Music {
 						+ "너무 그리워\r\n" + "너의 품에 안길래\r\n" + "이 밤이 새도록\r\n" + "네게 말할 거야\r\n" + "너를 좋아한다고\r\n"
 						+ "같이 별 보러 갈래\r\n" + "널 다시 만나면\r\n" + "네 옆에 기대서\r\n" + "잠들고 싶어\r\n" + "너의 품에 안길래\r\n"
 						+ "이 밤이 새도록\r\n" + "내 곁에 있어줘\r\n" + "내겐 너뿐이라고"));
-	
+
 		list.add(new Music(10, "LE SSERAFIM (르세라핌)", "FEARLESS", "FEARLESS",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/39/458/10939458_20220502123814_500.jpg?86d6e58174ad3b107f20ccfe00658b1f/melon/resize/282/quality/80/optimize",
 				"Bam ba ba ba ba bam ba ba ba ba bam\r\n" + "Ba ba ba ba bam\r\n"
@@ -179,7 +179,7 @@ public class Music {
 						+ "가슴팍에 숫자 1 내게 ay\r\n" + "내 밑으로 조아린 세계 ay\r\n"
 						+ "Take the world break it down break you down down\r\n" + "\r\n" + "밟아줘 highway highway\r\n"
 						+ "멋진 결말에 닿게\r\n" + "내 흉짐도 나의 일부라면\r\n" + "겁이 난 없지 없지\r\n" + ""));
-		
+
 		list.add(new Music(11, "임영웅", "다시 만날 수 있을까", "IM HERO",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/23/444/10923444_20220502140600_500.jpg?5bd42dcc031a23cd1cae99ae37a606aa/melon/resize/282/quality/80/optimize",
 				"너를 위해 해 줄 것이 하나 없어서\r\n" + "보낼 수밖에 없었고\r\n" + "네가 없이 사는 법을 알지 못해서\r\n" + "순간순간을 울었다\r\n"
@@ -192,7 +192,7 @@ public class Music {
 						+ "서로를 품에 안고서\r\n" + "하염없이 눈물만 흘려볼까\r\n" + "그리운 마음이 서럽게 흘러넘쳐\r\n" + "너에게 닿을 때\r\n"
 						+ "우리 만날 수 있을까\r\n" + "다시 만날 수 있을까\r\n" + "그리 좋던 예전처럼 그때처럼\r\n" + "되돌아갈 수 있을까\r\n"
 						+ "다시 우리가 만나면\r\n" + "무엇을 해야만 할까\r\n" + "서로를 품에 안고서\r\n" + "하염없이 눈물만 흘려볼까"));
-		
+
 		list.add(new Music(12, "BE'O (비오)", "LOVE me", "LOVE me",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/16/904/10916904_20220412101049_500.jpg?a7f6649d1e80e83e191d90670a576931/melon/resize/282/quality/80/optimize",
 				"Hey girl, Where you at? (Where you at?)\r\n" + "대체 어디서 뭐 하는지 궁금해\r\n" + "기분이 너무 Bad Bad (So bad)\r\n"
@@ -208,7 +208,7 @@ public class Music {
 						+ "I know, I'm stupid\r\n" + "어쩔 수 없어 널 보고 싶은걸\r\n" + "\r\n" + "Oh please\r\n"
 						+ "Love me love me love me\r\n" + "I know, I'm stupid\r\n" + "어쩔 수 없어 널 보고 싶은걸\r\n"
 						+ "Now I say I love you"));
-	
+
 		list.add(new Music(13, "Red Velvet (레드벨벳)", "Feel My Rhythm", "The ReVe Festival 2022",
 				"https://cdnimg.melon.co.kr/cm2/album/images/108/94/554/10894554_20220321100622_500.jpg?d53e7525c3212538fa0b850bca4e7369/melon/resize/282/quality/80/optimize",
 				"Red Velvet\r\n" + "\r\n" + "무도회를 뒤집어\r\n" + "작은 소란을 또 일으켜\r\n" + "This is gonna be a crazy night\r\n"
@@ -224,7 +224,7 @@ public class Music {
 						+ "빠져드는 Sweet emotion\r\n" + "너를 태운 채 (Sway)\r\n" + "어디로든 떠날래 (Way)\r\n" + "온 세상 모든 경계를\r\n"
 						+ "다 휘저을래 (Oh yeah)\r\n" + "\r\n" + "꽃가루를 날려\r\n" + "(흩날려)\r\n" + "Champagne을 더 크게 터트려\r\n"
 						+ "(마음껏)\r\n" + "더는 어제와 내일에 가두지 마\r\n" + "자유로워 지금"));
-	
+
 		list.add(new Music(14, "김민석 (멜로망스)", "취중고백", "취중고백",
 				"https://cdnimg.melon.co.kr/cm2/album/images/108/16/959/10816959_20211217144957_500.jpg?c1818ddc493cb2bbb4d268431e6de7b5/melon/resize/282/quality/80/optimize",
 				"뭐하고 있었니 늦었지만\r\n" + "잠시 나올래\r\n" + "너의 집 골목에 있는\r\n" + "놀이터에 앉아 있어\r\n" + "친구들 만나서 오랜만에\r\n"
@@ -236,7 +236,7 @@ public class Music {
 						+ "진심이야 믿어줘\r\n" + "갑자기 이런 말 놀랐다면 미안해\r\n" + "부담이 되는게 당연해\r\n" + "이해해 널\r\n"
 						+ "하지만 내 고백도 이해해 주겠니 oh\r\n" + "지금 당장 대답하진마\r\n" + "나와 일주일만 사귀어줄래\r\n" + "후회없이 잘 해주고 싶은데\r\n"
 						+ "그 후에도 니가 싫다면\r\n" + "나 그때 포기할게\r\n" + "귀찮게 안할게 혼자 아플게\r\n" + "진심이야 너를 사랑하고 있어"));
-	
+
 		list.add(new Music(15, "박재범", "GANADARA (Feat. 아이유)", "Proof",
 				"https://cdnimg.melon.co.kr/cm2/album/images/108/89/981/10889981_20220311110820_500.jpg?281b24fc59e617f3be73ebea48195a9f/melon/resize/282/quality/80/optimize",
 				"길거리를 걷다 보면\r\n" + "사랑 노래만 흘러나와\r\n" + "나는 왜 저런 게 낯설까\r\n" + "난 한국말까지 서툴러\r\n" + "번역기도 전혀 도움 안 돼\r\n"
@@ -255,7 +255,7 @@ public class Music {
 						+ "가르쳐줘 오늘 밤\r\n" + "가나다라마바사\r\n" + "손을 잡아 따라와\r\n" + "맑은 날씨 보름달\r\n" + "가르쳐줘 오늘 밤\r\n"
 						+ "가나다라마바사\r\n" + "손을 잡아 따라와\r\n" + "맑은 날씨 보름달\r\n" + "가르쳐줘 오늘 밤\r\n" + "가나다라마바사\r\n"
 						+ "손을 잡아 따라와\r\n" + "맑은 날씨 보름달\r\n" + "가르쳐줘 오늘 밤\r\n" + "가나다라마바사"));
-	
+
 		list.add(new Music(16, "임영웅", "이제 나만 믿어요", "내일은 미스터트롯 우승자 특전곡",
 				"https://cdnimg.melon.co.kr/cm2/album/images/104/12/319/10412319_20200403103006_500.jpg?1a1ff62cf6843868fc53b9eaf4c28f86/melon/resize/282/quality/80/optimize",
 				"무얼 믿은 걸까 부족했던 내게서\r\n" + "나조차 못 믿던 내게 여태 머문 사람\r\n" + "무얼 봤던 걸까 가진 것도 없던 내게\r\n"
@@ -267,7 +267,7 @@ public class Music {
 						+ "다신 누구 앞에서도\r\n" + "그대는 고개 숙이지 마요\r\n" + "내가 보지 못했던 홀로 고단했던 시간\r\n" + "고맙고 미안해요 사랑해요\r\n"
 						+ "이 세상은\r\n" + "우리를 두고 오랜 장난을 했고\r\n" + "우린 속지 않은 거야\r\n" + "이제 울지 마요\r\n"
 						+ "좋을 땐 밤새도록 맘껏 웃어요\r\n" + "전부 그대 꺼니까\r\n" + "그대는 걱정 말아요\r\n" + "이제 나만 믿어요"));
-	
+
 		list.add(new Music(17, "임영웅", "무지개", "IM HERO",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/23/444/10923444_20220502140600_500.jpg?5bd42dcc031a23cd1cae99ae37a606aa/melon/resize/282/quality/80/optimize",
 				"오늘 하루 어땠었나요\r\n" + "많이 힘들었나요\r\n" + "쉬지 않고 달려왔던 길에서\r\n" + "나와 함께 쉬어가요\r\n" + "그냥 아무런 준비도 없이\r\n"
@@ -280,7 +280,7 @@ public class Music {
 						+ "답답했던 일상과 도심을 벗어나\r\n" + "Du Du Du Du\r\n" + "Du Du Du Du\r\n" + "떠나볼래요\r\n" + "우리 함께 가요\r\n"
 						+ "Du Du Du Du Du\r\n" + "Du Du Du Du\r\n" + "Du Du Du Du\r\n" + "떠나볼래요\r\n" + "Du Du Du Du\r\n"
 						+ "Du Du Du Du\r\n" + "떠나볼래요\r\n" + "Du Du Du Du\r\n" + "Du Du Du Du\r\n" + "지금 떠나요"));
-	
+
 		list.add(new Music(18, "세븐틴", "HOT", "SEVENTEEN 4th Album 'Face the Sun'",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/22/231/10922231_20220527120653_500.jpg?d4668bd274949f814ae2ccadee6f42eb/melon/resize/282/quality/80/optimize",
 				"모두 우릴 쳐다봐 (봐)\r\n" + "태양 위를 달리는 마차 (계속 달려 Uh)\r\n" + "Juicy Juicy Juicy Juicy\r\n" + "\r\n"
@@ -296,7 +296,7 @@ public class Music {
 						+ "아주 뜨겁게 (Boom Brr Boom Boom)\r\n" + "태양을 향해 불붙여라\r\n" + "뜨거워 이 노래 Everybody 떼창\r\n" + "\r\n"
 						+ "Ay 나팔을 불어라 사막의 파도 사이로 Drive away\r\n" + "I don’t want uh one more chance\r\n"
 						+ "이 순간에 모든 걸 걸을래\r\n" + ""));
-	
+
 		list.add(new Music(19, "임영웅", "아버지", "IM HERO",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/23/444/10923444_20220502140600_500.jpg?5bd42dcc031a23cd1cae99ae37a606aa/melon/resize/282/quality/80/optimize",
 				"하얀 머리 뽑아 달라며\r\n" + "한 개 백 원이라던\r\n" + "그 시절 다 지나가고\r\n" + "이젠 흰 눈만 남았네\r\n" + "그렇게도 힘이 드냐며\r\n"
@@ -306,7 +306,7 @@ public class Music {
 						+ "오래오래 날 지키며\r\n" + "그냥 곁에만 있어 주세요\r\n" + "활짝 웃는 모습이\r\n" + "어린애 같아 보여도\r\n"
 						+ "아프다 말도 못 하는 사람\r\n" + "이제는 내가 지켜줄게\r\n" + "어린아이로 돌아가 버린\r\n" + "사랑하는 내 아버지\r\n"
 						+ "사랑해요 내 아버지"));
-	
+
 		list.add(new Music(20, "제시 (Jessi)", "ZOOM", "ZOOM",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/18/269/10918269_20220413101153_500.jpg?6b884a5228cdb9e76abd757ab351c9e1/melon/resize/282/quality/80/optimize",
 				"Lights Camera Action\r\n" + "\r\n" + "I see you lookin at my P I C (I know)\r\n"
@@ -325,7 +325,7 @@ public class Music {
 						+ "빛이 빛이 나는 Wishlist 항상 일 Pick\r\n" + "물어보지 좀 마 언니 뭐야 립스틱?\r\n"
 						+ "It’s funny how you always talking money\r\n" + "But always playin a dummy\r\n"
 						+ "Yous a bummy beggin yo mummy for money"));
-		
+
 		list.add(new Music(21, "이무진", "신호등", "신호등",
 				"https://cdnimg.melon.co.kr/cm2/album/images/106/07/796/10607796_20210513201807_500.jpg?cb1d50410b364ec4c2a4848adbf5eb68/melon/resize/282/quality/80/optimize",
 				"이제야 목적지를 정했지만\r\n" + "가려한 날 막아서네 난 갈 길이 먼데\r\n" + "새빨간 얼굴로 화를 냈던\r\n" + "친구가 생각나네\r\n"
@@ -340,7 +340,7 @@ public class Music {
 						+ "꼬질꼬질한 사람이나\r\n" + "부자 곁엔 아무도 없는\r\n" + "삼색 조명과 이색 칠 위에\r\n" + "서 있어 괴롭히지 마\r\n"
 						+ "붉은색 푸른색 그 사이\r\n" + "3초 그 짧은 시간\r\n" + "노란색 빛을 내는 저기 저 신호등이\r\n" + "내 머릿속을 텅 비워버려\r\n"
 						+ "내가 빠른지도\r\n" + "느린지도 모르겠어\r\n" + "그저 눈앞이 샛노랄 뿐이야"));
-		
+
 		list.add(new Music(22, "경서예지, 전건호", "다정히 내 이름을 부르면", "다정히 내 이름을 부르면",
 				"https://cdnimg.melon.co.kr/cm2/album/images/106/10/525/10610525_20210518143433_500.jpg?e8c5aa44ff6608c13fa48eb6a20e81af/melon/resize/282/quality/80/optimize",
 				"끝없이 별빛이 내리던 밤\r\n" + "기분 좋은 바람이\r\n" + "두 빰을 스치고\r\n" + "새벽 바다 한곳을 보는\r\n" + "아름다운 너와 나\r\n"
@@ -352,7 +352,7 @@ public class Music {
 						+ "5월에 피는 봄꽃 처럼\r\n" + "내 사랑도 피어나\r\n" + "부는 바람에 살며시 실어 보내\r\n" + "다정히 내 이름을\r\n"
 						+ "부르면 내 마음이\r\n" + "녹아내려 언제나\r\n" + "나 하날 위해 준비된\r\n" + "선물 같아 널 안으면\r\n" + "잠들지 않는 바다 위를\r\n"
 						+ "너와 함께 걷는 거 같아"));
-	
+
 		list.add(new Music(23, "임영웅", "손이 참 곱던 그대", "IM HERO",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/23/444/10923444_20220502140600_500.jpg?5bd42dcc031a23cd1cae99ae37a606aa/melon/resize/282/quality/80/optimize",
 				"끝없이 별빛이 내리던 밤\r\n" + "기분 좋은 바람이\r\n" + "두 빰을 스치고\r\n" + "새벽 바다 한곳을 보는\r\n" + "아름다운 너와 나\r\n"
@@ -363,7 +363,7 @@ public class Music {
 						+ "사랑에 눈을 뜬 건 가봐\r\n" + "경험하지 못했고\r\n" + "믿기지 않는 일만\r\n" + "일어나고 있는 거 아니\r\n"
 						+ "5월에 피는 봄꽃 처럼\r\n" + "내 사랑도 피어나\r\n" + "부는 바람에 살며시 실어 보내\r\n" + "다정히 내 이름을\r\n"
 						+ "부르면 내 마음이\r\n" + "녹아내려 언제나\r\n" + "나 하날 위해 준비된"));
-	
+
 		list.add(new Music(24, "태연 (TAEYEON)", "INVU", "INVU - The 3rd Album",
 				"https://cdnimg.melon.co.kr/cm2/album/images/108/63/559/10863559_20220214160739_500.jpg?42c2b52a394ac94dad21d64aec2c577d/melon/resize/282/quality/80/optimize",
 				"Falling in love\r\n" + "너에겐 난 Option\r\n" + "시작부터 다른 너와 나\r\n" + "깨지는 Heart\r\n" + "빗나간 네 Mention\r\n"
@@ -380,7 +380,7 @@ public class Music {
 						+ "부서진 맘이\r\n" + "자꾸 날 할퀴어\r\n" + "아파도 못 멈춰\r\n" + "So when you leave\r\n"
 						+ "Please make it easy\r\n" + "Cause I N V U\r\n" + "\r\n" + "I N V U\r\n" + "I N V U\r\n"
 						+ "I N V U\r\n" + "\r\n" + "I N V U"));
-		
+
 		list.add(new Music(25, "IVE (아이브)", "ELEVEN", "ELEVEN",
 				"https://cdnimg.melon.co.kr/cm2/album/images/107/98/794/10798794_20211201113915_500.jpg?4b89cd385817f7519af259b2c32170f0/melon/resize/282/quality/80/optimize",
 				"따분한 나의 눈빛이\r\n" + "무표정했던 얼굴이\r\n" + "널 보며 빛나고 있어\r\n" + "널 담은 눈동자는 odd\r\n" + "\r\n"
@@ -433,14 +433,17 @@ public class Music {
 						+ "I never had 겁 a.k.a “Giant dog”\r\n" + "아차 하고 쓰다듬은 다쳐 이건 어쩜 범\r\n"
 						+ "I value my love 그만 두들겨 너\r\n" + "머리 빈 멍청이들과는 노는 물이 전혀 달라 Ye you know\r\n" + ""));
 
-		list.add(new Music(29, "임영웅", "사랑해 진짜", "IM HERO",
-				"https://cdnimg.melon.co.kr/cm2/album/images/109/23/444/10923444_20220502140600_500.jpg?5bd42dcc031a23cd1cae99ae37a606aa/melon/resize/282/quality/80/optimize",
-				"숱한 날들 모두 내게 남아있는 추억들\r\n" + "빛바랜 기억들 사이\r\n" + "그대 모습만이 아련하게 빛나네\r\n" + "지나간 세월이 야속하진 않아\r\n"
-						+ "그댈 만났으므로\r\n" + "피어날 내일을 기대해 오\r\n" + "그대 내게 와줬으니\r\n" + "나 진짜 진짜 당신만을 사랑하고 사랑해\r\n"
-						+ "내 삶의 반쪽 그대만을\r\n" + "아 나는 그대만 보고 있어\r\n" + "아 나는 그대를 사랑합니다\r\n" + "오색빛의 색이 물든 미완성의 그림 하나\r\n"
-						+ "그래 내 마음 같겠지\r\n" + "어느 날 그대가 내게 오기 전까지\r\n" + "지나간 시간이 야속하진 않아\r\n" + "그댈 만났으므로\r\n"
-						+ "피어날 내일을 기대해\r\n" + "그대 내게 와줬으니\r\n" + "나 진짜 진짜 당신만을 사랑하고 사랑해\r\n" + "내 삶의 반쪽 그대만을\r\n"
-						+ "아 나는 그대만 보고 있어\r\n" + "아 나는 그대를 사랑합니다"));
+		list.add(new Music(29, "세븐틴", "Domino", "SEVENTEEN 4th Album 'Face the Sun'",
+				"https://cdnimg.melon.co.kr/cm2/album/images/109/22/231/10922231_20220527120653_500.jpg?d4668bd274949f814ae2ccadee6f42eb/melon/resize/282/quality/80/optimize",
+				"옆에 서 있을 때 위태로워\r\n" + "자연스러운 긴장이 좋은 나\r\n" + "투명한 내 맘을 넌 다 알아\r\n" + "Take it all Take it all\r\n"
+						+ "\r\n" + "널 뒤에서 안고 있을 때 난\r\n" + "뭐든 할 수 있을 것만 같아\r\n" + "달콤한 세계로 데려가 줘\r\n"
+						+ "Here we go Here we go\r\n" + "\r\n" + "I’m tryin’ to hold on\r\n" + "날 무방비 상태로 만들어\r\n"
+						+ "I can’t fight it\r\n" + "내 모든 건 널 따라서 움직여\r\n" + "I’m feeling like\r\n"
+						+ "3, 2, 1 Domino\r\n" + "\r\n" + "툭 하고 나를 건드리며\r\n" + "후 하고 숨을 뱉어주면\r\n"
+						+ "난 한순간에 넘어지지 Like a Domino\r\n" + "\r\n" + "차례대로 쓰러지는\r\n" + "이 기분은 Nobody knows\r\n"
+						+ "한 방에 난 넘어가지 Like a Domino\r\n" + "\r\n" + "넘어가지 Like a Domino\r\n" + "\r\n"
+						+ "내게로 선을 넘어 안겨줘\r\n" + "널 안고 난 넘어질 수 있어\r\n" + "넌 날 꽉 잡고 있어 주면 돼\r\n"
+						+ "Here we go Here we go\r\n" + ""));
 
 		list.add(new Music(30, "MSG워너비(M.O.M)", "듣고 싶을까", "듣고 싶을까",
 				"https://cdnimg.melon.co.kr/cm2/album/images/108/80/544/10880544_20220225141002_500.jpg?40e919481d78a3356e98436f44acee24/melon/resize/282/quality/80/optimize",
@@ -451,7 +454,7 @@ public class Music {
 						+ "말없이 다 전해지는 건 없지 난 말해 지금\r\n" + "몇 년째 나의 favorite one\r\n" + "You the only one yeah\r\n"
 						+ "Yes I know 무엇도 달라질 건 없지만\r\n" + "이게 내 진심인 걸 꼭 알아줬음 해\r\n" + "우리 함께 듣던 그 노랠 듣고 싶을까\r\n"
 						+ "듣고 나서 잠시 날 생각은 할까\r\n" + "아주 혹시라도 넌 내가 보고 싶을까\r\n" + "난 왜 니 목소리가 듣고 싶을까"));
-	
+
 		list.add(new Music(31, "임영웅", "연애편지", "IM HERO",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/23/444/10923444_20220502140600_500.jpg?5bd42dcc031a23cd1cae99ae37a606aa/melon/resize/282/quality/80/optimize",
 				"노을에 물든 저녁 하늘이\r\n" + "오랜만에 참 좋은 저녁입니다\r\n" + "문득 떠오른 그대 생각에\r\n" + "나지막이 이름을 불러봅니다\r\n"
@@ -498,7 +501,7 @@ public class Music {
 						+ "You didn’t love when you had me\r\n" + "But now you need me so badly\r\n"
 						+ "You can’t be serious\r\n" + "That’s hilarious\r\n" + "Thinking I would still want you\r\n"
 						+ "After the things you put me through\r\n" + "Yea You’re delirious\r\n" + "That’s hilarious"));
-	
+
 		list.add(new Music(35, "케이시(Kassy)", "늦은 밤 헤어지긴 너무 아쉬워", "LOVE & HATE",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/60/568/10960568_20220518153132_500.jpg?811fe95ac5d805835e86e59622e95210/melon/resize/282/quality/80/optimize",
 				"어쩌면 너도 나와 같은 꿈 꿀까\r\n" + "매일 마주 보며 눈뜨는 하루\r\n" + "늦은 밤 헤어지긴 너무 아쉬워\r\n" + "널 많이 사랑하나 봐\r\n"
@@ -622,7 +625,7 @@ public class Music {
 						+ "내 입꼬리는 Chillin’\r\n" + "나빠야지 살아남지 넌 뭐해\r\n" + "귀엽고 예쁘면 장땡이냐 근데\r\n" + "널 보고 있으니까 기분이가 좋네"));
 
 		list.add(new Music(45, "케이시 (Kassy)", "언제나 사랑해", "조영수 리메이크 프로젝트 Part.2",
-				"https://cdnimg.melon.co.kr/cm2/album/images/108/57/681/10857681_20220204162442_500.jpg/melon/resize/120/quality/80/optimize",
+				"https://cdnimg.melon.co.kr/cm2/album/images/108/57/681/10857681_20220204162442_500.jpg?14a009765b3053f6c482eab7061b58c7/melon/resize/282/quality/80/optimize",
 				"둘이 손잡고 걸을 때\r\n" + "마주 보며 또 웃을 때\r\n" + "사랑한다 말하지 않아도 알아\r\n" + "널 만나러 가는 길에\r\n"
 						+ "내 입가에 늘 환한 미소만이\r\n" + "흐르고 있어\r\n" + "사랑해 너를 사랑해\r\n" + "눈물 나도록 사랑해\r\n" + "저기 밤하늘의 별보다\r\n"
 						+ "보석보다 네가 더 소중해\r\n" + "얼마나 내가 얼마나 너를 사랑하는지\r\n" + "내 모든 걸 너에게 줄게\r\n" + "속상하고 힘이 들 때\r\n"

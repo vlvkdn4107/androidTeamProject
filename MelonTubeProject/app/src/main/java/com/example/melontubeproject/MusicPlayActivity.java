@@ -2,28 +2,20 @@ package com.example.melontubeproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.melontubeproject.databinding.ActivityMusicPlayBinding;
-import com.example.melontubeproject.models.Data;
 import com.example.melontubeproject.models.Music;
 import com.example.melontubeproject.repository.MusicService;
 import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.ui.PlayerControlView;
 import com.google.android.exoplayer2.ui.PlayerView;
-import com.google.android.exoplayer2.upstream.RawResourceDataSource;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,8 +31,6 @@ public class MusicPlayActivity extends AppCompatActivity {
 
     private SimpleExoPlayer simpleExoPlayer;
     private PlayerView playerView;
-
-    private List<Music> musicList = ChartFragment.getInstance().list;
 
     private final String TAG = MusicPlayActivity.class.getName();
 

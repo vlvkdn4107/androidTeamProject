@@ -18,12 +18,16 @@ import com.example.melontubeproject.adapter.RecentAlbumAdapter;
 import com.example.melontubeproject.databinding.FragmentChartBinding;
 import com.example.melontubeproject.interfaces.OnAddListClicked;
 import com.example.melontubeproject.interfaces.OnPlayBtnClicked;
+import com.example.melontubeproject.models.Album;
 import com.example.melontubeproject.models.Data;
 import com.example.melontubeproject.models.Music;
 import com.example.melontubeproject.repository.MusicService;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -40,7 +44,8 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
     // 다른 프래그먼트 갔다 와도 보던 목록 그대로 있게
    private boolean isFirstUpload = true;
 
-    public List<Music> list = new ArrayList<>();
+    public List<Music> musicList = new ArrayList<>();
+    public List<Album> albumList = new ArrayList<>();
 
     private static final String TAG = ChartFragment.class.getName();
 
@@ -65,12 +70,11 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
                              Bundle savedInstanceState) {
 
         binding = FragmentChartBinding.inflate(inflater, container, false);
-        setRecycleView(list);
+        setRecycleView();
 
         if (isFirstUpload) {
             requestMusicData();
         }
-
         return binding.getRoot();
     }
 
@@ -82,8 +86,7 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
                 .enqueue(new Callback<Data>() {
                     @Override
                     public void onResponse(Call<Data> call, Response<Data> response) {
-                        List<Music> list = response.body().getMusicList();
-                        chartAdapter.addItem(list);
+                        chartAdapter.addItem(response.body().getMusicList());
                         isFirstUpload = false;
                     }
 
@@ -92,31 +95,43 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
                         Toast.makeText(getContext(), "네트워크가 불안정합니다.", Toast.LENGTH_SHORT).show();
                     }
                 });
+
+        musicService.albumMusicList()
+                .enqueue(new Callback<List<Album>>() {
+                    @Override
+                    public void onResponse(Call<List<Album>> call, Response<List<Album>> response) {
+                        recentAlbumAdapter.addAlbumItem(response.body());
+                        isFirstUpload = false;
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Album>> call, Throwable t) {
+
+                    }
+                });
+
     }
 
-    private void setRecycleView(List<Music> musicList) {
+    private void setRecycleView() {
         chartAdapter = new ChartAdapter();
         chartAdapter.setOnAddListClicked(this);
         chartAdapter.setOnPlayBtnClicked(this);
         chartAdapter.initItemList(musicList);
 
         recentAlbumAdapter = new RecentAlbumAdapter();
-
-        //Collections.sort(musicList, Collections.reverseOrder());
-        recentAlbumAdapter.initItemList(musicList);
+        recentAlbumAdapter.initItemList(albumList);
 
         RecyclerView recyclerView = binding.recyclerView;
-        RecyclerView horizentalRecyclerView = binding.horizentalRecyclerView;
+        RecyclerView horizontalRecyclerView = binding.horizentalRecyclerView;
 
         recyclerView.setAdapter(chartAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
 
-        horizentalRecyclerView.setAdapter(recentAlbumAdapter);
-        horizentalRecyclerView.setLayoutManager(new LinearLayoutManager(
+        horizontalRecyclerView.setAdapter(recentAlbumAdapter);
+        horizontalRecyclerView.setLayoutManager(new LinearLayoutManager(
                 getContext(), LinearLayoutManager.HORIZONTAL, false));
-        horizentalRecyclerView.setHasFixedSize(true);
-
+        horizontalRecyclerView.setHasFixedSize(true);
     }
 
     @Override

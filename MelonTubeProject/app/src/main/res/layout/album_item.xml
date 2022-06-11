@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_height="220dp"
     android:orientation="vertical">
 
     <ImageView
@@ -17,9 +17,11 @@
 
     <TextView
         android:id="@+id/albumTitleText"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:maxLines="2"
         android:text="ALBUM NAME"
         android:textColor="@color/black"
         android:textSize="15dp"
@@ -27,9 +29,10 @@
 
     <TextView
         android:id="@+id/singerText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:gravity="center"
         android:text="Singer" />
 
 </LinearLayout>
