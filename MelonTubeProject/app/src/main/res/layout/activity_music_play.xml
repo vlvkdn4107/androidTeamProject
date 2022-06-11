@@ -6,17 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".MusicPlayActivity">
 
-    <ImageView
-        android:id="@+id/elbumPlayImage"
-        android:layout_width="330dp"
-        android:layout_height="330dp"
-        android:layout_marginTop="25dp"
-        android:background="@color/black"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:cardCornerRadius="17dp"
+        app:cardElevation="30dp"
+        app:layout_constraintBottom_toTopOf="@id/titlePlayText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    </ImageView>
+        <ImageView
+            android:id="@+id/elbumPlayImage"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:background="@color/black">
+
+        </ImageView>
+    </androidx.cardview.widget.CardView>
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -40,28 +49,18 @@
 
     </ScrollView>
 
-    <!--    <com.google.android.material.progressindicator.LinearProgressIndicator-->
-    <!--        android:id="@+id/linearProgressBar"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginStart="40dp"-->
-    <!--        android:layout_marginTop="20dp"-->
-    <!--        android:layout_marginEnd="40dp"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/singerPlayText" />-->
-
     <com.google.android.exoplayer2.ui.PlayerControlView
         android:id="@+id/playerControlView"
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="210dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
-        android:background="@color/black"
         app:auto_show="true"
-        app:show_timeout="0"
         app:controller_layout_id="@layout/custom_exo_view"
         app:layout_constraintTop_toBottomOf="@id/singerPlayText"
         app:resize_mode="fixed_width"
+        app:show_timeout="0"
         app:surface_type="none"
         app:use_controller="true" />
 
@@ -70,10 +69,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:textColor="@color/black"
         android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="@id/elbumPlayImage"
-        app:layout_constraintStart_toStartOf="@id/elbumPlayImage"
-        app:layout_constraintTop_toBottomOf="@id/elbumPlayImage"
+        app:layout_constraintEnd_toEndOf="@id/cardView"
+        app:layout_constraintStart_toStartOf="@id/cardView"
+        app:layout_constraintTop_toBottomOf="@id/cardView"
         tools:text="Title" />
 
     <TextView
@@ -86,42 +86,6 @@
         app:layout_constraintStart_toStartOf="@id/titlePlayText"
         app:layout_constraintTop_toBottomOf="@id/titlePlayText"
         tools:text="singer" />
-
-    <ImageButton
-        android:id="@+id/playMusicBtn"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_baseline_play_arrow_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/singerPlayText" />
-
-    <ImageButton
-        android:id="@+id/skipNextBtn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_baseline_skip_next_24"
-        app:layout_constraintBottom_toBottomOf="@id/playMusicBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/playMusicBtn"
-        app:layout_constraintTop_toTopOf="@id/playMusicBtn" />
-
-    <ImageButton
-        android:id="@+id/skipPreviousBtn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_baseline_skip_previous_24"
-        app:layout_constraintBottom_toBottomOf="@id/playMusicBtn"
-        app:layout_constraintEnd_toStartOf="@id/playMusicBtn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/playMusicBtn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

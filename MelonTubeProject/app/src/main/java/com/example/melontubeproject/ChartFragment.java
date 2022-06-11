@@ -2,16 +2,15 @@ package com.example.melontubeproject;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.melontubeproject.adapter.ChartAdapter;
 import com.example.melontubeproject.adapter.RecentAlbumAdapter;
@@ -19,15 +18,11 @@ import com.example.melontubeproject.databinding.FragmentChartBinding;
 import com.example.melontubeproject.interfaces.OnAddListClicked;
 import com.example.melontubeproject.interfaces.OnPlayBtnClicked;
 import com.example.melontubeproject.models.Album;
-import com.example.melontubeproject.models.Data;
 import com.example.melontubeproject.models.Music;
 import com.example.melontubeproject.repository.MusicService;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -83,15 +78,15 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
         Log.d(TAG, "통신 요청 확인");
 
         musicService.musicList()
-                .enqueue(new Callback<Data>() {
+                .enqueue(new Callback<List<Music>>() {
                     @Override
-                    public void onResponse(Call<Data> call, Response<Data> response) {
-                        chartAdapter.addItem(response.body().getMusicList());
+                    public void onResponse(Call<List<Music>> call, Response<List<Music>> response) {
+                        chartAdapter.addItem(response.body());
                         isFirstUpload = false;
                     }
 
                     @Override
-                    public void onFailure(Call<Data> call, Throwable t) {
+                    public void onFailure(Call<List<Music>> call, Throwable t) {
                         Toast.makeText(getContext(), "네트워크가 불안정합니다.", Toast.LENGTH_SHORT).show();
                     }
                 });

@@ -1,23 +1,25 @@
 package com.example.melontubeproject;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.melontubeproject.databinding.ActivityMusicPlayBinding;
+import com.example.melontubeproject.databinding.CustomExoViewBinding;
 import com.example.melontubeproject.models.Music;
 import com.example.melontubeproject.repository.MusicService;
-import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.ui.PlayerControlView;
 import com.google.android.exoplayer2.ui.PlayerView;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,6 +33,10 @@ public class MusicPlayActivity extends AppCompatActivity {
 
     private SimpleExoPlayer simpleExoPlayer;
     private PlayerView playerView;
+
+    private ImageButton playBtn;
+    private ImageButton skipNextBtn;
+    private ImageButton skipPreviousBtn;
 
     private final String TAG = MusicPlayActivity.class.getName();
 
@@ -46,14 +52,14 @@ public class MusicPlayActivity extends AppCompatActivity {
         if (getIntent() != null) {
             music = (Music) getIntent().getSerializableExtra(OBJ_NAME);
             setNewMusic();
-            //playMusic();
+            playMusic();
         }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //simpleExoPlayer.release();
+        simpleExoPlayer.release();
     }
 
     private void setNewMusic() {
@@ -90,11 +96,15 @@ public class MusicPlayActivity extends AppCompatActivity {
 
     private void addEventListener() {
         // 다음 노래 재생 버튼 클릭
-        binding.skipNextBtn.setOnClickListener(v -> {
+        playBtn = findViewById(R.id.playMusicBtn);
+        skipNextBtn = findViewById(R.id.skipNextBtn);
+        skipPreviousBtn = findViewById(R.id.skipPreviousBtn);
+
+        skipNextBtn.setOnClickListener(v -> {
             skipNextMusic();
         });
 
-        binding.skipPreviousBtn.setOnClickListener(v -> {
+        skipPreviousBtn.setOnClickListener(v -> {
             skipPreviousMusic();
         });
     }
@@ -104,13 +114,28 @@ public class MusicPlayActivity extends AppCompatActivity {
         PlayerControlView playerControlView = binding.playerControlView;
         playerControlView.setPlayer(simpleExoPlayer);
 
-        List<MediaItem> mediaItems = new ArrayList<>();
-        makePlayList(mediaItems);
+        setMusic(music);
         simpleExoPlayer.prepare();
         simpleExoPlayer.setPlayWhenReady(true);
     }
 
-    private void makePlayList(List<MediaItem> mediaitems) {
+    private void setMusic(Music music) {
+
+        musicService.playMusic(music.getTitle())
+                .enqueue(new Callback<Music>() {
+                    @Override
+                    public void onResponse(Call<Music> call, Response<Music> response) {
+                        DefaultHttpDataSourceFactory dataSourceFactory = new DefaultHttpDataSourceFactory(getString(R.string.app_name));
+                        MediaSource mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
+                                .createMediaSource(Uri.parse(response.body().getAudioUrl()));
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Music> call, Throwable t) {
+
+                    }
+                });
     }
 
     private void skipNextMusic() {

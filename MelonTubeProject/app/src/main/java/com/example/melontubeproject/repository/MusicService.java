@@ -25,7 +25,7 @@ public interface MusicService {
             .build();
 
     @GET("musiclist")
-    Call<Data> musicList();
+    Call<List<Music>> musicList();
 
     @GET("skipmusic/next")
     Call<Music> skipNextMusic(
@@ -44,6 +44,11 @@ public interface MusicService {
 
     @GET("albumlist")
     Call<List<Album>> albumMusicList();
+
+    @GET("play")
+    Call<Music> playMusic(
+            @Query("musicTitle") String musicTitle
+    );
 
     @POST("addmylist")
     Call<Music> addMyList(
