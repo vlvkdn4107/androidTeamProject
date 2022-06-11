@@ -1,9 +1,6 @@
 package com.example.spring_server.controller;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -29,10 +26,8 @@ public class ApiController {
 	private static List<Music> sampleMusic = Music.sampledata();
 
 	@GetMapping("/musiclist")
-	public Data musicList() {
-		Data data = new Data();
-		data.setMusicList(sampleMusic);
-		return data;
+	public List<Music> musicList() {
+		return sampleMusic;
 	}
 
 	// 마지막 곡이면 다음 곡 첫 곡으로
@@ -58,24 +53,6 @@ public class ApiController {
 		}
 		return music;
 	}
-
-//	@GetMapping(path = "/albumlist/{albumTitle}")
-//	public Album albumMusicList(@PathVariable(name = "albumTitle") String albumTitle) {
-//		List<Music> albumList = new ArrayList<Music>();
-//		Album album = new Album();
-//
-//		for (int i = 0; i < sampleMusic.size(); i++) {
-//			if (sampleMusic.get(i).getAlbumTitle().equals(albumTitle)) {
-//				albumList.add(sampleMusic.get(i));
-//				album.setAlbumImageUrl(sampleMusic.get(i).getAlbumTitle());
-//				album.setAlbumTitle(sampleMusic.get(i).getAlbumTitle());
-//				album.setAlbumSinger(sampleMusic.get(i).getSinger());
-//			}
-//		}
-//		album.setTrackList(albumList);
-//		return album;
-//
-//	}
 	
 	// 앨범 상세정보 출력 (수록곡)
 	@GetMapping(path="/albumlist/{albumTitle}")
@@ -98,21 +75,35 @@ public class ApiController {
 
 	@GetMapping("/albumlist")
 	public List<Album> albumMusicList() {
-
-		List<Album> albums = new ArrayList<Album>();
+		List<Album> albumList = new ArrayList<Album>();
+		List<Music> musicList = new ArrayList<Music>();
 		
-		List<Music> albumList = new ArrayList<Music>();
-
 		for (int i = 0; i < sampleMusic.size(); i++) {
-			Album album = new Album();
-			album.setAlbumTitle(sampleMusic.get(i).getAlbumTitle());
-			album.setAlbumImageUrl(sampleMusic.get(i).getImageUrl());
-			album.setAlbumSinger(sampleMusic.get(i).getSinger());
+			Music music = new Music();
+			String albumTitle = sampleMusic.get(i).getAlbumTitle();
+			String singer = sampleMusic.get(i).getSinger();
+			String imageUrl = sampleMusic.get(i).getImageUrl();
 			
-			albums.add(album);
+			music.setAlbumTitle(albumTitle);
+			music.setSinger(singer);
+			music.setImageUrl(imageUrl);
+			musicList.add(music);		
 		}
-
-		return albums;
+		
+		Set<Music> musicSet = new HashSet<>(musicList);
+		Iterator<Music> iter = musicSet.iterator();
+		
+		while(iter.hasNext()) {
+			Album album = new Album();
+			Music music = iter.next();	
+			
+			album.setAlbumTitle(music.getAlbumTitle());
+			album.setAlbumImageUrl(music.getImageUrl());
+			album.setAlbumSinger(music.getSinger());
+			albumList.add(album);
+		}
+		
+		return albumList;
 	}
 
 	@PostMapping("/addmylist")
@@ -123,6 +114,17 @@ public class ApiController {
 		music.setSinger(myMusic.getSinger());
 		music.setImageUrl(myMusic.getImageUrl());
 		music.setLyrics(myMusic.getLyrics());
+		return music;
+	}
+	
+	@GetMapping("/play")
+	public Music playMusic(@RequestParam String musicTitle) {
+		Music music = new Music();
+		for(int i = 0; i < sampleMusic.size(); i++) {
+			if(sampleMusic.get(i).getTitle().equals(musicTitle)) {
+				music = sampleMusic.get(i);
+			}
+		}
 		return music;
 	}
 

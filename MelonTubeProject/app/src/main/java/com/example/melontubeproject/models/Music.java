@@ -8,8 +8,17 @@ public class Music implements Serializable {
     private String title;
     private String singer;
     private String albumTitle;
+    private String audioUrl;
     private String imageUrl;
     private String lyrics;
+
+    public String getAudioUrl() {
+        return audioUrl;
+    }
+
+    public void setAudioUrl(String audioUrl) {
+        this.audioUrl = audioUrl;
+    }
 
     public String getAlbumTitle() {
         return albumTitle;
