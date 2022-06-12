@@ -2,6 +2,7 @@ package com.example.melontubeproject;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -14,12 +15,17 @@ import com.example.melontubeproject.databinding.ActivityMusicPlayBinding;
 import com.example.melontubeproject.databinding.CustomExoViewBinding;
 import com.example.melontubeproject.models.Music;
 import com.example.melontubeproject.repository.MusicService;
+import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.ProgressiveMediaSource;
+import com.google.android.exoplayer2.ui.DefaultTimeBar;
 import com.google.android.exoplayer2.ui.PlayerControlView;
 import com.google.android.exoplayer2.ui.PlayerView;
+import com.google.android.exoplayer2.upstream.DataSource;
+import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
+import com.google.android.exoplayer2.util.Util;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,7 +38,8 @@ public class MusicPlayActivity extends AppCompatActivity {
     private MusicService musicService;
 
     private SimpleExoPlayer simpleExoPlayer;
-    private PlayerView playerView;
+    private PlayerControlView playerControlView;
+    private DefaultTimeBar timeBar;
 
     private ImageButton playBtn;
     private ImageButton skipNextBtn;
@@ -101,75 +108,66 @@ public class MusicPlayActivity extends AppCompatActivity {
         skipPreviousBtn = findViewById(R.id.skipPreviousBtn);
 
         skipNextBtn.setOnClickListener(v -> {
-            skipNextMusic();
+            musicService.skipNextMusic(music.getId())
+                    .enqueue(new Callback<Music>() {
+                        @Override
+                        public void onResponse(Call<Music> call, Response<Music> response) {
+                            music = response.body();
+                            setNewMusic();
+                            simpleExoPlayer.pause();
+
+                            Log.d(TAG, "다음 노래 재생 !!!!");
+                        }
+
+                        @Override
+                        public void onFailure(Call<Music> call, Throwable t) {
+                            Toast.makeText(MusicPlayActivity.this, "네트워크 연결이 불안정합니다.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
         });
 
         skipPreviousBtn.setOnClickListener(v -> {
-            skipPreviousMusic();
+            musicService.skipPreviousMusic(music.getId())
+                    .enqueue(new Callback<Music>() {
+                        @Override
+                        public void onResponse(Call<Music> call, Response<Music> response) {
+                            music = response.body();
+                            setNewMusic();
+                            Log.d(TAG, "이전 노래 재생 !!!!");
+                        }
+
+                        @Override
+                        public void onFailure(Call<Music> call, Throwable t) {
+                            Toast.makeText(MusicPlayActivity.this, "네트워크 연결이 불안정합니다.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
         });
+
     }
 
     private void playMusic() {
         simpleExoPlayer = new SimpleExoPlayer.Builder(this).build();
-        PlayerControlView playerControlView = binding.playerControlView;
-        playerControlView.setPlayer(simpleExoPlayer);
+        playerControlView = binding.playerControlView;
 
-        setMusic(music);
-        simpleExoPlayer.prepare();
-        simpleExoPlayer.setPlayWhenReady(true);
-    }
-
-    private void setMusic(Music music) {
+        DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
+                Util.getUserAgent(this, "MelonTube"));
 
         musicService.playMusic(music.getTitle())
                 .enqueue(new Callback<Music>() {
                     @Override
                     public void onResponse(Call<Music> call, Response<Music> response) {
-                        DefaultHttpDataSourceFactory dataSourceFactory = new DefaultHttpDataSourceFactory(getString(R.string.app_name));
-                        MediaSource mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
-                                .createMediaSource(Uri.parse(response.body().getAudioUrl()));
+                        MediaSource mediaSource =
+                                new ProgressiveMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(response.body().getAudioUrl()));
 
+                        simpleExoPlayer.setPlayWhenReady(true);
+                        playerControlView.setPlayer(simpleExoPlayer);
+                        simpleExoPlayer.prepare(mediaSource);
+                        Log.d(TAG, "playMusic()");
                     }
 
                     @Override
                     public void onFailure(Call<Music> call, Throwable t) {
 
-                    }
-                });
-    }
-
-    private void skipNextMusic() {
-        musicService.skipNextMusic(music.getId())
-                .enqueue(new Callback<Music>() {
-                    @Override
-                    public void onResponse(Call<Music> call, Response<Music> response) {
-                        music = response.body();
-                        setNewMusic();
-
-                        Log.d(TAG, "다음 노래 재생 !!!!");
-                    }
-
-                    @Override
-                    public void onFailure(Call<Music> call, Throwable t) {
-                        Toast.makeText(MusicPlayActivity.this, "네트워크 연결이 불안정합니다.", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-    }
-
-    private void skipPreviousMusic() {
-        musicService.skipPreviousMusic(music.getId())
-                .enqueue(new Callback<Music>() {
-                    @Override
-                    public void onResponse(Call<Music> call, Response<Music> response) {
-                        music = response.body();
-                        setNewMusic();
-                        Log.d(TAG, "이전 노래 재생 !!!!");
-                    }
-
-                    @Override
-                    public void onFailure(Call<Music> call, Throwable t) {
-                        Toast.makeText(MusicPlayActivity.this, "네트워크 연결이 불안정합니다.", Toast.LENGTH_SHORT).show();
                     }
                 });
     }

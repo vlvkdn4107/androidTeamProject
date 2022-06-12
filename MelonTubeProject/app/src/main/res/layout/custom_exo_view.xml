@@ -6,11 +6,14 @@
     android:layout_gravity="center">
 
     <com.google.android.exoplayer2.ui.DefaultTimeBar
-        android:layout_width="0dp"
+        android:id="@+id/exoPlayerTimeBar"
+        android:layout_width="match_parent"
         android:layout_height="20dp"
+        android:background="#C6C6C6"
         app:layout_constraintBottom_toTopOf="@id/playMusicBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:played_color="#3F51B5" />
 
     <ImageButton
         android:id="@+id/playMusicBtn"
