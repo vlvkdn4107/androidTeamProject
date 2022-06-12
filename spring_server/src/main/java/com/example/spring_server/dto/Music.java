@@ -24,7 +24,7 @@ public class Music {
 
 	public static List<Music> sampledata() {
 		ArrayList<Music> list = new ArrayList<>();
-		list.add(new Music(1, "싸이", "That That", "싸다9", "https://ccrma.stanford.edu/~jos/mp3/harpsi-cs.mp3",
+		list.add(new Music(1, "싸이", "That That", "싸다9", "https://drive.google.com/uc?export=download&id=126WvXJzZWz087BQWC3GH9k1DYYcLbpAS",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/37/474/10937474_20220428225312_500.jpg?cbc115ca0a2db2fed082e94f5862e8bd/melon/resize/282/quality/80/optimize",
 				"20 22\r\n" + "PSY Coming back (이리 오너라)\r\n" + "\r\n" + "Long time no see huh?\r\n" + "오래간만이지 huh?\r\n"
 						+ "우리 다시 웃고 울고 지지고 볶고\r\n" + "Let’s get loco\r\n" + "\r\n" + "Pandemic's over uh\r\n"
