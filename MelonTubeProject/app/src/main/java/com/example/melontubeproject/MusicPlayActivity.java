@@ -114,7 +114,6 @@ public class MusicPlayActivity extends AppCompatActivity {
                         public void onResponse(Call<Music> call, Response<Music> response) {
                             music = response.body();
                             setNewMusic();
-                            simpleExoPlayer.pause();
 
                             Log.d(TAG, "다음 노래 재생 !!!!");
                         }
@@ -159,8 +158,10 @@ public class MusicPlayActivity extends AppCompatActivity {
                         MediaSource mediaSource =
                                 new ProgressiveMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(response.body().getAudioUrl()));
 
+                        if (simpleExoPlayer == null) {
+                            playerControlView.setPlayer(simpleExoPlayer);
+                        }
                         simpleExoPlayer.setPlayWhenReady(true);
-                        playerControlView.setPlayer(simpleExoPlayer);
                         simpleExoPlayer.prepare(mediaSource);
                         Log.d(TAG, "playMusic()");
                     }

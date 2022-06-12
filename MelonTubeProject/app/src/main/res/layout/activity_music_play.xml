@@ -25,29 +25,26 @@
             android:background="@color/black">
 
         </ImageView>
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:background="@drawable/radius"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            android:visibility="invisible">
+
+            <TextView
+                android:id="@+id/lyricsTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:textColor="@color/white" />
+
+        </ScrollView>
+
     </androidx.cardview.widget.CardView>
-
-    <ScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="330dp"
-        android:layout_height="330dp"
-        android:layout_marginTop="25dp"
-        android:background="#60000000"
-        android:fillViewport="true"
-        android:scrollbars="none"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/lyricsTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:textColor="@color/white" />
-
-    </ScrollView>
 
     <com.google.android.exoplayer2.ui.PlayerControlView
         android:id="@+id/playerControlView"

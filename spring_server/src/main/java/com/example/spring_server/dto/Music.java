@@ -55,7 +55,7 @@ public class Music {
 						+ "Do what you wanna\r\n" + "Say what you wanna\r\n" + "Do what you wanna (Say what?)\r\n"
 						+ "That that I like that babe\r\n" + "That that I like that"));
 
-		list.add(new Music(2, "(여자)아이들", "TOMBOY", "I NEVER DIE", "https://music.youtube.com/watch?v=OlXr5YD-MWA&feature=share",
+		list.add(new Music(2, "(여자)아이들", "TOMBOY", "I NEVER DIE", "https://drive.google.com/uc?export=download&id=1nPr6gkCJaotGRPcCZGzFeXFjXjALCWdX",
 				"https://cdnimg.melon.co.kr/cm2/album/images/108/90/384/10890384_20220314111504_500.jpg?4b9dba7aeba43a4e0042eedb6b9865c1/melon/resize/282/quality/80/optimize",
 				"Look at you 넌 못 감당해 날\r\n" + "Ya took off hook\r\n" + "기분은 Coke like brrr\r\n"
 						+ "Look at my toe 나의 Ex 이름 Tattoo\r\n" + "I got to drink up now 네가 싫다 해도 좋아\r\n" + "\r\n"
@@ -88,7 +88,7 @@ public class Music {
 						+ "(넌 내게로 난 네게로)\r\n" + "숨 참고 love dive\r\n" + "\r\n" + "Woo lalalalalalala\r\n"
 						+ "Woo 어서 와서 love dive\r\n" + "Woo oh perfect sacrifice yeah\r\n" + "숨 참고 love dive\r\n" + ""));
 
-		list.add(new Music(4, "멜로망스", "사랑인가 봐", "사랑인가 봐(사내 맞선 OST)", "",
+		list.add(new Music(4, "멜로망스", "사랑인가 봐", "사랑인가 봐(사내 맞선 OST)", "https://drive.google.com/uc?export=download&id=13bf5EBwR7vJUkkDrn3086_ye-tS8Or44",
 				"https://cdnimg.melon.co.kr/cm2/album/images/108/71/162/10871162_20220217162422_500.jpg?d77ecb572464fd179c5e963a6fe0a351/melon/resize/282/quality/80/optimize",
 				"너와 함께 하고 싶은 일들을\r\n" + "상상하는 게\r\n" + "요즘 내 일상이 되고\r\n" + "너의 즐거워하는 모습을 보고 있으면\r\n"
 						+ "자연스레 따라 웃고 있는 걸\r\n" + "너의 행동에 설레어하고 뒤척이다가\r\n" + "지새운 밤이 많아지는데\r\n" + "이건 누가 봐도 사랑일 텐데\r\n"
@@ -148,7 +148,7 @@ public class Music {
 						+ "길이 되어 지킬게요 그대\r\n" + "그댈 위해 노래할게요\r\n" + "잊지 말아요\r\n" + "그댈 위해 약속할게요\r\n"
 						+ "어두운 길을 밝게 비추는\r\n" + "그대의 빛이 될게요"));
 
-		list.add(new Music(9, "경서", "나의 X에게", "나의 X에게", "",
+		list.add(new Music(9, "경서", "나의 X에게", "나의 X에게", "https://drive.google.com/uc?export=download&id=1xkx5kmf5xJZ6H2maHBu2x4-MF7My_o85",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/29/486/10929486_20220422151852_500.jpg?648f2d70a3d877844192313f323bf7bb/melon/resize/282/quality/80/optimize",
 				"우리 다시 만날래\r\n" + "예쁘게 빛나던\r\n" + "모든 추억들이\r\n" + "너무 그리워\r\n" + "너의 품에 안길래\r\n" + "이 밤이 새도록\r\n"
 						+ "네게 말할 거야\r\n" + "너를 좋아한다고\r\n" + "안녕 그대야\r\n" + "요즘 어떻게 지내\r\n" + "가로수길 걷다가\r\n"
