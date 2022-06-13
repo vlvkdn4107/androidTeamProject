@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.melontubeproject.R;
 import com.example.melontubeproject.interfaces.OnPlayBtnClicked;
 import com.example.melontubeproject.interfaces.OnSaveMymusic;
@@ -110,6 +112,7 @@ public class MyMusicListAdapter extends RecyclerView.Adapter<MyMusicListAdapter.
             Glide.with(imageView.getContext())
                     .load(music.getImageUrl())
                     .centerCrop()
+                    .apply(RequestOptions.bitmapTransform(new RoundedCorners(15)))
                     .into(imageView);
         }
     }

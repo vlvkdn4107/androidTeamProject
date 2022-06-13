@@ -1,21 +1,17 @@
 package com.example.melontubeproject;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.SurfaceControl;
-import android.view.View;
-import android.widget.Switch;
-import android.widget.Toast;
-
 import com.example.melontubeproject.databinding.ActivityMainBinding;
 import com.example.melontubeproject.utils.FragmentType;
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -134,7 +134,7 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
         recentAlbumAdapter.initItemList(albumList);
 
         RecyclerView recyclerView = binding.recyclerView;
-        RecyclerView horizontalRecyclerView = binding.horizentalRecyclerView;
+        RecyclerView horizontalRecyclerView = binding.horizontalRecyclerView;
 
         recyclerView.setAdapter(chartAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -161,15 +161,23 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
                             for (int i = 0; i < myList.size(); i++) {
                                 if (myList.get(i).getTitle().equals(myMusic.getTitle())) {
                                     Log.d(TAG, "같습니다.");
+                                    return;
                                 } else {
                                     myList.add(myMusic);
+                                    Log.d(TAG, "추가.");
                                 }
                             }
                         } else {
                             myList.add(myMusic);
+                            Log.d(TAG, "추가되었습니다.");
                         }
-                        setSaveMysucie(getContext(),"savemusic",MyMusicListFragment.getInstance().myMusicList);
+
+                        for (int i = 0; i < myList.size(); i++) {
+                            Log.d(TAG, myList.get(i).getTitle());
+                        }
+                        setSaveMyMusic(getContext(), "savemusic", myList);
                         MyMusicListFragment.getInstance().myMusicList = myList;
+
                         Toast.makeText(getContext(), "내 재생목록에 추가되었습니다.", Toast.LENGTH_SHORT).show();
                     }
 
@@ -188,17 +196,17 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
         startActivity(intent);
     }
 
-    private void setSaveMysucie(Context context, String key, List<Music> values){
+    public void setSaveMyMusic(Context context, String key, List<Music> values) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = preferences.edit();
         JSONArray jsonArray = new JSONArray();
         Gson gson = new GsonBuilder().create();
-        for (int i = 0; i < values.size(); i++){
+        for (int i = 0; i < values.size(); i++) {
             String str = gson.toJson(values.get(i), Music.class);
             jsonArray.put(str);
         }
-        if(!values.isEmpty()){
-            editor.putString("savemusic",jsonArray.toString());
+        if (!values.isEmpty()) {
+            editor.putString("savemusic", jsonArray.toString());
             Log.d("TAG", "여기 동작 1111111111");
         }
         editor.apply();

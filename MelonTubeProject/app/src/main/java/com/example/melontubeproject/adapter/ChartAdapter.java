@@ -69,7 +69,6 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.MusicViewHol
         });
 
         addListBtn.setOnClickListener(v -> {
-
             onAddListClicked.addMyList(music);
         });
     }
@@ -82,7 +81,7 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.MusicViewHol
     public static class MusicViewHolder extends RecyclerView.ViewHolder {
 
         private View itemView;
-        private ImageView elbumImage;
+        private ImageView albumImage;
         private TextView rankTextView;
         private TextView titleTextView;
         private TextView singerTextView;
@@ -91,7 +90,7 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.MusicViewHol
             super(itemView);
             this.itemView = itemView;
             rankTextView = itemView.findViewById(R.id.rank);
-            elbumImage = itemView.findViewById(R.id.elbumImage);
+            albumImage = itemView.findViewById(R.id.albumImage);
             titleTextView = itemView.findViewById(R.id.songTitle);
             singerTextView = itemView.findViewById(R.id.singer);
         }
@@ -101,11 +100,11 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.MusicViewHol
             titleTextView.setText(music.getTitle());
             singerTextView.setText(music.getSinger());
 
-            Glide.with(elbumImage.getContext())
+            Glide.with(albumImage.getContext())
                     .load(music.getImageUrl())
                     .centerCrop()
                     .apply(RequestOptions.bitmapTransform(new RoundedCorners(15)))
-                    .into(elbumImage);
+                    .into(albumImage);
         }
     }
 }

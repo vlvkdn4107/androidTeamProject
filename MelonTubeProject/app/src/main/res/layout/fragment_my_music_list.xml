@@ -7,23 +7,24 @@
     tools:context=".MyMusicListFragment">
 
     <LinearLayout
+        android:id="@+id/mymusictitle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_margin="10dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@id/my_music_recyclerview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/mymusictitle"
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
-            android:fontFamily="@font/font"
-            android:textColor="@color/black"
-            android:layout_gravity="center_vertical"
-            android:textSize="20dp"
-            android:text="재생 목록"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/font"
+            android:text="나의 재생 목록"
+            android:textSize="20dp" />
 
     </LinearLayout>
 

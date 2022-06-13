@@ -54,7 +54,7 @@ public class MusicPlayActivity extends AppCompatActivity {
             music = (Music) getIntent().getSerializableExtra(OBJ_NAME);
             setData(music);
             addEventListener();
-            playMusic();
+            setExoPlayer();
         }
     }
 
@@ -109,7 +109,7 @@ public class MusicPlayActivity extends AppCompatActivity {
                         public void onResponse(Call<Music> call, Response<Music> response) {
                             music = response.body();
                             setData(music);
-                            playMusic();
+                            setExoPlayer();
 
                             Log.d(TAG, "다음 노래 재생 !!!!");
                         }
@@ -128,7 +128,7 @@ public class MusicPlayActivity extends AppCompatActivity {
                         public void onResponse(Call<Music> call, Response<Music> response) {
                             music = response.body();
                             setData(music);
-                            playMusic();
+                            setExoPlayer();
 
                             Log.d(TAG, "이전 노래 재생 !!!!");
                         }
@@ -141,7 +141,7 @@ public class MusicPlayActivity extends AppCompatActivity {
         });
     }
 
-    private void playMusic() {
+    private void setExoPlayer() {
         simpleExoPlayer = new SimpleExoPlayer.Builder(this).build();
         playerControlView = binding.playerControlView;
 

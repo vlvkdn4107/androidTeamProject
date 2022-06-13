@@ -30,11 +30,6 @@ public class AlbumDetailAdapter extends RecyclerView.Adapter<AlbumDetailAdapter.
         notifyDataSetChanged();
     }
 
-//    public void addItem(List<Music> addList) {
-//        this.musicList.addAll(musicList.size(), addList);
-//        notifyDataSetChanged();
-//    }
-
     @NonNull
     @Override
     public AlbumViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
