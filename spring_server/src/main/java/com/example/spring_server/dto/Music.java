@@ -1,7 +1,6 @@
 package com.example.spring_server.dto;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,9 +21,10 @@ public class Music {
 	private String imageUrl;
 	private String lyrics;
 
-	public static List<Music> sampledata() {
+	public static ArrayList<Music> sampledata() {
 		ArrayList<Music> list = new ArrayList<>();
-		list.add(new Music(1, "싸이", "That That", "싸다9", "https://drive.google.com/uc?export=download&id=126WvXJzZWz087BQWC3GH9k1DYYcLbpAS",
+		list.add(new Music(1, "싸이", "That That", "싸다9",
+				"https://drive.google.com/uc?export=download&id=126WvXJzZWz087BQWC3GH9k1DYYcLbpAS",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/37/474/10937474_20220428225312_500.jpg?cbc115ca0a2db2fed082e94f5862e8bd/melon/resize/282/quality/80/optimize",
 				"20 22\r\n" + "PSY Coming back (이리 오너라)\r\n" + "\r\n" + "Long time no see huh?\r\n" + "오래간만이지 huh?\r\n"
 						+ "우리 다시 웃고 울고 지지고 볶고\r\n" + "Let’s get loco\r\n" + "\r\n" + "Pandemic's over uh\r\n"
@@ -55,7 +55,8 @@ public class Music {
 						+ "Do what you wanna\r\n" + "Say what you wanna\r\n" + "Do what you wanna (Say what?)\r\n"
 						+ "That that I like that babe\r\n" + "That that I like that"));
 
-		list.add(new Music(2, "(여자)아이들", "TOMBOY", "I NEVER DIE", "https://drive.google.com/uc?export=download&id=1nPr6gkCJaotGRPcCZGzFeXFjXjALCWdX",
+		list.add(new Music(2, "(여자)아이들", "TOMBOY", "I NEVER DIE",
+				"https://drive.google.com/uc?export=download&id=1nPr6gkCJaotGRPcCZGzFeXFjXjALCWdX",
 				"https://cdnimg.melon.co.kr/cm2/album/images/108/90/384/10890384_20220314111504_500.jpg?4b9dba7aeba43a4e0042eedb6b9865c1/melon/resize/282/quality/80/optimize",
 				"Look at you 넌 못 감당해 날\r\n" + "Ya took off hook\r\n" + "기분은 Coke like brrr\r\n"
 						+ "Look at my toe 나의 Ex 이름 Tattoo\r\n" + "I got to drink up now 네가 싫다 해도 좋아\r\n" + "\r\n"
@@ -88,7 +89,8 @@ public class Music {
 						+ "(넌 내게로 난 네게로)\r\n" + "숨 참고 love dive\r\n" + "\r\n" + "Woo lalalalalalala\r\n"
 						+ "Woo 어서 와서 love dive\r\n" + "Woo oh perfect sacrifice yeah\r\n" + "숨 참고 love dive\r\n" + ""));
 
-		list.add(new Music(4, "멜로망스", "사랑인가 봐", "사랑인가 봐(사내 맞선 OST)", "https://drive.google.com/uc?export=download&id=13bf5EBwR7vJUkkDrn3086_ye-tS8Or44",
+		list.add(new Music(4, "멜로망스", "사랑인가 봐", "사랑인가 봐(사내 맞선 OST)",
+				"https://drive.google.com/uc?export=download&id=13bf5EBwR7vJUkkDrn3086_ye-tS8Or44",
 				"https://cdnimg.melon.co.kr/cm2/album/images/108/71/162/10871162_20220217162422_500.jpg?d77ecb572464fd179c5e963a6fe0a351/melon/resize/282/quality/80/optimize",
 				"너와 함께 하고 싶은 일들을\r\n" + "상상하는 게\r\n" + "요즘 내 일상이 되고\r\n" + "너의 즐거워하는 모습을 보고 있으면\r\n"
 						+ "자연스레 따라 웃고 있는 걸\r\n" + "너의 행동에 설레어하고 뒤척이다가\r\n" + "지새운 밤이 많아지는데\r\n" + "이건 누가 봐도 사랑일 텐데\r\n"
@@ -97,7 +99,8 @@ public class Music {
 						+ "아무래도 사랑인가 봐\r\n" + "너의 행복해하는 모습을 보고 있으면\r\n" + "나도 모르게 따라 웃는데\r\n" + "이 정도면 알아줄 만하잖아\r\n"
 						+ "너도 용기 낼만 하잖아\r\n" + "나만 이런 게 아니라면\r\n" + "우리 만나볼 만하잖아\r\n" + "아무래도 사랑인가 봐"));
 
-		list.add(new Music(5, "BIGBANG (빅뱅)", "봄여름가을겨울 (Still Life)", "봄여름가을겨울 (Still Life)", "https://drive.google.com/uc?export=download&id=16p9ifWE_I_IoN1MaUeBJQJymonAZYeQm",
+		list.add(new Music(5, "BIGBANG (빅뱅)", "봄여름가을겨울 (Still Life)", "봄여름가을겨울 (Still Life)",
+				"https://drive.google.com/uc?export=download&id=16p9ifWE_I_IoN1MaUeBJQJymonAZYeQm",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/08/834/10908834_20220404174407_500.jpg?3b0d20a04b395a89bdade1b70a5dd46d/melon/resize/282/quality/80/optimize",
 				"이듬해 질 녘 꽃 피는 봄 한여름 밤의 꿈\r\n" + "가을 타 겨울 내릴 눈 1년 네 번 또다시 봄\r\n" + "\r\n" + "정들었던 내 젊은 날 이제는 안녕\r\n"
 						+ "아름답던 우리의 봄 여름 가을 겨울\r\n" + "\r\n" + "“Four seasons with no reason.”\r\n"
@@ -114,7 +117,8 @@ public class Music {
 						+ "La la la la la la la la la la la\r\n" + "\r\n" + "이듬해 질 녘 꽃 피는 봄 한여름 밤의 꿈\r\n"
 						+ "가을 타 겨울 내린 눈 봄 여름 가을 겨울"));
 
-		list.add(new Music(6, "임영웅", "사랑은 늘 도망가", "신사와 아가씨 OST Part.2", "https://drive.google.com/uc?export=download&id=179zVwgyPfy2ABgj0qPJhKW3Yf6mxhB6q",
+		list.add(new Music(6, "임영웅", "사랑은 늘 도망가", "신사와 아가씨 OST Part.2",
+				"https://drive.google.com/uc?export=download&id=179zVwgyPfy2ABgj0qPJhKW3Yf6mxhB6q",
 				"https://cdnimg.melon.co.kr/cm2/album/images/107/35/654/10735654_20211008114339_500.jpg?7eeae0e5c1f24c5ae9fa04f626e74c34/melon/resize/282/quality/80/optimize",
 				"눈물이 난다 이 길을 걸으면\r\n" + "그 사람 손길이 자꾸 생각이 난다\r\n" + "붙잡지 못하고 가슴만 떨었지\r\n" + "내 아름답던 사람아\r\n"
 						+ "사랑이란 게 참 쓰린 거더라\r\n" + "잡으려 할수록 더 멀어지더라\r\n" + "이별이란 게 참 쉬운 거더라\r\n" + "내 잊지 못할 사람아\r\n"
@@ -126,7 +130,8 @@ public class Music {
 						+ "행여 놓아버릴까 봐\r\n" + "꼭 움켜쥐지만\r\n" + "그리움이 쫓아 사랑은 늘 도망가\r\n" + "잠시 쉬어가면 좋을 텐데\r\n"
 						+ "잠시 쉬어가면 좋을 텐데"));
 
-		list.add(new Music(7, "BIG Naughty (서동현)", "정이라고 하자 (Feat. 10CM)", "정이라고 하자", "https://drive.google.com/uc?export=download&id=1gkT-uuSgvHpTTZ3CsJthwD60eTHjdl5T",
+		list.add(new Music(7, "BIG Naughty (서동현)", "정이라고 하자 (Feat. 10CM)", "정이라고 하자",
+				"https://drive.google.com/uc?export=download&id=1gkT-uuSgvHpTTZ3CsJthwD60eTHjdl5T",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/25/762/10925762_20220419152007_500.jpg?e4fe0e576690ff4b3823d6d2baa4c2fe/melon/resize/282/quality/80/optimize",
 				"Back to the day\r\n" + "갓 10대가 됐을 때\r\n" + "그때 내가 널 보지 못했다면\r\n" + "어땠을까 해\r\n"
 						+ "왜인지 외로워지는 밤에 You say\r\n" + "흐린 추억 속에 네게 안겨 잠드네\r\n" + "Yeah 친구들과의 술자리\r\n"
@@ -148,7 +153,8 @@ public class Music {
 						+ "길이 되어 지킬게요 그대\r\n" + "그댈 위해 노래할게요\r\n" + "잊지 말아요\r\n" + "그댈 위해 약속할게요\r\n"
 						+ "어두운 길을 밝게 비추는\r\n" + "그대의 빛이 될게요"));
 
-		list.add(new Music(9, "경서", "나의 X에게", "나의 X에게", "https://drive.google.com/uc?export=download&id=1xkx5kmf5xJZ6H2maHBu2x4-MF7My_o85",
+		list.add(new Music(9, "경서", "나의 X에게", "나의 X에게",
+				"https://drive.google.com/uc?export=download&id=1xkx5kmf5xJZ6H2maHBu2x4-MF7My_o85",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/29/486/10929486_20220422151852_500.jpg?648f2d70a3d877844192313f323bf7bb/melon/resize/282/quality/80/optimize",
 				"우리 다시 만날래\r\n" + "예쁘게 빛나던\r\n" + "모든 추억들이\r\n" + "너무 그리워\r\n" + "너의 품에 안길래\r\n" + "이 밤이 새도록\r\n"
 						+ "네게 말할 거야\r\n" + "너를 좋아한다고\r\n" + "안녕 그대야\r\n" + "요즘 어떻게 지내\r\n" + "가로수길 걷다가\r\n"
@@ -690,4 +696,5 @@ public class Music {
 
 		return list;
 	}
+
 }

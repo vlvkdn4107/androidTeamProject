@@ -8,6 +8,11 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.SurfaceControl;
+import android.view.View;
+import android.widget.Switch;
+import android.widget.Toast;
 
 import com.example.melontubeproject.databinding.ActivityMainBinding;
 import com.example.melontubeproject.utils.FragmentType;
@@ -15,7 +20,7 @@ import com.example.melontubeproject.utils.FragmentType;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    private Context context;
+    Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void replaceFragment(FragmentType type) {
-        Fragment fragment = null;
+        fragment = null;
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
 
@@ -41,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         }
         transaction.replace(binding.mainContainer.getId(), fragment, type.toString());
         transaction.commit();
+
     }
 
     private void addBottomNavigationListener() {
@@ -63,7 +69,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+
+        if(fragment instanceof ChartFragment){
+            finish();
+        } else if (fragment instanceof SearchFragment) {
+            replaceFragment(FragmentType.CHART);
+            binding.bottomNavigation.getMenu().findItem(R.id.homeIcon).setChecked(true);
+        } else if (fragment instanceof MyMusicListFragment) {
+            replaceFragment(FragmentType.CHART);
+            binding.bottomNavigation.getMenu().findItem(R.id.homeIcon).setChecked(true);
+        }
 
     }
 }

@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.spring_server.dto.Album;
-import com.example.spring_server.dto.Data;
 import com.example.spring_server.dto.Music;
 
 @RequestMapping("/melontube")
@@ -109,9 +108,7 @@ public class ApiController {
 	@PostMapping("/addmylist")
 	public Music addMyList(@RequestBody Music myMusic) {
 		Music music = new Music();
-		music.setId(myMusic.getId());
 		music.setTitle(myMusic.getTitle());
-		music.setAlbumTitle(myMusic.getAlbumTitle());
 		music.setSinger(myMusic.getSinger());
 		music.setAudioUrl(myMusic.getAudioUrl());
 		music.setImageUrl(myMusic.getImageUrl());
@@ -131,31 +128,29 @@ public class ApiController {
 	}
 
 	@GetMapping("/searchlist")
-	public Data searchlist(@RequestParam Map<String, String> map) {
-		Data data = new Data();
+	public List<Music> searchlist(@RequestParam Map<String, String> map) {
 		HashSet<Music> tempMusics = new HashSet<Music>();
 		// key 값이 제목일떄와 가수일떄 구분해주어야한다.
 
 		map.entrySet().forEach(entry -> {
 			if (entry.getKey().equals("title")) {
 				for (Music music : sampleMusic) {
-					if (music.getTitle().contains(entry.getValue())) {
+					if (music.getTitle().contains(entry.getValue().replace(" ",""))) {
 						tempMusics.add(music);
 					}
 				}
 			} else if (entry.getKey().equals("singer")) {
 				for (Music music : sampleMusic) {
-					if (music.getSinger().contains(entry.getValue())) {
+					if (music.getSinger().contains(entry.getValue().replace(" ",""))) {
 						tempMusics.add(music);
 					}
 				}
 			}
 		});
-		ArrayList<Music> muscis = new ArrayList<Music>();
+		List<Music> muscis = new ArrayList<Music>();
 		muscis.addAll(tempMusics);
-
-		data.setMusicList(muscis);
-		return data;
+		
+		return muscis;
 
 	}
 

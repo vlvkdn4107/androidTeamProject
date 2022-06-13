@@ -1,6 +1,7 @@
 package com.example.melontubeproject.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Music implements Serializable {
 
@@ -11,6 +12,16 @@ public class Music implements Serializable {
     private String audioUrl;
     private String imageUrl;
     private String lyrics;
+
+    private List<Music> musicList;
+
+    public List<Music> getMusicList() {
+        return musicList;
+    }
+
+    public void setMusicList(List<Music> musicList) {
+        this.musicList = musicList;
+    }
 
     public String getAudioUrl() {
         return audioUrl;

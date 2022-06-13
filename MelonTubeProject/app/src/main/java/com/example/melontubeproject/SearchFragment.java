@@ -1,11 +1,5 @@
 package com.example.melontubeproject;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,12 +10,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.melontubeproject.adapter.SearchingAdapter;
 import com.example.melontubeproject.databinding.FragmentSearchBinding;
 import com.example.melontubeproject.interfaces.OnAddListClicked;
 import com.example.melontubeproject.interfaces.OnPlayBtnClicked;
-import com.example.melontubeproject.interfaces.OnSearchClicked;
-import com.example.melontubeproject.models.Data;
 import com.example.melontubeproject.models.Music;
 import com.example.melontubeproject.repository.MusicService;
 
@@ -38,10 +36,15 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
     private FragmentSearchBinding binding;
     private MusicService musicService;
     private SearchingAdapter searchingAdapter;
+
+    private boolean isDuplicateData = true;
+    private boolean flag = true;
+
     //private boolean isDuplicateData = true;
     private boolean isFirstLoading = true;
 
-    //private List<Music> list = new ArrayList<>();
+
+    private List<Music> list = new ArrayList<>();
 
     private SearchFragment() {
     }
@@ -58,20 +61,35 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
         super.onCreate(savedInstanceState);
         musicService = MusicService.retrofit.create(MusicService.class);
         binding = FragmentSearchBinding.inflate(getLayoutInflater());
+        setRecycleView(list);
+    }
 
-        setRecycleView();
-        addTextWatcher();
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (binding.searchText.length() > 1) {
+            setRecycleView(list);
+        }
+
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
+        binding = FragmentSearchBinding.inflate(inflater, container, false);
+        EventListener();
+        binding.searchTextField.setEndIconOnClickListener(v -> {
+            binding.searchText.setText("");
+            list = new ArrayList<Music>();
+            setRecycleView(list);
+        });
         return binding.getRoot();
     }
 
-    private void addTextWatcher() {
 
+
+    private void EventListener() {
         binding.searchText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -81,43 +99,52 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                if(count >1) {
-                    String keyword = binding.searchTextField.getEditText().getText().toString();
-                    musicService.getSearch(keyword, keyword)
-                            .enqueue(new Callback<Data>() {
-
-                                @Override
-                                public void onResponse(Call<Data> call, Response<Data> response) {
-                                    List<Music> list = response.body().getMusicList();
-                                    searchingAdapter.searchAddItem(list);
-                                    //isDuplicateData = true;
-                                }
-
-                                @Override
-                                public void onFailure(Call<Data> call, Throwable t) {
-                                    Log.d("TAG", "네트워크 불안정 !!!");
-                                    Toast.makeText(getContext(), "네트워크가 불안정합니다.", Toast.LENGTH_SHORT).show();
-                                }
-                            });
+                Log.d("TAG", "start :" + start + "//" + "before :" + before + "//" + "count : " + count);
+                if (before > 0 || start > 0) {
+                    if (count != 0) {
+                        requestMusicData();
+                        setRecycleView(list);
+                    }
                 }
-
 
 
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-
             }
         });
 
     }
 
-    private void setRecycleView() {
+
+    private void requestMusicData() {
+        String keyword = binding.searchText.getText().toString();
+        musicService.getSearch(keyword, keyword)
+                .enqueue(new Callback<List<Music>>() {
+
+                    @Override
+                    public void onResponse(Call<List<Music>> call, Response<List<Music>> response) {
+                        list = response.body();
+
+                        searchingAdapter.searchAddItem(list);
+                        isDuplicateData = true;
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Music>> call, Throwable t) {
+                        Log.d("TAG", "네트워크 불안정 !!!");
+                        Toast.makeText(getContext(), "네트워크가 불안정합니다.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+
+    private void setRecycleView(List<Music> list) {
+
         searchingAdapter = new SearchingAdapter();
         searchingAdapter.setOnAddListClicked(this);
         searchingAdapter.setOnPlayBtnClicked(this);
-        //searchingAdapter.initItemList(musicList);
 
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
 
@@ -126,6 +153,9 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
         recyclerView.setLayoutManager(manager);
         recyclerView.setHasFixedSize(true);
     }
+
+
+
 
     @Override
     public void addMyList(Music music) {
@@ -155,5 +185,4 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
         intent.putExtra("music", music);
         startActivity(intent);
     }
-
 }

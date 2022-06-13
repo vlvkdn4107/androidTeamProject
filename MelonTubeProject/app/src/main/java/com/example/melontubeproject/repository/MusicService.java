@@ -1,12 +1,10 @@
 package com.example.melontubeproject.repository;
 
 import com.example.melontubeproject.models.Album;
-import com.example.melontubeproject.models.Data;
 import com.example.melontubeproject.models.Music;
 import com.example.melontubeproject.utils.Define;
 
 import java.util.List;
-import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -56,7 +54,7 @@ public interface MusicService {
     );
 
     @GET("searchlist")
-    Call<Data> getSearch(
+    Call<List<Music>> getSearch(
             @Query("title") String title,
             @Query("singer") String singer
     );

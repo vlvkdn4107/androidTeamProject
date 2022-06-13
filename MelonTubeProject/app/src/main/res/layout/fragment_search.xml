@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:id="@+id/searchFragment"
     tools:context=".SearchFragment"
     android:padding="5dp">
 
@@ -16,7 +17,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/searchTextField"
-        app:endIconMode="clear_text"
+        app:endIconDrawable="@drawable/ic_baseline_cancel_24"
+        app:endIconMode="custom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="가수, 노래제목"

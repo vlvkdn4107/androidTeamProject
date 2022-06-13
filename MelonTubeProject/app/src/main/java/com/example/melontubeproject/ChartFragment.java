@@ -1,7 +1,10 @@
 package com.example.melontubeproject;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +23,10 @@ import com.example.melontubeproject.interfaces.OnPlayBtnClicked;
 import com.example.melontubeproject.models.Album;
 import com.example.melontubeproject.models.Music;
 import com.example.melontubeproject.repository.MusicService;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -47,7 +54,8 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
 
     private static final String TAG = ChartFragment.class.getName();
 
-    Set<Music> musicSet = new HashSet<>();
+    private SharedPreferences preferences;
+    private String save;
 
     private ChartFragment() {
     }
@@ -71,6 +79,10 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
 
         binding = FragmentChartBinding.inflate(inflater, container, false);
         setRecycleView();
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(container.getContext());
+        save = preferences.getString("savemusic", "");
+        Log.d(TAG, "save : " + save);
 
         if (isFirstUpload) {
             requestMusicData();
@@ -145,42 +157,19 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
                         Music myMusic = response.body();
 
                         // 중복제거
-                        // A List
-
                         if (myList.size() > 1) {
-                            MyMusicListFragment.getInstance().myMusicList.forEach(music1 -> {
-                                if (music1.getTitle().equals(myMusic.getTitle())) {
+                            for (int i = 0; i < myList.size(); i++) {
+                                if (myList.get(i).getTitle().equals(myMusic.getTitle())) {
                                     Log.d(TAG, "같습니다.");
                                 } else {
                                     myList.add(myMusic);
                                 }
-                            });
+                            }
                         } else {
                             myList.add(myMusic);
                         }
-
-                        //myList.add(myMusic);
-
-                        // OOP 상위 title
-
-//                        for (int i = 0; i < myList.size(); i++) {
-//                            musicSet.add(myList.get(i));
-//                        }
-//
-//                        Iterator<Music> iter = musicSet.iterator();
-//
-//                        while (iter.hasNext()) {
-//                            Log.d(TAG, iter.next().getTitle());
-//                        }
-
-
-//                        List<Music> newMyList = new ArrayList<Music>();
-
-                        //newMyList =  musicSet;
-
-                        List<Music> fffList = MyMusicListFragment.getInstance().myMusicList;
-                        fffList.addAll(fffList.size(), myList);
-
+                        setSaveMysucie(getContext(),"savemusic",MyMusicListFragment.getInstance().myMusicList);
+                        MyMusicListFragment.getInstance().myMusicList = myList;
                         Toast.makeText(getContext(), "내 재생목록에 추가되었습니다.", Toast.LENGTH_SHORT).show();
                     }
 
@@ -197,6 +186,22 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
         Intent intent = new Intent(getContext(), MusicPlayActivity.class);
         intent.putExtra("music", music);
         startActivity(intent);
+    }
+
+    private void setSaveMysucie(Context context, String key, List<Music> values){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = preferences.edit();
+        JSONArray jsonArray = new JSONArray();
+        Gson gson = new GsonBuilder().create();
+        for (int i = 0; i < values.size(); i++){
+            String str = gson.toJson(values.get(i), Music.class);
+            jsonArray.put(str);
+        }
+        if(!values.isEmpty()){
+            editor.putString("savemusic",jsonArray.toString());
+            Log.d("TAG", "여기 동작 1111111111");
+        }
+        editor.apply();
     }
 
 }

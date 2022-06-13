@@ -6,6 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".MyMusicListFragment">
 
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/my_music_recyclerview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/mymusictitle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:fontFamily="@font/font"
+            android:textColor="@color/black"
+            android:layout_gravity="center_vertical"
+            android:textSize="20dp"
+            android:text="재생 목록"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/my_music_recyclerview"
         android:layout_width="0dp"
@@ -13,7 +34,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mymusictitle"
         tools:listitem="@layout/my_music_list_item" />
 
 

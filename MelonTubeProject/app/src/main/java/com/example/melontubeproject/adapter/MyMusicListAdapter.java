@@ -6,19 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
-import com.bumptech.glide.request.RequestOptions;
-import com.example.melontubeproject.MyMusicListFragment;
 import com.example.melontubeproject.R;
 import com.example.melontubeproject.interfaces.OnPlayBtnClicked;
-import com.example.melontubeproject.interfaces.OndeleteBtnClicked;
-import com.example.melontubeproject.models.Data;
+import com.example.melontubeproject.interfaces.OnSaveMymusic;
+import com.example.melontubeproject.interfaces.OnDeleteBtnClicked;
 import com.example.melontubeproject.models.Music;
 
 import java.util.ArrayList;
@@ -29,9 +25,15 @@ public class MyMusicListAdapter extends RecyclerView.Adapter<MyMusicListAdapter.
     private ImageView playMusicBtn;
     private ImageView deleteMusicBtn;
     private OnPlayBtnClicked onPlayBtnClicked;
-    private OndeleteBtnClicked ondeleteBtnClicked;
+    private OnDeleteBtnClicked ondeleteBtnClicked;
+    private OnSaveMymusic onSaveMymusic;
 
-    public void setOndeleteBtnClicked(OndeleteBtnClicked ondeleteBtnClicked) {
+    public void setOnSaveMymusic(OnSaveMymusic onSaveMymusic) {
+        this.onSaveMymusic = onSaveMymusic;
+        notifyDataSetChanged();
+    }
+
+    public void setOndeleteBtnClicked(OnDeleteBtnClicked ondeleteBtnClicked) {
         this.ondeleteBtnClicked = ondeleteBtnClicked;
         notifyDataSetChanged();
     }
@@ -51,6 +53,7 @@ public class MyMusicListAdapter extends RecyclerView.Adapter<MyMusicListAdapter.
         notifyDataSetChanged();
     }
 
+
     @NonNull
     @Override
     public MyMusicViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -67,6 +70,7 @@ public class MyMusicListAdapter extends RecyclerView.Adapter<MyMusicListAdapter.
 
         playMusicBtn = holder.itemView.findViewById(R.id.my_music_play);
         deleteMusicBtn = holder.itemView.findViewById(R.id.my_music_delete);
+
 
         playMusicBtn.setOnClickListener(event ->{
             onPlayBtnClicked.playMusic(music);
@@ -106,7 +110,6 @@ public class MyMusicListAdapter extends RecyclerView.Adapter<MyMusicListAdapter.
             Glide.with(imageView.getContext())
                     .load(music.getImageUrl())
                     .centerCrop()
-                    .apply(RequestOptions.bitmapTransform(new RoundedCorners(15)))
                     .into(imageView);
         }
     }
