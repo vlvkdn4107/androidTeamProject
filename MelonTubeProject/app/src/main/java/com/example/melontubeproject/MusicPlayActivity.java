@@ -1,13 +1,17 @@
 package com.example.melontubeproject;
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
@@ -22,6 +26,7 @@ import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.ui.DefaultTimeBar;
 import com.google.android.exoplayer2.ui.PlayerControlView;
 import com.google.android.exoplayer2.ui.PlayerView;
+import com.google.android.exoplayer2.ui.TimeBar;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
@@ -58,7 +63,9 @@ public class MusicPlayActivity extends AppCompatActivity {
 
         if (getIntent() != null) {
             music = (Music) getIntent().getSerializableExtra(OBJ_NAME);
-            setNewMusic();
+            initData(music);
+            showLyrics();
+            addEventListener();
             playMusic();
         }
     }
@@ -67,12 +74,6 @@ public class MusicPlayActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         simpleExoPlayer.release();
-    }
-
-    private void setNewMusic() {
-        initData(music);
-        showLyrics();
-        addEventListener();
     }
 
     private void initData(Music music) {
@@ -113,7 +114,9 @@ public class MusicPlayActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<Music> call, Response<Music> response) {
                             music = response.body();
-                            setNewMusic();
+                            initData(music);
+                            showLyrics();
+                            playMusic();
 
                             Log.d(TAG, "다음 노래 재생 !!!!");
                         }
@@ -131,7 +134,10 @@ public class MusicPlayActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<Music> call, Response<Music> response) {
                             music = response.body();
-                            setNewMusic();
+                            initData(music);
+                            showLyrics();
+                            playMusic();
+
                             Log.d(TAG, "이전 노래 재생 !!!!");
                         }
 
@@ -147,6 +153,24 @@ public class MusicPlayActivity extends AppCompatActivity {
     private void playMusic() {
         simpleExoPlayer = new SimpleExoPlayer.Builder(this).build();
         playerControlView = binding.playerControlView;
+        timeBar = findViewById(R.id.exoPlayerTimeBar);
+
+        timeBar.addListener(new TimeBar.OnScrubListener() {
+            @Override
+            public void onScrubStart(TimeBar timeBar, long position) {
+                Log.d(TAG, "타임바 작동");
+            }
+
+            @Override
+            public void onScrubMove(TimeBar timeBar, long position) {
+
+            }
+
+            @Override
+            public void onScrubStop(TimeBar timeBar, long position, boolean canceled) {
+
+            }
+        });
 
         DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
                 Util.getUserAgent(this, "MelonTube"));

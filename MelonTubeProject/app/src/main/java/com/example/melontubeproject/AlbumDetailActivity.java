@@ -5,6 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.melontubeproject.adapter.AlbumDetailAdapter;
 import com.example.melontubeproject.adapter.AlbumDetailTrackListAdapter;
@@ -42,7 +45,6 @@ public class AlbumDetailActivity extends AppCompatActivity {
             album = (Album) getIntent().getSerializableExtra("album");
             setRecycleView(album);
             requestAlbumData(album);
-            //playMusic();
         }
 
     }

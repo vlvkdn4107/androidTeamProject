@@ -48,6 +48,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 tools:listitem="@layout/chart_list_item" />
+
         </LinearLayout>
 
     </ScrollView>

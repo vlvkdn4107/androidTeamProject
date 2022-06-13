@@ -60,13 +60,13 @@ public class AlbumDetailTrackListAdapter extends RecyclerView.Adapter<AlbumDetai
         public MusicViewHolder(@NonNull View itemView) {
             super(itemView);
             this.itemView = itemView;
-            numberTextView = itemView.findViewById(R.id.number);
+            //numberTextView = itemView.findViewById(R.id.number);
             titleTextView = itemView.findViewById(R.id.albumMusicTitle);
             singerTextView = itemView.findViewById(R.id.albumSinger);
         }
 
         public void setItem(Music music) {
-            numberTextView.setText(String.valueOf(number++));
+            //numberTextView.setText(String.valueOf(number++));
             titleTextView.setText(music.getTitle());
             singerTextView.setText(music.getSinger());
         }
