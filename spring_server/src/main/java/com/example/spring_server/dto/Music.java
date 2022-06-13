@@ -1,7 +1,6 @@
 package com.example.spring_server.dto;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,8 +20,10 @@ public class Music {
 	private String audioUrl;
 	private String imageUrl;
 	private String lyrics;
+	
+	
 
-	public static List<Music> sampledata() {
+	public static ArrayList<Music> sampledata() {
 		ArrayList<Music> list = new ArrayList<>();
 		list.add(new Music(1, "싸이", "That That", "싸다9", "https://drive.google.com/uc?export=download&id=126WvXJzZWz087BQWC3GH9k1DYYcLbpAS",
 				"https://cdnimg.melon.co.kr/cm2/album/images/109/37/474/10937474_20220428225312_500.jpg?cbc115ca0a2db2fed082e94f5862e8bd/melon/resize/282/quality/80/optimize",
@@ -688,6 +689,10 @@ public class Music {
 						+ "눈꽃이 떨어져요\r\n" + "또 조금씩 멀어져요\r\n" + "보고 싶다 보고 싶다\r\n" + "보고 싶다 보고 싶다\r\n" + "얼마나 기다려야\r\n"
 						+ "또 몇 밤을 더 새워야\r\n" + "널 보게 될까 널 보게 될까\r\n" + "만나게 될까 만나게 될까"));
 
+	
 		return list;
 	}
+
+
+
 }

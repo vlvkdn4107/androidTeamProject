@@ -107,7 +107,6 @@ public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.Musi
         }
 
         public void setItem(Music music) {
-            //rankTextView.setText(rank);
             titleTextView.setText(music.getTitle());
             singerTextView.setText(music.getSinger());
 
