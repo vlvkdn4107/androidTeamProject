@@ -20,16 +20,15 @@ import com.example.melontubeproject.models.Music;
 import com.example.melontubeproject.repository.MusicService;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public class MyMusicListFragment extends Fragment implements OnPlayBtnClicked, OndeleteBtnClicked {
     private static MyMusicListFragment myMusicListFragment;
     private FragmentMyMusicListBinding binding;
-    private ChartAdapter chartAdapter;
-    private MusicService musicService;
     private MyMusicListAdapter myMusicListAdapter;
-
 
     public List<Music> myMusicList = new ArrayList<>();
 
@@ -47,7 +46,7 @@ public class MyMusicListFragment extends Fragment implements OnPlayBtnClicked, O
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        musicService = MusicService.retrofit.create(MusicService.class);
+        //musicService = MusicService.retrofit.create(MusicService.class);
         Log.d("TAG", "마이리스트 프래그먼트 onCreate()");
     }
 

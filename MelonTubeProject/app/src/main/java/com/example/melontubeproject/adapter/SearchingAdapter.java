@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.melontubeproject.R;
 import com.example.melontubeproject.interfaces.OnAddListClicked;
 import com.example.melontubeproject.interfaces.OnPlayBtnClicked;
@@ -23,17 +25,11 @@ import java.util.List;
 public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.MusicViewHolder> {
 
     private List<Music> musicList = new ArrayList<>();
-    private OnSearchClicked onSearchClicked;
     private OnAddListClicked onAddListClicked;
     private OnPlayBtnClicked onPlayBtnClicked;
 
     private ImageView playMusicBtn;
     private ImageView addListBtn;
-    private ImageView searchBtn;
-
-    public void setOnSearchClicked(OnSearchClicked onSearchClicked) {
-        this.onSearchClicked = onSearchClicked;
-    }
 
     public void setOnAddListClicked(OnAddListClicked onAddListClicked) {
         this.onAddListClicked = onAddListClicked;
@@ -43,10 +39,6 @@ public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.Musi
         this.onPlayBtnClicked = onPlayBtnClicked;
     }
 
-    public void initItemList(List<Music> musicList) {
-        this.musicList = musicList;
-        notifyDataSetChanged();
-    }
     // 재활용 // 데이터
     public void addItem(List<Music> addList) {
         this.musicList.addAll(musicList.size(), addList);
@@ -54,9 +46,6 @@ public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.Musi
     }
 
     public void searchAddItem(List<Music> addList) {
-        // 1 2 3 + 1 1
-//        this.musicList.addAll(musicList.size(), addList);
-        // 1
         this.musicList = addList;
         notifyDataSetChanged();
     }
@@ -65,7 +54,7 @@ public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.Musi
     @Override
     public MusicViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View itemView = inflater.inflate(R.layout.chart_list_item, parent, false);
+        View itemView = inflater.inflate(R.layout.search_list_item, parent, false);
         return new MusicViewHolder(itemView);
     }
 
@@ -74,8 +63,8 @@ public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.Musi
         Music music = musicList.get(position);
         holder.setItem(music);
 
-        addListBtn = holder.itemView.findViewById(R.id.addListIcon);
-        playMusicBtn = holder.itemView.findViewById(R.id.playMusicIcon);
+        addListBtn = holder.itemView.findViewById(R.id.addSearchListIcon);
+        playMusicBtn = holder.itemView.findViewById(R.id.playSearchMusicIcon);
 
         playMusicBtn.setOnClickListener(v -> {
             onPlayBtnClicked.playMusic(music);
@@ -88,41 +77,34 @@ public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.Musi
 
     // position 에 해당하는 데이터를 뷰홀더의 아이템 뷰에 표시
     public static class MusicViewHolder extends RecyclerView.ViewHolder {
-
         private View itemView;
-        private ImageView elbumImage;
-        private TextView rankTextView;
+        private ImageView albumImage;
         private TextView titleTextView;
         private TextView singerTextView;
-
-        private int rank = 1;
 
         public MusicViewHolder(@NonNull View itemView) {
             super(itemView);
             this.itemView = itemView;
-            rankTextView = itemView.findViewById(R.id.rank);
-            elbumImage = itemView.findViewById(R.id.elbumImage);
-            titleTextView = itemView.findViewById(R.id.songTitle);
-            singerTextView = itemView.findViewById(R.id.singer);
+            albumImage = itemView.findViewById(R.id.searchAlbumImage);
+            titleTextView = itemView.findViewById(R.id.searchTitle);
+            singerTextView = itemView.findViewById(R.id.searchSinger);
         }
 
         public void setItem(Music music) {
-            //rankTextView.setText(rank);
             titleTextView.setText(music.getTitle());
             singerTextView.setText(music.getSinger());
 
-            Glide.with(elbumImage.getContext())
+            Glide.with(albumImage.getContext())
                     .load(music.getImageUrl())
                     .centerCrop()
-                    .into(elbumImage);
+                    .apply(RequestOptions.bitmapTransform(new RoundedCorners(15)))
+                    .into(albumImage);
         }
     }
 
     @Override
     public int getItemCount() {
-
         return musicList.size();
     }
-
 }
 

@@ -69,6 +69,7 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.MusicViewHol
         });
 
         addListBtn.setOnClickListener(v -> {
+
             onAddListClicked.addMyList(music);
         });
     }

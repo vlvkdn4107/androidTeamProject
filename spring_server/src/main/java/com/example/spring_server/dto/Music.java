@@ -421,7 +421,7 @@ public class Music {
 						+ "아 나는 그대만 보고 있어\r\n" + "아 나는 그대를 사랑합니다"));
 
 		list.add(new Music(28, "(여자)아이들", "MY BAG", "I NEVER DIE", "",
-				"https://cdnimg.melon.co.kr/cm2/album/images/108/90/384/10890384_20220314111504_500.jpg/melon/resize/120/quality/80/optimize",
+				"https://cdnimg.melon.co.kr/cm2/album/images/108/90/384/10890384_20220314111504_500.jpg?4b9dba7aeba43a4e0042eedb6b9865c1/melon/resize/282/quality/80/optimize",
 				"Red five diamonds in my bag\r\n" + "If you wanna see it, dance to a beat like that\r\n"
 						+ "My mama saw it and ‘Oh my god dang’\r\n" + "Ok I’ll show you what’s in my bag\r\n" + "\r\n"
 						+ "Red five diamonds in my bag\r\n" + "If you wanna see it, dance to a beat like that\r\n"
@@ -588,7 +588,7 @@ public class Music {
 						+ "La la la la la la\r\n" + "La la la la la la\r\n" + "La la la la la la\r\n"
 						+ "La la la la la"));
 
-		list.add(new Music(42, "방탄소년단", "Butter", "YOU NEVER WALK ALONE", "",
+		list.add(new Music(42, "방탄소년단", "Butter", "Butter", "",
 				"https://cdnimg.melon.co.kr/cm2/album/images/106/12/483/10612483_20210521111412_500.jpg?1c2769f71815b15741622b61a75fb530/melon/resize/282/quality/80/optimize",
 				"Smooth like butter\r\n" + "Like a criminal undercover\r\n" + "Gon’ pop like trouble\r\n"
 						+ "Breakin’ into your heart like that\r\n" + "\r\n" + "Cool shade stunner\r\n"

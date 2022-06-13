@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -14,6 +15,7 @@ import com.example.melontubeproject.utils.FragmentType;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         } else if (type == FragmentType.SEARCH) {
             fragment = SearchFragment.getInstance();
         } else if (type == FragmentType.MY_LIST) {
-            Log.d("TAG", "마이리스트 프래그먼트 전환");
             fragment = MyMusicListFragment.getInstance();
         }
         transaction.replace(binding.mainContainer.getId(), fragment, type.toString());
@@ -58,5 +59,11 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
     }
 }

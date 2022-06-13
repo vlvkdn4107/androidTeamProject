@@ -34,7 +34,7 @@ public class ApiController {
 	@GetMapping("/skipmusic/next")
 	public Music skipNextMusic(@RequestParam int id) {
 		Music music = new Music();
-		if(id == sampleMusic.size()) {
+		if (id == sampleMusic.size()) {
 			music = sampleMusic.get(0);
 		} else {
 			music = sampleMusic.get(id);
@@ -53,9 +53,9 @@ public class ApiController {
 		}
 		return music;
 	}
-	
+
 	// 앨범 상세정보 출력 (수록곡)
-	@GetMapping(path="/albumlist/{albumTitle}")
+	@GetMapping(path = "/albumlist/{albumTitle}")
 	public Album albumInfo(@PathVariable String albumTitle) {
 		List<Music> albumList = new ArrayList<Music>();
 		Album album = new Album();
@@ -77,32 +77,32 @@ public class ApiController {
 	public List<Album> albumMusicList() {
 		List<Album> albumList = new ArrayList<Album>();
 		List<Music> musicList = new ArrayList<Music>();
-		
+
 		for (int i = 0; i < sampleMusic.size(); i++) {
 			Music music = new Music();
 			String albumTitle = sampleMusic.get(i).getAlbumTitle();
 			String singer = sampleMusic.get(i).getSinger();
 			String imageUrl = sampleMusic.get(i).getImageUrl();
-			
+
 			music.setAlbumTitle(albumTitle);
 			music.setSinger(singer);
 			music.setImageUrl(imageUrl);
-			musicList.add(music);		
+			musicList.add(music);
 		}
-		
+
 		Set<Music> musicSet = new HashSet<>(musicList);
 		Iterator<Music> iter = musicSet.iterator();
-		
-		while(iter.hasNext()) {
+
+		while (iter.hasNext()) {
 			Album album = new Album();
-			Music music = iter.next();	
-			
+			Music music = iter.next();
+
 			album.setAlbumTitle(music.getAlbumTitle());
 			album.setAlbumImageUrl(music.getImageUrl());
 			album.setAlbumSinger(music.getSinger());
 			albumList.add(album);
 		}
-		
+
 		return albumList;
 	}
 
@@ -111,17 +111,19 @@ public class ApiController {
 		Music music = new Music();
 		music.setId(myMusic.getId());
 		music.setTitle(myMusic.getTitle());
+		music.setAlbumTitle(myMusic.getAlbumTitle());
 		music.setSinger(myMusic.getSinger());
+		music.setAudioUrl(myMusic.getAudioUrl());
 		music.setImageUrl(myMusic.getImageUrl());
 		music.setLyrics(myMusic.getLyrics());
 		return music;
 	}
-	
+
 	@GetMapping("/play")
 	public Music playMusic(@RequestParam String musicTitle) {
 		Music music = new Music();
-		for(int i = 0; i < sampleMusic.size(); i++) {
-			if(sampleMusic.get(i).getTitle().equals(musicTitle)) {
+		for (int i = 0; i < sampleMusic.size(); i++) {
+			if (sampleMusic.get(i).getTitle().equals(musicTitle)) {
 				music = sampleMusic.get(i);
 			}
 		}

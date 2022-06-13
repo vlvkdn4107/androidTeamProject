@@ -7,66 +7,53 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp">
-
-        <TextView
-            android:id="@+id/rank"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:textSize="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/guideline"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="0" />
+        android:layout_height="90dp">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="35dp" />
+            app:layout_constraintGuide_begin="25dp" />
 
         <ImageView
-            android:id="@+id/elbumImage"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:id="@+id/searchAlbumImage"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
             android:layout_marginStart="10dp"
             android:layout_marginBottom="5dp"
             android:src="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/songTitle"
+            app:layout_constraintEnd_toStartOf="@id/searchTitle"
             app:layout_constraintStart_toEndOf="@id/guideline"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/songTitle"
+            android:id="@+id/searchTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:textColor="@color/black"
             android:textSize="15dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/singer"
-            app:layout_constraintStart_toEndOf="@id/elbumImage"
-            app:layout_constraintTop_toTopOf="@id/elbumImage"
+            app:layout_constraintBottom_toTopOf="@id/searchSinger"
+            app:layout_constraintStart_toEndOf="@id/searchAlbumImage"
+            app:layout_constraintTop_toTopOf="@id/searchAlbumImage"
             tools:text="Title" />
 
         <TextView
-            android:id="@+id/singer"
+            android:id="@+id/searchSinger"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:textSize="12dp"
-            app:layout_constraintBottom_toBottomOf="@id/elbumImage"
-            app:layout_constraintStart_toEndOf="@id/elbumImage"
-            app:layout_constraintTop_toBottomOf="@id/songTitle"
+            app:layout_constraintBottom_toBottomOf="@id/searchAlbumImage"
+            app:layout_constraintStart_toEndOf="@id/searchAlbumImage"
+            app:layout_constraintTop_toBottomOf="@id/searchTitle"
             tools:text="singer" />
 
         <ImageButton
-            android:id="@+id/playMusicIcon"
+            android:id="@+id/playSearchMusicIcon"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginEnd="10dp"
@@ -74,11 +61,11 @@
             android:scaleType="centerCrop"
             android:src="@drawable/ic_baseline_play_arrow_24"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/addListIcon"
+            app:layout_constraintEnd_toStartOf="@id/addSearchListIcon"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/addListIcon"
+            android:id="@+id/addSearchListIcon"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginEnd="10dp"

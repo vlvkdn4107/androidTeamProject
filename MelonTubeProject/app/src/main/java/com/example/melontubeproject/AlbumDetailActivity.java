@@ -43,7 +43,7 @@ public class AlbumDetailActivity extends AppCompatActivity {
 
         if (getIntent() != null) {
             album = (Album) getIntent().getSerializableExtra("album");
-            setRecycleView(album);
+            setRecycleView();
             requestAlbumData(album);
         }
 
@@ -68,7 +68,7 @@ public class AlbumDetailActivity extends AppCompatActivity {
                 });
     }
 
-    private void setRecycleView(Album album) {
+    private void setRecycleView() {
         albumDetailAdapter = new AlbumDetailAdapter();
         albumDetailTrackListAdapter = new AlbumDetailTrackListAdapter();
 

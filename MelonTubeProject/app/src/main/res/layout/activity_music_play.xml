@@ -46,34 +46,23 @@
 
     </androidx.cardview.widget.CardView>
 
-        <com.google.android.exoplayer2.ui.PlayerControlView
-            android:id="@+id/playerControlView"
-            android:layout_width="match_parent"
-            android:layout_height="210dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="40dp"
-            app:auto_show="true"
-            app:controller_layout_id="@layout/custom_exo_view"
-            app:layout_constraintTop_toBottomOf="@id/singerPlayText"
-            app:resize_mode="fixed_width"
-            app:show_timeout="0"
-            app:surface_type="none"
-            app:use_controller="true" />
-
-<!--    <com.google.android.exoplayer2.ui.PlayerView-->
-<!--        android:id="@+id/exoPlayerView"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="40dp"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:layout_marginEnd="40dp"-->
-<!--        app:auto_show="true"-->
-<!--        app:controller_layout_id="@layout/custom_exo_view"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/singerPlayText"-->
-<!--        app:resize_mode="fixed_width"-->
-<!--        app:surface_type="surface_view"-->
-<!--        app:use_controller="true" />-->
+    <com.google.android.exoplayer2.ui.StyledPlayerControlView
+        android:id="@+id/playerControlView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        app:auto_show="true"
+        app:controller_layout_id="@layout/exo_styled_player_control_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/singerPlayText"
+        app:resize_mode="fixed_width"
+        app:show_timeout="0"
+        app:surface_type="none"
+        app:use_controller="true" />
 
     <TextView
         android:id="@+id/titlePlayText"

@@ -22,7 +22,10 @@ import com.example.melontubeproject.models.Music;
 import com.example.melontubeproject.repository.MusicService;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,12 +40,14 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
     private RecentAlbumAdapter recentAlbumAdapter;
 
     // 다른 프래그먼트 갔다 와도 보던 목록 그대로 있게
-   private boolean isFirstUpload = true;
+    private boolean isFirstUpload = true;
 
     public List<Music> musicList = new ArrayList<>();
     public List<Album> albumList = new ArrayList<>();
 
     private static final String TAG = ChartFragment.class.getName();
+
+    Set<Music> musicSet = new HashSet<>();
 
     private ChartFragment() {
     }
@@ -136,9 +141,45 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
                 .enqueue(new Callback<Music>() {
                     @Override
                     public void onResponse(Call<Music> call, Response<Music> response) {
+                        List<Music> myList = MyMusicListFragment.getInstance().myMusicList;
                         Music myMusic = response.body();
-                        MyMusicListFragment.getInstance().myMusicList.add(myMusic);
-                        Log.d(TAG, MyMusicListFragment.getInstance().myMusicList.get(0).getTitle());
+
+                        // 중복제거
+                        // A List
+
+                        if (myList.size() > 1) {
+                            MyMusicListFragment.getInstance().myMusicList.forEach(music1 -> {
+                                if (music1.getTitle().equals(myMusic.getTitle())) {
+                                    Log.d(TAG, "같습니다.");
+                                } else {
+                                    myList.add(myMusic);
+                                }
+                            });
+                        } else {
+                            myList.add(myMusic);
+                        }
+
+                        //myList.add(myMusic);
+
+                        // OOP 상위 title
+
+//                        for (int i = 0; i < myList.size(); i++) {
+//                            musicSet.add(myList.get(i));
+//                        }
+//
+//                        Iterator<Music> iter = musicSet.iterator();
+//
+//                        while (iter.hasNext()) {
+//                            Log.d(TAG, iter.next().getTitle());
+//                        }
+
+
+//                        List<Music> newMyList = new ArrayList<Music>();
+
+                        //newMyList =  musicSet;
+
+                        List<Music> fffList = MyMusicListFragment.getInstance().myMusicList;
+                        fffList.addAll(fffList.size(), myList);
 
                         Toast.makeText(getContext(), "내 재생목록에 추가되었습니다.", Toast.LENGTH_SHORT).show();
                     }

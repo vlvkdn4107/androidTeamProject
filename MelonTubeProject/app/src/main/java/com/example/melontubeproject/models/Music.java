@@ -67,4 +67,16 @@ public class Music implements Serializable {
     public void setLyrics(String lyrics) {
         this.lyrics = lyrics;
     }
+
+    @Override
+    public String toString() {
+        return "Music{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", singer='" + singer + '\'' +
+                ", albumTitle='" + albumTitle + '\'' +
+                ", audioUrl='" + audioUrl + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                " ";
+    }
 }

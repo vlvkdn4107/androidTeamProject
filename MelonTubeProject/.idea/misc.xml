@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/drawable/circle.xml" value="0.3045" />
         <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/drawable/ic_baseline_playlist_add_24.xml" value="0.266" />
         <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/drawable/lyrics_background.xml" value="0.2315" />
         <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/drawable/radius.xml" value="0.192" />
+        <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/drawable/scrubber.xml" value="0.1" />
         <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/drawable/underline_layout.xml" value="0.269" />
         <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/drawable/upline_layout.xml" value="0.2225" />
         <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/layout/activity_album_detail.xml" value="0.3072916666666667" />
@@ -16,12 +18,16 @@
         <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/layout/album_item.xml" value="0.33" />
         <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/layout/chart_list_item.xml" value="0.32135416666666666" />
         <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/layout/chart_list_item2.xml" value="0.24895833333333334" />
+        <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/layout/custom_control_layout.xml" value="0.2" />
         <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/layout/custom_exo_view.xml" value="0.25" />
+        <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/layout/exo_player_control_view.xml" value="0.25" />
+        <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/layout/exo_styled_player_control_view.xml" value="0.22" />
         <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/layout/fragment_album_detail.xml" value="0.278125" />
         <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/layout/fragment_chart.xml" value="0.33" />
         <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/layout/fragment_my_music_list.xml" value="0.1" />
         <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/layout/fragment_search.xml" value="0.25" />
         <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/layout/my_music_list_item.xml" value="0.24114583333333334" />
+        <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/layout/search_list_item.xml" value="0.33" />
         <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/layout/underline_layout.xml" value="0.3359375" />
         <entry key="..\:/androidTeamProject/MelonTubeProject/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.25" />
         <entry key="..\:/boot_app/MelonTubeProject/app/src/main/res/layout/activity_splash.xml" value="0.28055555555555556" />

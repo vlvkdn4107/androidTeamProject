@@ -28,7 +28,7 @@
             android:id="@+id/albumInforecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="5dp"
             tools:listitem="@layout/album_info_item" />
 
     </LinearLayout>
