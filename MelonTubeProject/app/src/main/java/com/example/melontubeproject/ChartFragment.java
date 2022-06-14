@@ -46,7 +46,6 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
     private ChartAdapter chartAdapter;
     private RecentAlbumAdapter recentAlbumAdapter;
 
-    // 다른 프래그먼트 갔다 와도 보던 목록 그대로 있게
     private boolean isFirstUpload = true;
 
     public List<Music> musicList = new ArrayList<>();
@@ -56,6 +55,8 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
 
     private SharedPreferences preferences;
     private String save;
+
+    private List<Music> tempList = new ArrayList<>();
 
     private ChartFragment() {
     }
@@ -153,31 +154,30 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
                 .enqueue(new Callback<Music>() {
                     @Override
                     public void onResponse(Call<Music> call, Response<Music> response) {
-                        List<Music> myList = MyMusicListFragment.getInstance().myMusicList;
                         Music myMusic = response.body();
 
                         // 중복제거
-                        if (myList.size() > 1) {
-                            for (int i = 0; i < myList.size(); i++) {
-                                if (myList.get(i).getTitle().equals(myMusic.getTitle())) {
-                                    Log.d(TAG, "같습니다.");
+                        if (tempList.size() > 0) {
+                            for (int i = 0; i < tempList.size(); i++) {
+                                if (tempList.get(i).getTitle().equals(myMusic.getTitle())) {
+                                    Log.d(TAG, myMusic.getTitle() + "은 이미 존재하는 노래입니다.");
+                                    Toast.makeText(getContext(), "이미 존재하는 노래입니다.", Toast.LENGTH_SHORT).show();
                                     return;
-                                } else {
-                                    myList.add(myMusic);
-                                    Log.d(TAG, "추가.");
                                 }
                             }
-                        } else {
-                            myList.add(myMusic);
-                            Log.d(TAG, "추가되었습니다.");
+                            tempList.add(myMusic);
+                            setSaveMyMusic(getContext(), "savemusic", tempList);
+                            Log.d(TAG, myMusic.getTitle() + "이 추가되었습니다.");
                         }
 
-                        for (int i = 0; i < myList.size(); i++) {
-                            Log.d(TAG, myList.get(i).getTitle());
+                        if (tempList.isEmpty()) {
+                            tempList.add(myMusic);
+                            Log.d(TAG, myMusic.getTitle() + "이 추가되었습니다.");
+                            setSaveMyMusic(getContext(), "savemusic", tempList);
                         }
-                        setSaveMyMusic(getContext(), "savemusic", myList);
-                        MyMusicListFragment.getInstance().myMusicList = myList;
 
+                        // 저장하는 곳을 하나로 처리 !!
+                        // 두군데 - 파일, 리스트
                         Toast.makeText(getContext(), "내 재생목록에 추가되었습니다.", Toast.LENGTH_SHORT).show();
                     }
 
@@ -207,7 +207,7 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
         }
         if (!values.isEmpty()) {
             editor.putString("savemusic", jsonArray.toString());
-            Log.d("TAG", "여기 동작 1111111111");
+            //Log.d("TAG", "여기 동작 1111111111");
         }
         editor.apply();
     }
