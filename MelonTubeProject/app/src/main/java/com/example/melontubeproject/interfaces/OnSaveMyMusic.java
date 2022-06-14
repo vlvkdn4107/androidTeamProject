@@ -6,6 +6,6 @@ import com.example.melontubeproject.models.Music;
 
 import java.util.List;
 
-public interface OnSaveMymusic {
+public interface OnSaveMyMusic {
     List<Music> getSaveMyMusicList(Context context, String key);
 }

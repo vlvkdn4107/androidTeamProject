@@ -1,7 +1,6 @@
 package com.example.spring_server.controller;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -73,6 +72,7 @@ public class ApiController {
 
 	}
 
+	// 앨범 별 노래리스트 출력
 	@GetMapping("/albumlist")
 	public List<Album> albumMusicList() {
 		List<Album> albumList = new ArrayList<Album>();
@@ -106,6 +106,7 @@ public class ApiController {
 		return albumList;
 	}
 
+	// 내 재생목록에 추가
 	@PostMapping("/addmylist")
 	public Music addMyList(@RequestBody Music myMusic) {
 		Music music = new Music();
@@ -117,6 +118,7 @@ public class ApiController {
 		return music;
 	}
 
+	// 노래 재생
 	@GetMapping("/play")
 	public Music playMusic(@RequestParam String musicTitle) {
 		Music music = new Music();
@@ -128,11 +130,14 @@ public class ApiController {
 		return music;
 	}
 
+	//검색 기능
 	@GetMapping("/searchlist")
 	public List<Music> searchlist(@RequestParam Map<String, String> map) {
 		HashSet<Music> tempMusics = new HashSet<Music>();
 		// key 값이 제목일떄와 가수일떄 구분해주어야한다.
 
+		
+		// 가수 이름과 노래 제목으로 검색하기 위해 키 값 두개 생성
 		map.entrySet().forEach(entry -> {
 			if (entry.getKey().equals("title")) {
 				for (Music music : sampleMusic) {

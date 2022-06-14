@@ -1,6 +1,5 @@
 package com.example.melontubeproject.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +15,6 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.melontubeproject.R;
 import com.example.melontubeproject.interfaces.OnAddListClicked;
 import com.example.melontubeproject.interfaces.OnPlayBtnClicked;
-import com.example.melontubeproject.interfaces.OnSearchClicked;
 import com.example.melontubeproject.models.Music;
 
 import java.util.ArrayList;
@@ -37,12 +35,6 @@ public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.Musi
 
     public void setOnPlayBtnClicked(OnPlayBtnClicked onPlayBtnClicked) {
         this.onPlayBtnClicked = onPlayBtnClicked;
-    }
-
-    // 재활용 // 데이터
-    public void addItem(List<Music> addList) {
-        this.musicList.addAll(musicList.size(), addList);
-        notifyDataSetChanged();
     }
 
     public void searchAddItem(List<Music> addList) {

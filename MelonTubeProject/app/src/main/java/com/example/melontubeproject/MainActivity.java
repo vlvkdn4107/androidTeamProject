@@ -1,8 +1,6 @@
 package com.example.melontubeproject;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -11,12 +9,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.melontubeproject.databinding.ActivityMainBinding;
 import com.example.melontubeproject.utils.FragmentType;
-import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    Fragment fragment;
+    private Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addBottomNavigationListener() {
+        // BottomNavigation 클릭시 프래그먼트 전환
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.homeIcon:
@@ -56,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.myListIcon:
                     replaceFragment(FragmentType.MY_LIST);
-                    Log.d("TAG", "bottomNavigation : 마이리스트 프래그먼트 전환");
                     break;
             }
             return true;
@@ -65,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
+        // Search, MyMusic 프래그먼트에서 뒤로가기 -> 홈 화면
+        // 홈 화면에서 뒤로가기 -> 앱 종료
         if(fragment instanceof ChartFragment){
             finish();
         } else if (fragment instanceof SearchFragment) {
@@ -75,6 +73,5 @@ public class MainActivity extends AppCompatActivity {
             replaceFragment(FragmentType.CHART);
             binding.bottomNavigation.getMenu().findItem(R.id.homeIcon).setChecked(true);
         }
-
     }
 }

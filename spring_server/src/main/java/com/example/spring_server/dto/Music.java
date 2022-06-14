@@ -14,13 +14,14 @@ import lombok.NoArgsConstructor;
 public class Music {
 
 	private int id;
-	private String singer;
+	private String singer; 
 	private String title;
 	private String albumTitle;
 	private String audioUrl;
 	private String imageUrl;
 	private String lyrics;
 
+	
 	public static ArrayList<Music> sampledata() {
 		ArrayList<Music> list = new ArrayList<>();
 		list.add(new Music(1, "싸이", "That That", "싸다9",

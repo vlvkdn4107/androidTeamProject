@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.melontubeproject.adapter.MyMusicListAdapter;
 import com.example.melontubeproject.databinding.FragmentMyMusicListBinding;
 import com.example.melontubeproject.interfaces.OnPlayBtnClicked;
-import com.example.melontubeproject.interfaces.OnSaveMymusic;
+import com.example.melontubeproject.interfaces.OnSaveMyMusic;
 import com.example.melontubeproject.interfaces.OnDeleteBtnClicked;
 import com.example.melontubeproject.models.Music;
 import com.example.melontubeproject.repository.MusicService;
@@ -33,19 +33,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MyMusicListFragment extends Fragment implements OnPlayBtnClicked, OnDeleteBtnClicked, OnSaveMymusic{
+public class MyMusicListFragment extends Fragment implements OnPlayBtnClicked, OnDeleteBtnClicked, OnSaveMyMusic {
     private static MyMusicListFragment myMusicListFragment;
     private FragmentMyMusicListBinding binding;
     private MusicService musicService;
     private MyMusicListAdapter myMusicListAdapter;
     private SharedPreferences preferences;
 
+    private static final String TAG = MyMusicListFragment.class.getName();
+    public static final String SAVE_MUSIC = "savemusic";
+    public static final String DELETE_MUSIC = "deletemusic";
+
     public List<Music> myMusicList = new ArrayList<>();
     public String save;
     private String delete;
 
     public MyMusicListFragment() {
-
     }
 
     public static MyMusicListFragment getInstance() {
@@ -58,23 +61,16 @@ public class MyMusicListFragment extends Fragment implements OnPlayBtnClicked, O
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // 수정 해야될것들
-        // 삭제하고 나서 다시 mylist로 넘어가면은 삭제됬던게 다시 나온다.
-        // shared에서는 삭제안해서 그렇다.
-
         musicService = MusicService.retrofit.create(MusicService.class);
-        Log.d("TAG", "마이리스트 프래그먼트 onCreate()");
-
+        Log.d(TAG, "마이리스트 프래그먼트 onCreate()");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         preferences = PreferenceManager.getDefaultSharedPreferences(container.getContext());
-        save = preferences.getString("savemusic", "");
-        Log.d("TAG",  save);
+        save = preferences.getString(SAVE_MUSIC, "");
+        Log.d(TAG,  save);
         myMusicList = getSaveMyMusicList(container.getContext(), save);
 
         binding = FragmentMyMusicListBinding.inflate(inflater, container, false);
@@ -88,24 +84,17 @@ public class MyMusicListFragment extends Fragment implements OnPlayBtnClicked, O
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
-        Log.d("TAG","onPause");
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
         myMusicListAdapter.notifyDataSetChanged();
-        Log.d("TAG","onResume");
+        Log.d(TAG,"onResume");
     }
 
     private void setRecycleListView(List<Music> musicList) {
         myMusicListAdapter = new MyMusicListAdapter();
         myMusicListAdapter.initMyMusicList(musicList);
         myMusicListAdapter.setOnPlayBtnClicked(this);
-        myMusicListAdapter.setOndeleteBtnClicked(this);
-        myMusicListAdapter.setOnSaveMymusic(this);
+        myMusicListAdapter.setOnDeleteBtnClicked(this);
 
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
 
@@ -116,6 +105,7 @@ public class MyMusicListFragment extends Fragment implements OnPlayBtnClicked, O
 
     }
 
+    // 뮤직 플레이
     @Override
     public void playMusic(Music music) {
         Intent intent = new Intent(getContext(), MusicPlayActivity.class);
@@ -123,19 +113,15 @@ public class MyMusicListFragment extends Fragment implements OnPlayBtnClicked, O
         startActivity(intent);
     }
 
+    // 마이뮤직플레이 삭제
     @Override
     public void deleteMusic(Music music) {
         myMusicList.remove(music);
-        delete = preferences.getString("deletemusic","");
-        myMusicList = getSaveMyMusicList(getContext(), delete);
-
-//        for (int i = 0; i < myMusicList.size(); i++){
-//            list.remove(i);
-//        }
         myMusicListAdapter.notifyDataSetChanged();
     }
 
 
+    //sharedPreferences(파싱을 해서 리스트에 담기)
     @Override
     public List<Music> getSaveMyMusicList(Context context, String data) {
         Gson gson = new GsonBuilder().create();

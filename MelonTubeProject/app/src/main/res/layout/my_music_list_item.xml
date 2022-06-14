@@ -20,24 +20,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:text="제목이 들어가는 부분"
         android:textColor="@color/black"
         android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/my_music_singer"
         app:layout_constraintStart_toEndOf="@id/my_music_imageview"
-        app:layout_constraintTop_toTopOf="@id/my_music_imageview" />
+        app:layout_constraintTop_toTopOf="@id/my_music_imageview"
+        tools:text="제목이 들어가는 부분" />
 
     <TextView
         android:id="@+id/my_music_singer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:text="가수명 들어가는 부분"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="@id/my_music_imageview"
         app:layout_constraintStart_toEndOf="@id/my_music_imageview"
-        app:layout_constraintTop_toBottomOf="@id/my_music_title" />
+        app:layout_constraintTop_toBottomOf="@id/my_music_title"
+        tools:text="가수명 들어가는 부분" />
 
     <ImageView
         android:id="@+id/my_music_play"

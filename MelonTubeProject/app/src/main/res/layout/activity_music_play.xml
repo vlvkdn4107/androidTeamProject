@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/elbumPlayImage"
+            android:id="@+id/albumPlayImage"
             android:layout_width="300dp"
             android:layout_height="300dp"
             android:background="@color/black">
@@ -86,6 +86,5 @@
         app:layout_constraintStart_toStartOf="@id/titlePlayText"
         app:layout_constraintTop_toBottomOf="@id/titlePlayText"
         tools:text="singer" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

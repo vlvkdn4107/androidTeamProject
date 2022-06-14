@@ -14,31 +14,16 @@ public class Album implements Serializable {
         return albumImageUrl;
     }
 
-    public void setAlbumImageUrl(String albumImageUrl) {
-        this.albumImageUrl = albumImageUrl;
-    }
-
     public String getAlbumTitle() {
         return albumTitle;
-    }
-
-    public void setAlbumTitle(String albumTitle) {
-        this.albumTitle = albumTitle;
     }
 
     public String getAlbumSinger() {
         return albumSinger;
     }
 
-    public void setAlbumSinger(String albumSinger) {
-        this.albumSinger = albumSinger;
-    }
-
     public List<Music> getTrackList() {
         return trackList;
     }
 
-    public void setTrackList(List<Music> trackList) {
-        this.trackList = trackList;
-    }
 }

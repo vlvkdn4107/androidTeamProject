@@ -29,10 +29,7 @@ import com.google.gson.GsonBuilder;
 import org.json.JSONArray;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -82,8 +79,7 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
         setRecycleView();
 
         preferences = PreferenceManager.getDefaultSharedPreferences(container.getContext());
-        save = preferences.getString("savemusic", "");
-        Log.d(TAG, "save : " + save);
+        save = preferences.getString(MyMusicListFragment.SAVE_MUSIC, "");
 
         if (isFirstUpload) {
             requestMusicData();
@@ -93,8 +89,7 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
 
     private void requestMusicData() {
 
-        Log.d(TAG, "통신 요청 확인");
-
+        // 샘플 데이터 불러오기
         musicService.musicList()
                 .enqueue(new Callback<List<Music>>() {
                     @Override
@@ -109,6 +104,7 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
                     }
                 });
 
+        // 앨범 별 노래리스트 불러오기
         musicService.albumMusicList()
                 .enqueue(new Callback<List<Album>>() {
                     @Override
@@ -166,14 +162,14 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
                                 }
                             }
                             tempList.add(myMusic);
-                            setSaveMyMusic(getContext(), "savemusic", tempList);
+                            setSaveMyMusic(getContext(), MyMusicListFragment.SAVE_MUSIC, tempList);
                             Log.d(TAG, myMusic.getTitle() + "이 추가되었습니다.");
                         }
 
                         if (tempList.isEmpty()) {
                             tempList.add(myMusic);
                             Log.d(TAG, myMusic.getTitle() + "이 추가되었습니다.");
-                            setSaveMyMusic(getContext(), "savemusic", tempList);
+                            setSaveMyMusic(getContext(), MyMusicListFragment.SAVE_MUSIC, tempList);
                         }
                         Toast.makeText(getContext(), "내 재생목록에 추가되었습니다.", Toast.LENGTH_SHORT).show();
                     }
@@ -193,6 +189,7 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
         startActivity(intent);
     }
 
+    // 리스트 파싱해서 SharedPreferences에 담기
     public void setSaveMyMusic(Context context, String key, List<Music> values) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = preferences.edit();
@@ -203,9 +200,8 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
             jsonArray.put(str);
         }
         if(!values.isEmpty()){
-            editor.putString("savemusic",jsonArray.toString()).apply();
-            editor.remove("deletemusic").commit();
-            Log.d("TAG", "여기 동작 1111111111");
+            editor.putString(MyMusicListFragment.SAVE_MUSIC,jsonArray.toString()).apply();
+            editor.remove(MyMusicListFragment.DELETE_MUSIC).commit();
         }
         editor.apply();
     }

@@ -18,7 +18,6 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.melontubeproject.AlbumDetailActivity;
 import com.example.melontubeproject.R;
 import com.example.melontubeproject.models.Album;
-import com.example.melontubeproject.models.Music;
 
 import java.util.ArrayList;
 import java.util.List;

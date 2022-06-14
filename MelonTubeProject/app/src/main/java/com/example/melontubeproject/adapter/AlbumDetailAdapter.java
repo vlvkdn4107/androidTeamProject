@@ -22,7 +22,6 @@ import java.util.List;
 
 public class AlbumDetailAdapter extends RecyclerView.Adapter<AlbumDetailAdapter.AlbumViewHolder> {
 
-    // 앨범 상세 페이지
     private Album album = new Album();
 
     public void initItem(Album album) {

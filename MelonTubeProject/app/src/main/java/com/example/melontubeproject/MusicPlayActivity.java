@@ -72,7 +72,7 @@ public class MusicPlayActivity extends AppCompatActivity {
 
         Glide.with(this)
                 .load(music.getImageUrl())
-                .into(binding.elbumPlayImage);
+                .into(binding.albumPlayImage);
 
     }
 
@@ -80,11 +80,11 @@ public class MusicPlayActivity extends AppCompatActivity {
         // 다음 노래 재생 버튼 클릭
         playBtn = findViewById(R.id.exo_play);
         stopBtn = findViewById(R.id.exo_pause);
-        skipNextBtn = findViewById(R.id.exo_next);
+        skipNextBtn = findViewById(R.id.exo_next_btn);
         skipPreviousBtn = findViewById(R.id.exo_prev);
 
         // 앨범 커버 클릭시 가사 보이게
-        binding.elbumPlayImage.setOnClickListener(v -> {
+        binding.albumPlayImage.setOnClickListener(v -> {
             binding.scrollView.setVisibility(View.VISIBLE);
         });
 
@@ -93,13 +93,31 @@ public class MusicPlayActivity extends AppCompatActivity {
         });
 
         playBtn.setOnClickListener(v -> {
-            playBtn.setVisibility(View.INVISIBLE);
-            stopBtn.setVisibility(View.VISIBLE);
+
+            Log.d(TAG, simpleExoPlayer.isPlaying() + " : PlayBtn");
+
+            if (!simpleExoPlayer.isPlaying()) {
+                playBtn.setVisibility(View.INVISIBLE);
+                stopBtn.setVisibility(View.VISIBLE); 
+                playBtn.setEnabled(false);
+                stopBtn.setEnabled(true);
+                simpleExoPlayer.play();
+            }
+
         });
 
         stopBtn.setOnClickListener(v -> {
-            stopBtn.setVisibility(View.INVISIBLE);
-            playBtn.setVisibility(View.VISIBLE);
+
+            Log.d(TAG, simpleExoPlayer.isPlaying() + " : StopBtn");
+
+            if (simpleExoPlayer.isPlaying()) {
+                stopBtn.setVisibility(View.INVISIBLE);
+                playBtn.setVisibility(View.VISIBLE);
+                playBtn.setEnabled(true);
+                stopBtn.setEnabled(false);
+                simpleExoPlayer.pause();
+            }
+
         });
 
         skipNextBtn.setOnClickListener(v -> {
@@ -110,8 +128,6 @@ public class MusicPlayActivity extends AppCompatActivity {
                             music = response.body();
                             setData(music);
                             setExoPlayer();
-
-                            Log.d(TAG, "다음 노래 재생 !!!!");
                         }
 
                         @Override
@@ -129,8 +145,6 @@ public class MusicPlayActivity extends AppCompatActivity {
                             music = response.body();
                             setData(music);
                             setExoPlayer();
-
-                            Log.d(TAG, "이전 노래 재생 !!!!");
                         }
 
                         @Override
@@ -159,7 +173,6 @@ public class MusicPlayActivity extends AppCompatActivity {
 
                         simpleExoPlayer.setPlayWhenReady(true);
                         simpleExoPlayer.prepare(mediaSource);
-                        Log.d(TAG, "playMusic()");
                     }
 
                     @Override

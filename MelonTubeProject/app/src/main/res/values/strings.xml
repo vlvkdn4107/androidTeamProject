@@ -1,6 +1,9 @@
 <resources>
-    <string name="app_name">MelonTubeProject</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="str_slider_image">str_slider_image</string>
+    <string name="app_name">MelonTube</string>
+    <string name="str_recent_album">최신 앨범</string>
+    <string name="str_popular_chart">인기 차트</string>
+    <string name="str_my_playlist">나의 재생 목록</string>
+    <string name="str_hint">가수, 노래제목</string>
+    <string name="str_album_info">앨범 정보</string>
+    <string name="str_track_list">수록곡</string>
 </resources>

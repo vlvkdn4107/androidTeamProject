@@ -1,6 +1,5 @@
 package com.example.melontubeproject.adapter;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +13,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.melontubeproject.R;
-import com.example.melontubeproject.interfaces.OnPlayBtnClicked;
-import com.example.melontubeproject.interfaces.OnSaveMymusic;
 import com.example.melontubeproject.interfaces.OnDeleteBtnClicked;
+import com.example.melontubeproject.interfaces.OnPlayBtnClicked;
 import com.example.melontubeproject.models.Music;
 
 import java.util.ArrayList;
@@ -27,16 +25,10 @@ public class MyMusicListAdapter extends RecyclerView.Adapter<MyMusicListAdapter.
     private ImageView playMusicBtn;
     private ImageView deleteMusicBtn;
     private OnPlayBtnClicked onPlayBtnClicked;
-    private OnDeleteBtnClicked ondeleteBtnClicked;
-    private OnSaveMymusic onSaveMymusic;
+    private OnDeleteBtnClicked onDeleteBtnClicked;
 
-    public void setOnSaveMymusic(OnSaveMymusic onSaveMymusic) {
-        this.onSaveMymusic = onSaveMymusic;
-        notifyDataSetChanged();
-    }
-
-    public void setOndeleteBtnClicked(OnDeleteBtnClicked ondeleteBtnClicked) {
-        this.ondeleteBtnClicked = ondeleteBtnClicked;
+    public void setOnDeleteBtnClicked(OnDeleteBtnClicked ondeleteBtnClicked) {
+        this.onDeleteBtnClicked = ondeleteBtnClicked;
         notifyDataSetChanged();
     }
 
@@ -49,12 +41,6 @@ public class MyMusicListAdapter extends RecyclerView.Adapter<MyMusicListAdapter.
         this.myMusicList = myMusicList;
         notifyDataSetChanged();
     }
-
-    public void addMyMusicItem(List<Music> addList) {
-        this.myMusicList.addAll(myMusicList.size(), addList);
-        notifyDataSetChanged();
-    }
-
 
     @NonNull
     @Override
@@ -79,8 +65,7 @@ public class MyMusicListAdapter extends RecyclerView.Adapter<MyMusicListAdapter.
         });
 
         deleteMusicBtn.setOnClickListener(event ->{
-            Log.d("TAG","마이뮤직리스트 delete버튼 클릭!"+ music.getId());
-            ondeleteBtnClicked.deleteMusic(music);
+            onDeleteBtnClicked.deleteMusic(music);
         });
     }
 
@@ -89,20 +74,19 @@ public class MyMusicListAdapter extends RecyclerView.Adapter<MyMusicListAdapter.
         return myMusicList.size();
     }
 
-
     public static class MyMusicViewHolder extends RecyclerView.ViewHolder {
 
-        private View mymusiclistview;
+        private View myMusicListView;
         private ImageView imageView;
         private TextView titleView;
         private TextView singerView;
 
         public MyMusicViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.mymusiclistview = itemView;
-            imageView = mymusiclistview.findViewById(R.id.my_music_imageview);
-            titleView = mymusiclistview.findViewById(R.id.my_music_title);
-            singerView = mymusiclistview.findViewById(R.id.my_music_singer);
+            this.myMusicListView = itemView;
+            imageView = myMusicListView.findViewById(R.id.my_music_imageview);
+            titleView = myMusicListView.findViewById(R.id.my_music_title);
+            singerView = myMusicListView.findViewById(R.id.my_music_singer);
         }
 
         public void getMusicList(Music music) {

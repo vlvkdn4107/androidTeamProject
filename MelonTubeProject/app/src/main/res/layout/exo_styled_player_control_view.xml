@@ -14,7 +14,7 @@
         app:layout_constraintBottom_toTopOf="@id/exo_play"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:played_color="#3F51B5"
+        app:played_color="@color/black"
         app:scrubber_disabled_size="1dp"
         app:scrubber_drawable="@drawable/ic_baseline_fiber_manual_record_24"
         app:scrubber_enabled_size="1dp"
@@ -48,7 +48,7 @@
         app:tint="@color/black" />
 
     <ImageButton
-        android:id="@+id/exo_next"
+        android:id="@+id/exo_next_btn"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@android:color/transparent"

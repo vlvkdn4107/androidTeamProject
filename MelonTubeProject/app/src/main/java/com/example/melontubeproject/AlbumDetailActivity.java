@@ -1,26 +1,16 @@
 package com.example.melontubeproject;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.ImageButton;
-import android.widget.Toast;
-
 import com.example.melontubeproject.adapter.AlbumDetailAdapter;
 import com.example.melontubeproject.adapter.AlbumDetailTrackListAdapter;
 import com.example.melontubeproject.databinding.ActivityAlbumDetailBinding;
-import com.example.melontubeproject.databinding.ActivityMusicPlayBinding;
-import com.example.melontubeproject.databinding.FragmentChartBinding;
 import com.example.melontubeproject.models.Album;
-import com.example.melontubeproject.models.Music;
 import com.example.melontubeproject.repository.MusicService;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -59,7 +49,6 @@ public class AlbumDetailActivity extends AppCompatActivity {
                         Album album = response.body();
                         albumDetailAdapter.initItem(album);
                         albumDetailTrackListAdapter.initItemList(album.getTrackList());
-
                     }
 
                     @Override
@@ -73,7 +62,7 @@ public class AlbumDetailActivity extends AppCompatActivity {
         albumDetailAdapter = new AlbumDetailAdapter();
         albumDetailTrackListAdapter = new AlbumDetailTrackListAdapter();
 
-        RecyclerView albumInfoRecyclerView = binding.albumInforecyclerView;
+        RecyclerView albumInfoRecyclerView = binding.albumInfoRecyclerView;
         RecyclerView albumTrackListRecyclerView = binding.albumTrackListRecyclerView;
 
         albumInfoRecyclerView.setAdapter(albumDetailAdapter);

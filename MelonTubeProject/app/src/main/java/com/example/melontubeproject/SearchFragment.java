@@ -20,7 +20,6 @@ import com.example.melontubeproject.adapter.SearchingAdapter;
 import com.example.melontubeproject.databinding.FragmentSearchBinding;
 import com.example.melontubeproject.interfaces.OnAddListClicked;
 import com.example.melontubeproject.interfaces.OnPlayBtnClicked;
-import com.example.melontubeproject.interfaces.OnSearchClicked;
 import com.example.melontubeproject.models.Music;
 import com.example.melontubeproject.repository.MusicService;
 
@@ -37,6 +36,8 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
     private FragmentSearchBinding binding;
     private MusicService musicService;
     private SearchingAdapter searchingAdapter;
+
+    private static final String TAG = SearchFragment.class.getName();
 
     private static List<Music> list = new ArrayList<>();
     private List<Music> tempList = new ArrayList<>();
@@ -58,11 +59,12 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
     }
 
 
+    // 프래그먼트 전환시 검색했던 결과를 바로 그려주는 메서드
     @Override
     public void onResume() {
         super.onResume();
         if (binding.searchText.getText().length() != 0) {
-            setRecycleView(list);
+            setRecycleView();
             searchingAdapter.searchAddItem(list);
         }
 
@@ -75,7 +77,7 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
         addEventListener();
         binding.searchTextField.setEndIconOnClickListener(v -> {
             binding.searchText.setText("");
-            setRecycleView(list);
+            setRecycleView();
         });
 
         return binding.getRoot();
@@ -90,11 +92,12 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Log.d("TAG", "start :" + start + "//" + "before :" + before + "//" + "count : " + count);
+                // 비포는 한글만 읽고 스타트는 영어만 읽음
+                Log.d(TAG, "start :" + start + "//" + "before :" + before + "//" + "count : " + count);
                 if (before > 0 || start > 0) {
                     if (count != 0) {
                         requestMusicData();
-                        setRecycleView(list);
+                        setRecycleView();
                     }
                 }
             }
@@ -119,13 +122,13 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
 
                     @Override
                     public void onFailure(Call<List<Music>> call, Throwable t) {
-                        Log.d("TAG", "네트워크 불안정 !!!");
+                        Log.d(TAG, "네트워크 불안정 !!!");
                         Toast.makeText(getContext(), "네트워크가 불안정합니다.", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
-    private void setRecycleView(List<Music> musicList) {
+    private void setRecycleView() {
         searchingAdapter = new SearchingAdapter();
         searchingAdapter.setOnAddListClicked(this);
         searchingAdapter.setOnPlayBtnClicked(this);

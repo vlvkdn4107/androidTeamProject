@@ -7,7 +7,7 @@
     tools:context=".MyMusicListFragment">
 
     <LinearLayout
-        android:id="@+id/mymusictitle"
+        android:id="@+id/myMusicTitle"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="10dp"
@@ -23,7 +23,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
             android:fontFamily="@font/font"
-            android:text="나의 재생 목록"
+            android:text="@string/str_my_playlist"
             android:textSize="20dp" />
 
     </LinearLayout>
@@ -35,7 +35,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mymusictitle"
+        app:layout_constraintTop_toBottomOf="@id/myMusicTitle"
         tools:listitem="@layout/my_music_list_item" />
 
 
