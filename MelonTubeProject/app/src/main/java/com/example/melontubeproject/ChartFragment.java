@@ -160,8 +160,8 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
                         if (tempList.size() > 0) {
                             for (int i = 0; i < tempList.size(); i++) {
                                 if (tempList.get(i).getTitle().equals(myMusic.getTitle())) {
-                                    Log.d(TAG, myMusic.getTitle() + "은 이미 존재하는 노래입니다.");
-                                    Toast.makeText(getContext(), "이미 존재하는 노래입니다.", Toast.LENGTH_SHORT).show();
+                                    Log.d(TAG, myMusic.getTitle() + "은 추가된 곡입니다.");
+                                    Toast.makeText(getContext(), "이미 추가된 곡입니다.", Toast.LENGTH_SHORT).show();
                                     return;
                                 }
                             }
@@ -175,9 +175,6 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
                             Log.d(TAG, myMusic.getTitle() + "이 추가되었습니다.");
                             setSaveMyMusic(getContext(), "savemusic", tempList);
                         }
-
-                        // 저장하는 곳을 하나로 처리 !!
-                        // 두군데 - 파일, 리스트
                         Toast.makeText(getContext(), "내 재생목록에 추가되었습니다.", Toast.LENGTH_SHORT).show();
                     }
 
@@ -201,13 +198,14 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
         SharedPreferences.Editor editor = preferences.edit();
         JSONArray jsonArray = new JSONArray();
         Gson gson = new GsonBuilder().create();
-        for (int i = 0; i < values.size(); i++) {
+        for (int i = 0; i < values.size(); i++){
             String str = gson.toJson(values.get(i), Music.class);
             jsonArray.put(str);
         }
-        if (!values.isEmpty()) {
-            editor.putString("savemusic", jsonArray.toString());
-            //Log.d("TAG", "여기 동작 1111111111");
+        if(!values.isEmpty()){
+            editor.putString("savemusic",jsonArray.toString()).apply();
+            editor.remove("deletemusic").commit();
+            Log.d("TAG", "여기 동작 1111111111");
         }
         editor.apply();
     }

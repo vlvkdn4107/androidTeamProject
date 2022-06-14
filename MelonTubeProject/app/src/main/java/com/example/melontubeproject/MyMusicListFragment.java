@@ -40,9 +40,9 @@ public class MyMusicListFragment extends Fragment implements OnPlayBtnClicked, O
     private MyMusicListAdapter myMusicListAdapter;
     private SharedPreferences preferences;
 
-
     public List<Music> myMusicList = new ArrayList<>();
     public String save;
+    private String delete;
 
     public MyMusicListFragment() {
 
@@ -110,7 +110,6 @@ public class MyMusicListFragment extends Fragment implements OnPlayBtnClicked, O
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
 
         RecyclerView recyclerView = binding.myMusicRecyclerview;
-
         recyclerView.setAdapter(myMusicListAdapter);
         recyclerView.setLayoutManager(manager);
         recyclerView.setHasFixedSize(true);
@@ -127,9 +126,13 @@ public class MyMusicListFragment extends Fragment implements OnPlayBtnClicked, O
     @Override
     public void deleteMusic(Music music) {
         myMusicList.remove(music);
-        Log.d("TAG",myMusicList + " 삭제");
-        myMusicListAdapter.notifyDataSetChanged();
+        delete = preferences.getString("deletemusic","");
+        myMusicList = getSaveMyMusicList(getContext(), delete);
 
+//        for (int i = 0; i < myMusicList.size(); i++){
+//            list.remove(i);
+//        }
+        myMusicListAdapter.notifyDataSetChanged();
     }
 
 
