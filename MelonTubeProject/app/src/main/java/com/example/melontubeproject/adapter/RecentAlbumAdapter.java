@@ -18,6 +18,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.melontubeproject.AlbumDetailActivity;
 import com.example.melontubeproject.R;
 import com.example.melontubeproject.models.Album;
+import com.example.melontubeproject.utils.Define;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,10 +84,9 @@ public class RecentAlbumAdapter extends RecyclerView.Adapter<RecentAlbumAdapter.
             itemView.setOnClickListener(v -> {
 
                 Intent intent = new Intent(v.getContext(), AlbumDetailActivity.class);
-                intent.putExtra("album", album);
+                intent.putExtra(Define.OBJ_ALBUM, album);
                 v.getContext().startActivity(intent);
 
-                Log.d("TAG", "앨범 아이템 클릭 !!!" + album.getAlbumTitle());
             });
 
         }

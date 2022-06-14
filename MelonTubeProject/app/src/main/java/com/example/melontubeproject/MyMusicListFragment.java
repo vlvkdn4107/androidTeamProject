@@ -23,6 +23,7 @@ import com.example.melontubeproject.interfaces.OnSaveMyMusic;
 import com.example.melontubeproject.interfaces.OnDeleteBtnClicked;
 import com.example.melontubeproject.models.Music;
 import com.example.melontubeproject.repository.MusicService;
+import com.example.melontubeproject.utils.Define;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -40,9 +41,7 @@ public class MyMusicListFragment extends Fragment implements OnPlayBtnClicked, O
     private MyMusicListAdapter myMusicListAdapter;
     private SharedPreferences preferences;
 
-    private static final String TAG = MyMusicListFragment.class.getName();
-    public static final String SAVE_MUSIC = "savemusic";
-    public static final String DELETE_MUSIC = "deletemusic";
+
 
     public List<Music> myMusicList = new ArrayList<>();
     public String save;
@@ -62,15 +61,13 @@ public class MyMusicListFragment extends Fragment implements OnPlayBtnClicked, O
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         musicService = MusicService.retrofit.create(MusicService.class);
-        Log.d(TAG, "마이리스트 프래그먼트 onCreate()");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         preferences = PreferenceManager.getDefaultSharedPreferences(container.getContext());
-        save = preferences.getString(SAVE_MUSIC, "");
-        Log.d(TAG,  save);
+        save = preferences.getString(Define.SAVE_MUSIC, "");
         myMusicList = getSaveMyMusicList(container.getContext(), save);
 
         binding = FragmentMyMusicListBinding.inflate(inflater, container, false);
@@ -87,7 +84,6 @@ public class MyMusicListFragment extends Fragment implements OnPlayBtnClicked, O
     public void onResume() {
         super.onResume();
         myMusicListAdapter.notifyDataSetChanged();
-        Log.d(TAG,"onResume");
     }
 
     private void setRecycleListView(List<Music> musicList) {
@@ -109,7 +105,7 @@ public class MyMusicListFragment extends Fragment implements OnPlayBtnClicked, O
     @Override
     public void playMusic(Music music) {
         Intent intent = new Intent(getContext(), MusicPlayActivity.class);
-        intent.putExtra("music", music);
+        intent.putExtra(Define.OBJ_MUSIC, music);
         startActivity(intent);
     }
 

@@ -11,6 +11,7 @@ import com.example.melontubeproject.adapter.AlbumDetailTrackListAdapter;
 import com.example.melontubeproject.databinding.ActivityAlbumDetailBinding;
 import com.example.melontubeproject.models.Album;
 import com.example.melontubeproject.repository.MusicService;
+import com.example.melontubeproject.utils.Define;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,7 +34,7 @@ public class AlbumDetailActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         if (getIntent() != null) {
-            album = (Album) getIntent().getSerializableExtra("album");
+            album = (Album) getIntent().getSerializableExtra(Define.OBJ_ALBUM);
             setRecycleView();
             requestAlbumData(album);
         }

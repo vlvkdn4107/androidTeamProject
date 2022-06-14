@@ -82,6 +82,11 @@ public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.Musi
             singerTextView = itemView.findViewById(R.id.searchSinger);
         }
 
+        /**
+         *
+         * @param music :
+         *
+         */
         public void setItem(Music music) {
             titleTextView.setText(music.getTitle());
             singerTextView.setText(music.getSinger());

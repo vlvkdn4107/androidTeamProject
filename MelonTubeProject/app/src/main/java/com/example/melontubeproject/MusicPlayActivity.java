@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.example.melontubeproject.databinding.ActivityMusicPlayBinding;
 import com.example.melontubeproject.models.Music;
 import com.example.melontubeproject.repository.MusicService;
+import com.example.melontubeproject.utils.Define;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.ProgressiveMediaSource;
@@ -39,9 +40,8 @@ public class MusicPlayActivity extends AppCompatActivity {
     private ImageButton skipNextBtn;
     private ImageButton skipPreviousBtn;
 
-    private final String TAG = MusicPlayActivity.class.getName();
 
-    public final String OBJ_NAME = "music";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class MusicPlayActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         if (getIntent() != null) {
-            music = (Music) getIntent().getSerializableExtra(OBJ_NAME);
+            music = (Music) getIntent().getSerializableExtra(Define.OBJ_MUSIC);
             setData(music);
             addEventListener();
             setExoPlayer();
@@ -93,12 +93,9 @@ public class MusicPlayActivity extends AppCompatActivity {
         });
 
         playBtn.setOnClickListener(v -> {
-
-            Log.d(TAG, simpleExoPlayer.isPlaying() + " : PlayBtn");
-
             if (!simpleExoPlayer.isPlaying()) {
                 playBtn.setVisibility(View.INVISIBLE);
-                stopBtn.setVisibility(View.VISIBLE); 
+                stopBtn.setVisibility(View.VISIBLE);
                 playBtn.setEnabled(false);
                 stopBtn.setEnabled(true);
                 simpleExoPlayer.play();
@@ -107,8 +104,6 @@ public class MusicPlayActivity extends AppCompatActivity {
         });
 
         stopBtn.setOnClickListener(v -> {
-
-            Log.d(TAG, simpleExoPlayer.isPlaying() + " : StopBtn");
 
             if (simpleExoPlayer.isPlaying()) {
                 stopBtn.setVisibility(View.INVISIBLE);

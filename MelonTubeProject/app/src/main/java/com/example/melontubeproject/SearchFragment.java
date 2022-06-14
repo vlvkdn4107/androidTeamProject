@@ -22,6 +22,7 @@ import com.example.melontubeproject.interfaces.OnAddListClicked;
 import com.example.melontubeproject.interfaces.OnPlayBtnClicked;
 import com.example.melontubeproject.models.Music;
 import com.example.melontubeproject.repository.MusicService;
+import com.example.melontubeproject.utils.Define;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +38,6 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
     private MusicService musicService;
     private SearchingAdapter searchingAdapter;
 
-    private static final String TAG = SearchFragment.class.getName();
 
     private static List<Music> list = new ArrayList<>();
     private List<Music> tempList = new ArrayList<>();
@@ -93,7 +93,6 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 // 비포는 한글만 읽고 스타트는 영어만 읽음
-                Log.d(TAG, "start :" + start + "//" + "before :" + before + "//" + "count : " + count);
                 if (before > 0 || start > 0) {
                     if (count != 0) {
                         requestMusicData();
@@ -122,7 +121,6 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
 
                     @Override
                     public void onFailure(Call<List<Music>> call, Throwable t) {
-                        Log.d(TAG, "네트워크 불안정 !!!");
                         Toast.makeText(getContext(), "네트워크가 불안정합니다.", Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -160,12 +158,12 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
                                 }
                             }
                             tempList.add(myMusic);
-                            ChartFragment.getInstance().setSaveMyMusic(getContext(), "savemusic", tempList);
+                            ChartFragment.getInstance().setSaveMyMusic(getContext(), Define.SAVE_MUSIC, tempList);
                         }
 
                         if (tempList.isEmpty()) {
                             tempList.add(myMusic);
-                            ChartFragment.getInstance().setSaveMyMusic(getContext(), "savemusic", tempList);
+                            ChartFragment.getInstance().setSaveMyMusic(getContext(), Define.SAVE_MUSIC, tempList);
                         }
                         Toast.makeText(getContext(), "내 재생목록에 추가되었습니다.", Toast.LENGTH_SHORT).show();
                     }
@@ -181,7 +179,7 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
     public void playMusic(Music music) {
         // 노래 재생화면
         Intent intent = new Intent(getContext(), MusicPlayActivity.class);
-        intent.putExtra("music", music);
+        intent.putExtra(Define.OBJ_MUSIC, music);
         startActivity(intent);
     }
 
