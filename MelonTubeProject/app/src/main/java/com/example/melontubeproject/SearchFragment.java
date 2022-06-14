@@ -31,7 +31,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SearchFragment extends Fragment implements OnAddListClicked, OnPlayBtnClicked, OnSearchClicked {
+public class SearchFragment extends Fragment implements OnAddListClicked, OnPlayBtnClicked {
 
     private static SearchFragment searchFragment;
     private FragmentSearchBinding binding;
@@ -39,6 +39,7 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
     private SearchingAdapter searchingAdapter;
 
     private static List<Music> list = new ArrayList<>();
+    private List<Music> tempList = new ArrayList<>();
 
     private SearchFragment() {
     }
@@ -54,8 +55,6 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         musicService = MusicService.retrofit.create(MusicService.class);
-
-
     }
 
 
@@ -76,7 +75,6 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
         addEventListener();
         binding.searchTextField.setEndIconOnClickListener(v -> {
             binding.searchText.setText("");
-            list = new ArrayList<Music>();
             setRecycleView(list);
         });
 
@@ -106,9 +104,7 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
             }
         });
 
-
     }
-
 
     private void requestMusicData() {
         String keyword = binding.searchText.getText().toString();
@@ -150,28 +146,24 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
                 .enqueue(new Callback<Music>() {
                     @Override
                     public void onResponse(Call<Music> call, Response<Music> response) {
-                        List<Music> myList = MyMusicListFragment.getInstance().myMusicList;
                         Music myMusic = response.body();
-                        Log.d("TAG", myMusic.getTitle());
 
                         // 중복제거
-                        if (myList.size() > 1) {
-                            for (int i = 0; i < myList.size(); i++) {
-                                if (myList.get(i).getTitle().equals(myMusic.getTitle())) {
-                                    Log.d("TAG", "Search 프래그먼트 같습니다 !!!");
+                        if (tempList.size() > 0) {
+                            for (int i = 0; i < tempList.size(); i++) {
+                                if (tempList.get(i).getTitle().equals(myMusic.getTitle())) {
+                                    Toast.makeText(getContext(), "이미 추가된 곡입니다.", Toast.LENGTH_SHORT).show();
                                     return;
-                                } else {
-                                    myList.add(myMusic);
-                                    Log.d("TAG", "Search 프래그먼트 나의 재생목록 추가 !!!");
                                 }
                             }
-                        } else {
-                            myList.add(myMusic);
-                            Log.d("TAG", "추가되었습니다 !!!");
+                            tempList.add(myMusic);
+                            ChartFragment.getInstance().setSaveMyMusic(getContext(), "savemusic", tempList);
                         }
 
-                        ChartFragment.getInstance().setSaveMyMusic(getContext(), "savemusic", myList);
-                        MyMusicListFragment.getInstance().myMusicList = myList;
+                        if (tempList.isEmpty()) {
+                            tempList.add(myMusic);
+                            ChartFragment.getInstance().setSaveMyMusic(getContext(), "savemusic", tempList);
+                        }
                         Toast.makeText(getContext(), "내 재생목록에 추가되었습니다.", Toast.LENGTH_SHORT).show();
                     }
 
@@ -190,8 +182,4 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
         startActivity(intent);
     }
 
-    @Override
-    public void searchMusic(Music music) {
-
-    }
 }
