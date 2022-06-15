@@ -103,7 +103,7 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
                     }
                 });
 
-        // 앨범 별 노래리스트 불러오기
+        // 앨범 별 트랙리스트 불러오기
         musicService.albumMusicList()
                 .enqueue(new Callback<List<Album>>() {
                     @Override
@@ -185,7 +185,7 @@ public class ChartFragment extends Fragment implements OnAddListClicked, OnPlayB
         startActivity(intent);
     }
 
-    // 리스트 파싱해서 SharedPreferences에 담기
+    // List<Music> 파싱해서 SharedPreferences에 담기
     public void setSaveMyMusic(Context context, String key, List<Music> values) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = preferences.edit();

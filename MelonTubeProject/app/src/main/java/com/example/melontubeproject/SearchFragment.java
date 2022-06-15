@@ -67,7 +67,6 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
             setRecycleView();
             searchingAdapter.searchAddItem(list);
         }
-
     }
 
     @Nullable
@@ -92,7 +91,7 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // 비포는 한글만 읽고 스타트는 영어만 읽음
+                // before는 한글만 읽고 start는 영어만 읽음
                 if (before > 0 || start > 0) {
                     if (count != 0) {
                         requestMusicData();
@@ -177,7 +176,7 @@ public class SearchFragment extends Fragment implements OnAddListClicked, OnPlay
 
     @Override
     public void playMusic(Music music) {
-        // 노래 재생화면
+        // 노래 재생화면으로 전환
         Intent intent = new Intent(getContext(), MusicPlayActivity.class);
         intent.putExtra(Define.OBJ_MUSIC, music);
         startActivity(intent);

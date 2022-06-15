@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addBottomNavigationListener() {
-        // BottomNavigation 클릭시 프래그먼트 전환
+        // BottomNavigation 아이템 클릭시 프래그먼트 전환
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.homeIcon:
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        // Search, MyMusic 프래그먼트에서 뒤로가기 -> 홈 화면
+        // Search, MyMusicList 프래그먼트에서 뒤로가기 -> 홈 화면
         // 홈 화면에서 뒤로가기 -> 앱 종료
         if(fragment instanceof ChartFragment){
             finish();

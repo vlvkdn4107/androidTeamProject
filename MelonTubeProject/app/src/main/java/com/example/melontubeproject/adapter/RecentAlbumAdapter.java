@@ -86,7 +86,6 @@ public class RecentAlbumAdapter extends RecyclerView.Adapter<RecentAlbumAdapter.
                 Intent intent = new Intent(v.getContext(), AlbumDetailActivity.class);
                 intent.putExtra(Define.OBJ_ALBUM, album);
                 v.getContext().startActivity(intent);
-
             });
 
         }

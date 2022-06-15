@@ -84,7 +84,7 @@ public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.Musi
 
         /**
          *
-         * @param music :
+         * @param music : 리사이클러뷰에 세팅할 Music 객체
          *
          */
         public void setItem(Music music) {

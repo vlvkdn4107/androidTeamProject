@@ -37,15 +37,11 @@ import java.util.List;
 public class MyMusicListFragment extends Fragment implements OnPlayBtnClicked, OnDeleteBtnClicked, OnSaveMyMusic {
     private static MyMusicListFragment myMusicListFragment;
     private FragmentMyMusicListBinding binding;
-    private MusicService musicService;
     private MyMusicListAdapter myMusicListAdapter;
     private SharedPreferences preferences;
 
-
-
     public List<Music> myMusicList = new ArrayList<>();
     public String save;
-    private String delete;
 
     public MyMusicListFragment() {
     }
@@ -60,7 +56,6 @@ public class MyMusicListFragment extends Fragment implements OnPlayBtnClicked, O
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        musicService = MusicService.retrofit.create(MusicService.class);
     }
 
     @Override
@@ -101,7 +96,6 @@ public class MyMusicListFragment extends Fragment implements OnPlayBtnClicked, O
 
     }
 
-    // 뮤직 플레이
     @Override
     public void playMusic(Music music) {
         Intent intent = new Intent(getContext(), MusicPlayActivity.class);
@@ -109,15 +103,14 @@ public class MyMusicListFragment extends Fragment implements OnPlayBtnClicked, O
         startActivity(intent);
     }
 
-    // 마이뮤직플레이 삭제
     @Override
     public void deleteMusic(Music music) {
+        // 내 재생목록 노래 제거
         myMusicList.remove(music);
         myMusicListAdapter.notifyDataSetChanged();
     }
 
-
-    //sharedPreferences(파싱을 해서 리스트에 담기)
+    //sharedPreferences 사용(파싱을 해서 리스트에 담기)
     @Override
     public List<Music> getSaveMyMusicList(Context context, String data) {
         Gson gson = new GsonBuilder().create();
