@@ -1,3 +1,4 @@
+
 # Project - MelonTube (뮤직 플레이어 어플)
 
 <br/>
@@ -20,49 +21,55 @@
 
 ## 기능 설명
 
-음악 재생
+- 곡 목록 조회
+		- 순위별 곡 목록 조회, 앨범별 수록곡 조회 기능 구현
 
-음악 검색
+- 음악 재생 기능
+		- exoPlayer 사용한 음악 재생 기능 구현
 
-내 재생목록 추가
+- 음악 검색
+		- TextWatcher 사용하여 텍스트 입력시마다 검색결과 출력하도록  구현
+
+- 내 재생목록 추가 / 삭제
+		- SharedPreferences 사용하여 어플 종료시에도 추가된 곡들이 사라지지 않도록 구현
 
 <br/>
 
 ## 화면 구성
 
+- 스플래시 화면 제외 총 3가지 프래그먼트로 구성된 화면 구현
+
 ### Splash
-<img src="https://user-images.githubusercontent.com/96460131/181198025-03ffeb1c-851c-4488-a275-d9a55bf621d5.png" width="50%" height="50%"/>
+![KakaoTalk_20220729_011403534](https://user-images.githubusercontent.com/96460131/181588575-ec638ada-59b3-4bb2-ba14-3e74c7358c1f.gif)
 
 <br/>
 
-### 메인
+### 메인 화면
 - 곡 재생
 - 앨범별 수록곡 조회
 - 선택한 곡 내 재생목록에 추가
-<img src="https://user-images.githubusercontent.com/96460131/181198135-abcadbcf-15ae-490f-a494-06195c137056.png" width="50%" height="50%"/>
-<img src="https://user-images.githubusercontent.com/96460131/181198155-6e601f30-7688-42be-9498-8f5a69fc694e.png" width="50%" height="50%"/>
 
-<br/>
-
-### 앨범 조회 (수록곡 조회)
-<img src="https://user-images.githubusercontent.com/96460131/181198557-f5b1f688-c10c-4d7e-8f6c-e766256cc3ba.png" width="50%" height="50%"/>
-
-<br/>
+|차트 조회| 앨범별 수록곡 조회 |
+|--|--|
+|![KakaoTalk_20220729_011403316](https://user-images.githubusercontent.com/96460131/181588910-461d1107-b4ad-4352-9492-5e51abbfad4e.gif) |  ![KakaoTalk_20220729_014330084](https://user-images.githubusercontent.com/96460131/181593988-571cbe82-a49b-40b1-9c06-c79a2454dd35.gif)
+ |
 
 ### 음악 재생
-<img src="https://user-images.githubusercontent.com/96460131/181198584-403e17df-b7c0-448b-aac1-2a42cf3e47f6.png" width="50%" height="50%"/>
-<img src="https://user-images.githubusercontent.com/96460131/181198597-bac2ef4a-5b5d-40ae-9a93-d8744824d20d.png" width="50%" height="50%"/>
+![KakaoTalk_20220729_011402653](https://user-images.githubusercontent.com/96460131/181590231-890ee5ef-82c8-4f0d-bfa3-cd08b571dc66.gif)
 
 <br/>
 
-### 음악 검색
+
+### 음악 검색 화면
 - 검색어에 따른 가수, 노래 조회
-<img src="https://user-images.githubusercontent.com/96460131/181198807-fdcf343d-ab46-4b30-9beb-881da5c3c74e.png" width="50%" height="50%"/>
-<img src="https://user-images.githubusercontent.com/96460131/181198818-4600c073-8b09-4f51-9ee7-1cfc0790958d.png" width="50%" height="50%"/>
+
+
+![KakaoTalk_20220729_011404262](https://user-images.githubusercontent.com/96460131/181589691-bc661e4b-e2df-4dc4-8f34-a3d6c75e3656.gif)
 
 <br/>
 
-### 내 재생목록
+### 내 재생목록 화면
 - 재생목록에 있는 곡 재생, 재생목록에서 삭제 기능
-<img src="https://user-images.githubusercontent.com/96460131/181198884-e594176e-a97d-4852-9796-c02612326a0a.png" width="50%" height="50%"/>
+
+![KakaoTalk_20220729_011403803](https://user-images.githubusercontent.com/96460131/181588987-7ee0e016-3f2c-4e42-b75a-0d7ef300ab15.gif)
 
