@@ -51,8 +51,7 @@
 
 |차트 조회| 앨범별 수록곡 조회 |
 |--|--|
-|![KakaoTalk_20220729_011403316](https://user-images.githubusercontent.com/96460131/181588910-461d1107-b4ad-4352-9492-5e51abbfad4e.gif) |  ![KakaoTalk_20220729_014330084](https://user-images.githubusercontent.com/96460131/181593988-571cbe82-a49b-40b1-9c06-c79a2454dd35.gif)
- |
+|![KakaoTalk_20220729_011403316](https://user-images.githubusercontent.com/96460131/181588910-461d1107-b4ad-4352-9492-5e51abbfad4e.gif) |  ![KakaoTalk_20220729_014330084](https://user-images.githubusercontent.com/96460131/181593988-571cbe82-a49b-40b1-9c06-c79a2454dd35.gif) |
 
 ### 음악 재생
 ![KakaoTalk_20220729_011402653](https://user-images.githubusercontent.com/96460131/181590231-890ee5ef-82c8-4f0d-bfa3-cd08b571dc66.gif)
